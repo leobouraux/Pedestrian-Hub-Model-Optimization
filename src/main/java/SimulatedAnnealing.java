@@ -23,11 +23,11 @@ public class SimulatedAnnealing {
             Tour newSolution = new Tour(currentSolution.getTour());
 
             // Get random positions in the tour
-            int tourPos1 = Utility.randomInt(0 , newSolution.tourSize());
-            int tourPos2 = Utility.randomInt(0 , newSolution.tourSize());
+            int tourPos1 = Utils.randomInt(0 , newSolution.tourSize());
+            int tourPos2 = Utils.randomInt(0 , newSolution.tourSize());
 
             //to make sure that tourPos1 and tourPos2 are different
-            while(tourPos1 == tourPos2) {tourPos2 = Utility.randomInt(0 , newSolution.tourSize());}
+            while(tourPos1 == tourPos2) {tourPos2 = Utils.randomInt(0 , newSolution.tourSize());}
 
             // Get the cities at selected positions in the tour
             City citySwap1 = newSolution.getCity(tourPos1);
@@ -42,8 +42,8 @@ public class SimulatedAnnealing {
             int neighbourDistance = newSolution.getTotalDistance();
 
             // Decide if we should accept the neighbour
-            double rand = Utility.randomDouble();
-            if (Utility.acceptanceProbability(currentDistance, neighbourDistance, temp) > rand) {
+            double rand = Utils.randomDouble();
+            if (Utils.acceptanceProbability(currentDistance, neighbourDistance, temp) > rand) {
                 currentSolution = new Tour(newSolution.getTour());
             }
 

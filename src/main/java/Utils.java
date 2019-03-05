@@ -4,11 +4,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Utility {
+public class Utils {
 
-    private static List<List<String>> csvToList(String csvName) {
 
-        String csvLoca = "/Users/leobouraux/Desktop/EPFL/MA2/Hub-optimization/hub-simulator/tmp3/";
+    /**
+     * @param folder : folder in which we have pictures
+     * @return list of names of all the pictures contained in the folder
+     * @throws NullPointerException if no files in Folder ?
+     */
+    public static ArrayList<String> listFilenames(final File folder) throws NullPointerException{
+        ArrayList<String> files_names = new ArrayList<>();
+
+        File[] files = folder.listFiles();
+        if(files != null) {
+            for (final File fileEntry : files) {
+                if (fileEntry.isDirectory()) {
+                    listFilenames(fileEntry);
+                } else {
+                    files_names.add(fileEntry.getName());
+                }
+            }
+        }
+        return files_names;
+    }
+
+
+    private static List<List<String>> csvToList(String csvPath) {
+
         BufferedReader br = null;
         String line = "";
         String separator = ",";
@@ -16,7 +38,7 @@ public class Utility {
 
         try {
 
-            br = new BufferedReader(new FileReader(csvLoca+csvName));
+            br = new BufferedReader(new FileReader(csvPath));
             while ((line = br.readLine()) != null) {
 
                 // use comma as separator
@@ -39,8 +61,8 @@ public class Utility {
         return csvList;
     }
 
-    static List<Double> getTravelTimes(String csvName) {
-        List<List<String>> csvfile = Utility.csvToList(csvName);
+    static List<Double> getTravelTimes(String csvPath) {
+        List<List<String>> csvfile = Utils.csvToList(csvPath);
         List<Double> travelTimes = new ArrayList<>();
 
         for (List<String> line :csvfile) {
