@@ -1,21 +1,24 @@
+package SimulatedAnnealing;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import SimulatedAnnealing.TSP.*;
 
-public class Tour2Factory implements SAProblemsAbstractFactory {
+public class TSPFactory implements SAProblemsAbstractFactory {
 
     //to hold a tour of cities
     private ArrayList<City> tour = new ArrayList<City>();
 
 
-    public Tour2Factory(){
+    public TSPFactory(){
         this.tour=new ArrayList<City>(TourManager.numberOfCities());
     }
 
 
     //another Constructor
     //starts a tour from another tour
-    public Tour2Factory(ArrayList<City> tour){
+    public TSPFactory(ArrayList<City> tour){
         this.tour = (ArrayList<City>) tour.clone();
     }
 
@@ -28,6 +31,6 @@ public class Tour2Factory implements SAProblemsAbstractFactory {
                 .map(object -> (City) object)
                 .collect(Collectors.toList());
 
-        return new Tour2(new ArrayList<>(cities));
+        return new TSP(new ArrayList<>(cities));
     }
 }

@@ -1,10 +1,9 @@
-
-//package simulated.annealing;
+package SimulatedAnnealing.TSP;
 
 import java.util.ArrayList;
 
 /*
-* TourManager.java
+* SimulatedAnnealing.TSP.TourManager.java
 * Holds and keeps track of the cities of a tour
 */
 

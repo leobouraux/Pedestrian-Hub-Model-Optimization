@@ -1,6 +1,6 @@
+package SimulatedAnnealing.TSP;/*
 /*
-/*
-* City.java
+* SimulatedAnnealing.TSP.City.java
 * Models a city
 */
 

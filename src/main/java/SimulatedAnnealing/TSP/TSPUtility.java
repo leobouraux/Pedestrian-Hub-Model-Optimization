@@ -1,12 +1,12 @@
-
+package SimulatedAnnealing.TSP;
  /*
-  A Utility class with several methods
+  A SimulatedAnnealing.TSP.TSPUtility class with several methods
  */
 //package simulated.annealing;
 
 import java.util.Random;
 
- public class Utility {
+ public class TSPUtility {
 
 
      /**
@@ -44,7 +44,7 @@ import java.util.Random;
       * 0.0 <= n <= 1.0
       * @return random such that 0.0 <= random <= 1.0
       */
-     static double randomDouble()
+     public static double randomDouble()
      {
          Random r = new Random();
          return r.nextInt(1000) / 1000.0;

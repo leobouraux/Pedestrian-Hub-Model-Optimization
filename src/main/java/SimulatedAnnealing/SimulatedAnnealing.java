@@ -1,4 +1,7 @@
+package SimulatedAnnealing;
+
 import java.util.ArrayList;
+import SimulatedAnnealing.TSP.*;
 
 public class SimulatedAnnealing {
 
@@ -6,9 +9,9 @@ public class SimulatedAnnealing {
     public static void main(String[] args) {
         // Create and add our cities
         ArrayList<City> tour = TourManager.problemInit();
-        SAProblemsAbstractFactory factory = new Tour2Factory(tour);
+        SAProblemsAbstractFactory factory = new TSPFactory(tour);
 
-        TSP(10000, 0.003, tour, factory);
+        optimization(10000, 0.003, tour, factory);
     }
 
 
@@ -17,7 +20,7 @@ public class SimulatedAnnealing {
 
 
 
-   public static void TSP(double temperature, double coolingRate, ArrayList<City> tour, SAProblemsAbstractFactory factory) {
+   public static void optimization(double temperature, double coolingRate, ArrayList<City> tour, SAProblemsAbstractFactory factory) {
 
        //Set initial temp
        double temp = temperature;
@@ -45,8 +48,8 @@ public class SimulatedAnnealing {
            int neighbourObjective = newSolution.objectiveFunction();
 
            // Decide if we should accept the neighbour
-           double rand = Utility.randomDouble();
-           if (Utility.acceptanceProbability(currentObjective, neighbourObjective, temp) > rand) {
+           double rand = TSPUtility.randomDouble();
+           if (TSPUtility.acceptanceProbability(currentObjective, neighbourObjective, temp) > rand) {
                currentSolution = factory.createSAProblem(newSolution.getList());
            }
 

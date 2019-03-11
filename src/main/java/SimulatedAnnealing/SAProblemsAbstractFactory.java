@@ -1,3 +1,5 @@
+package SimulatedAnnealing;
+
 import java.util.ArrayList;
 
 public interface SAProblemsAbstractFactory {
