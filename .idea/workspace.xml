@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3b4301f-d6f1-479e-873e-c01629374743" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunctionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TSPUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TourManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tour2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tour2Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSPFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TourManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSPManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSPUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblemsAbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblemsAbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SimulatedAnnealing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TSPUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TourManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSPFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSPFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,101 +30,249 @@
     <session id="-306160786">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="17" />
+          <entry key="java" value="20" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="17" />
+          <entry key="JAVA" value="34" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="16" />
-          <entry key="java" value="532" />
+          <entry key="dummy" value="25" />
+          <entry key="java" value="666" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="532" />
-          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="JAVA" value="3064" />
+          <entry key="PLAIN_TEXT" value="26" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/City.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SAProblem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SAProblemsAbstractFactory.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding>
-                <element signature="e#155#204#1" expanded="true" />
-                <element signature="e#213#272#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TSP.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TSPFactory.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TSPManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TSPUtility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.58287793">
+      <split-first>
+        <splitter split-orientation="vertical" split-proportion="0.34489796">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblemsAbstractFactory.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="75">
+                      <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSPFactory.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="300">
+                      <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#369#390#0" expanded="true" />
+                        <element signature="e#607#608#0" expanded="true" />
+                        <element signature="e#656#657#0" expanded="true" />
+                        <element signature="e#779#908#1" expanded="true" />
+                        <element signature="e#799#815#0" expanded="true" />
+                        <element signature="e#847#860#0" expanded="true" />
+                        <element signature="e#769#877#0" expanded="true" />
+                        <element signature="e#769#877#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunctionFactory.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-34">
+                      <caret line="15" column="15" selection-start-line="15" selection-end-line="16" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#172#189#0" expanded="true" />
+                        <element signature="e#1005#1135#1" expanded="true" />
+                        <element signature="e#1094#1107#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="1005">
+                      <caret line="67" column="44" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#673#725#1" expanded="true" />
+                        <element signature="e#731#788#1" expanded="true" />
+                        <element signature="e#845#871#1" expanded="true" />
+                        <element signature="e#903#933#1" expanded="true" />
+                        <element signature="e#982#1057#1" expanded="true" />
+                        <element signature="e#1306#1382#1" expanded="true" />
+                        <element signature="e#1355#1380#0" expanded="true" />
+                        <element signature="e#1494#2506#0" expanded="true" />
+                        <element signature="e#1494#2506#0" expanded="true" />
+                        <element signature="e#1503#1578#1" expanded="true" />
+                        <element signature="e#1551#1576#0" expanded="true" />
+                        <element signature="e#1695#1757#1" expanded="true" />
+                        <element signature="e#1770#1830#1" expanded="true" />
+                        <element signature="e#1900#1940#1" expanded="true" />
+                        <element signature="e#2010#2191#0" expanded="true" />
+                        <element signature="e#2010#2191#0" expanded="true" />
+                        <element signature="e#2102#2123#0" expanded="true" />
+                        <element signature="e#2258#2432#0" expanded="true" />
+                        <element signature="e#2258#2432#0" expanded="true" />
+                        <element signature="e#2339#2364#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TSPUtility.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="154">
+                      <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="213">
+                      <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#4081#4105#1" expanded="true" />
+                        <element signature="e#4534#4584#0" expanded="true" />
+                        <element signature="e#4534#4584#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunction.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-454">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
+                  <folding>
+                    <element signature="e#196#217#0" expanded="true" />
+                    <element signature="e#298#299#0" expanded="true" />
+                    <element signature="e#349#350#0" expanded="true" />
+                    <element signature="e#770#813#1" expanded="true" />
+                    <element signature="e#796#813#0" expanded="true" />
+                    <element signature="e#585#606#1" expanded="true" />
+                    <element signature="e#615#633#1" expanded="true" />
+                    <element signature="e#642#660#1" expanded="true" />
+                    <element signature="e#567#583#0" expanded="true" />
+                    <element signature="e#567#583#0" expanded="true" />
+                    <element signature="e#683#709#1" expanded="true" />
+                    <element signature="e#773#812#1" expanded="true" />
+                    <element signature="e#767#797#1" expanded="true" />
+                    <element signature="e#791#807#0" expanded="true" />
+                    <element signature="e#791#807#0" expanded="true" />
+                    <element signature="e#817#843#0" expanded="true" />
+                    <element signature="e#817#843#0" expanded="true" />
+                    <element signature="e#155#156#0" expanded="true" />
+                    <element signature="e#182#183#0" expanded="true" />
+                    <element signature="e#1100#1137#1" expanded="true" />
+                    <element signature="e#1108#1133#0" expanded="true" />
+                    <element signature="e#1108#1133#0" expanded="true" />
+                    <element signature="e#1135#1187#0" expanded="true" />
+                    <element signature="e#1135#1187#0" expanded="true" />
+                    <element signature="e#1135#1187#0" expanded="true" />
+                    <element signature="e#1135#1187#0" expanded="true" />
+                    <element signature="e#1040#1041#0" expanded="true" />
+                    <element signature="e#1087#1088#0" expanded="true" />
+                    <element signature="e#1338#1364#1" expanded="true" />
+                    <element signature="e#1374#1390#1" expanded="true" />
+                    <element signature="e#1401#1415#0" expanded="true" />
+                    <element signature="e#1433#1449#0" expanded="true" />
+                    <element signature="e#1433#1449#0" expanded="true" />
+                    <element signature="e#1535#1576#1" expanded="true" />
+                    <element signature="e#1554#1579#0" expanded="true" />
+                    <element signature="e#1554#1579#0" expanded="true" />
+                    <element signature="e#1572#1600#1" expanded="true" />
+                    <element signature="e#1587#1599#0" expanded="true" />
+                    <element signature="e#1651#1663#0" expanded="true" />
+                    <element signature="e#1685#1717#0" expanded="true" />
+                    <element signature="e#1695#1709#0" expanded="true" />
+                    <element signature="e#1685#1717#0" expanded="true" />
+                    <element signature="e#1685#1717#0" expanded="true" />
+                    <element signature="e#1649#1669#1" expanded="true" />
+                    <element signature="e#1660#1685#0" expanded="true" />
+                    <element signature="e#1660#1685#0" expanded="true" />
+                    <element signature="e#1877#1891#0" expanded="true" />
+                    <element signature="e#1886#1890#0" expanded="true" />
+                    <element signature="e#1877#1891#0" expanded="true" />
+                    <element signature="e#1877#1906#0" expanded="true" />
+                    <element signature="e#1668#1682#0" expanded="true" />
+                    <element signature="e#1668#1682#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-282">
+                  <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#377#398#0" expanded="true" />
+                    <element signature="e#390#396#0" expanded="true" />
+                    <element signature="e#496#497#0" expanded="true" />
+                    <element signature="e#573#574#0" expanded="true" />
+                    <element signature="e#700#730#0" expanded="true" />
+                    <element signature="e#1611#1641#1" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -142,13 +300,31 @@
         <option value="$PROJECT_DIR$/src/main/java/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/SAProblem.java" />
         <option value="$PROJECT_DIR$/src/main/java/Tour.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TourManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Tour2.java" />
         <option value="$PROJECT_DIR$/src/main/java/Tour2Factory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utility.java" />
         <option value="$PROJECT_DIR$/src/main/java/TSPUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSP/City.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSPManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TourManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSP/TourManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSPFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TSP/TSPUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TSPUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/City.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TourManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/minFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSPFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblemsAbstractFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunctionFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TSPUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
@@ -168,8 +344,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,6 +371,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimulatedAnnealing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimulatedAnnealing" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimulatedAnnealing" type="462c0819:PsiDirectoryNode" />
+              <item name="TravelingSalesmanProblem" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -205,11 +407,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552315212162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552343847423" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -230,6 +438,19 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="hub-model-optimization" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SimulatedAnnealing.Main" />
+      <module name="hub-model-optimization" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SimulatedAnnealing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,45 +478,48 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551786688208</updated>
-      <workItem from="1551786689637" duration="12659000" />
+      <workItem from="1551786689637" duration="13128000" />
+      <workItem from="1552316601214" duration="695000" />
+      <workItem from="1552325274626" duration="347000" />
+      <workItem from="1552326016390" duration="11224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12659000" />
+    <option name="totallyTimeSpent" value="25394000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11308562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" weight="0.32876712" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.2890411" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2890411" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.15342465" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,297 +529,192 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/method2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/method2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algos.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Tour.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/Citi.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TourManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="e#118#119#0" expanded="true" />
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#224#261#1" expanded="true" />
-            <element signature="e#274#306#1" expanded="true" />
-            <element signature="e#399#465#1" expanded="true" />
-            <element signature="e#478#510#1" expanded="true" />
-            <element signature="e#523#556#1" expanded="true" />
-            <element signature="e#513#528#0" expanded="true" />
-            <element signature="e#513#528#0" expanded="true" />
-            <element signature="e#555#570#0" expanded="true" />
-            <element signature="e#555#570#0" expanded="true" />
-            <element signature="e#653#719#1" expanded="true" />
-            <element signature="e#732#765#1" expanded="true" />
-            <element signature="e#749#764#0" expanded="true" />
-            <element signature="e#766#832#0" expanded="true" />
-            <element signature="e#766#832#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#106#127#1" expanded="true" />
-            <element signature="e#160#187#1" expanded="true" />
-            <element signature="e#197#240#1" expanded="true" />
-            <element signature="e#250#284#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/City.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSPFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
-            <element signature="e#566#616#1" expanded="true" />
-            <element signature="e#598#615#0" expanded="true" />
-            <element signature="e#626#660#1" expanded="true" />
-            <element signature="e#565#809#0" expanded="true" />
-            <element signature="e#706#726#0" expanded="true" />
-            <element signature="e#565#809#0" expanded="true" />
-            <element signature="e#618#795#0" expanded="true" />
-            <element signature="e#758#781#0" expanded="true" />
-            <element signature="e#618#795#0" expanded="true" />
-            <element signature="e#740#776#0" expanded="true" />
-            <element signature="e#904#923#0" expanded="true" />
-            <element signature="e#740#776#0" expanded="true" />
-            <element signature="e#1194#1219#1" expanded="true" />
-            <element signature="e#1228#1245#1" expanded="true" />
-            <element signature="e#1254#1277#1" expanded="true" />
-            <element signature="e#1286#1338#1" expanded="true" />
-            <element signature="e#1320#1337#0" expanded="true" />
-            <element signature="e#1166#1447#0" expanded="true" />
-            <element signature="e#1166#1447#0" expanded="true" />
-            <element signature="e#1545#1586#1" expanded="true" />
-            <element signature="e#1603#1670#1" expanded="true" />
-            <element signature="e#1408#1432#0" expanded="true" />
-            <element signature="e#1408#1432#0" expanded="true" />
-            <element signature="e#1459#1525#0" expanded="true" />
-            <element signature="e#1459#1525#0" expanded="true" />
-            <element signature="e#1548#1734#0" expanded="true" />
-            <element signature="e#1548#1734#0" expanded="true" />
-            <element signature="e#1638#1720#0" expanded="true" />
-            <element signature="e#1638#1720#0" expanded="true" />
-            <element signature="e#2120#2176#1" expanded="true" />
-            <element signature="e#2185#2230#1" expanded="true" />
-            <element signature="e#2212#2229#0" expanded="true" />
-            <element signature="e#1959#2061#0" expanded="true" />
-            <element signature="e#2245#2262#0" expanded="true" />
-            <element signature="e#1959#2061#0" expanded="true" />
-            <element signature="e#2006#2050#0" expanded="true" />
-            <element signature="e#2037#2048#0" expanded="true" />
-            <element signature="e#2037#2048#0" expanded="true" />
-            <element signature="e#2006#2050#0" expanded="true" />
-            <element signature="e#2160#2317#0" expanded="true" />
-            <element signature="e#2160#2317#0" expanded="true" />
-            <element signature="e#2476#2488#1" expanded="true" />
-            <element signature="e#2220#2283#0" expanded="true" />
-            <element signature="e#2506#2514#0" expanded="true" />
-            <element signature="e#2220#2283#0" expanded="true" />
-            <element signature="e#2688#2704#1" expanded="true" />
-            <element signature="e#2455#2475#0" expanded="true" />
-            <element signature="e#2455#2475#0" expanded="true" />
-            <element signature="e#2845#2872#1" expanded="true" />
-            <element signature="e#2577#2590#0" expanded="true" />
-            <element signature="e#2632#2648#0" expanded="true" />
-            <element signature="e#2632#2648#0" expanded="true" />
-            <element signature="e#3043#3069#1" expanded="true" />
-            <element signature="e#3078#3107#1" expanded="true" />
-            <element signature="e#3122#3130#0" expanded="true" />
-            <element signature="e#3172#3195#0" expanded="true" />
-            <element signature="e#3172#3195#0" expanded="true" />
-            <element signature="e#2931#2980#0" expanded="true" />
-            <element signature="e#3242#3260#0" expanded="true" />
-            <element signature="e#2931#2980#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#369#390#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#779#908#1" expanded="true" />
+            <element signature="e#799#815#0" expanded="true" />
+            <element signature="e#847#860#0" expanded="true" />
+            <element signature="e#769#877#0" expanded="true" />
+            <element signature="e#769#877#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Tour.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblemsAbstractFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1227">
-          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="75">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-282">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#248#269#0" expanded="true" />
-            <element signature="e#261#267#0" expanded="true" />
-            <element signature="e#337#431#0" expanded="true" />
-            <element signature="e#428#438#1" expanded="true" />
-            <element signature="e#337#431#0" expanded="true" />
-            <element signature="e#337#431#0" expanded="true" />
-            <element signature="e#337#431#0" expanded="true" />
-            <element signature="e#337#431#0" expanded="true" />
-            <element signature="e#406#420#0" expanded="true" />
-            <element signature="e#406#420#0" expanded="true" />
-            <element signature="e#507#537#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#683#713#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#981#1135#0" expanded="true" />
-            <element signature="e#1072#1090#1" expanded="true" />
-            <element signature="e#981#1135#0" expanded="true" />
-            <element signature="e#981#1135#0" expanded="true" />
-            <element signature="e#981#1135#0" expanded="true" />
-            <element signature="e#981#1135#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1396#1411#0" expanded="true" />
-            <element signature="e#1396#1411#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1586#1607#0" expanded="true" />
-            <element signature="e#1586#1607#0" expanded="true" />
-            <element signature="e#1586#1607#0" expanded="true" />
-            <element signature="e#1889#2803#0" expanded="true" />
-            <element signature="e#1889#2803#0" expanded="true" />
-            <element signature="e#2008#2029#1" expanded="true" />
-            <element signature="e#2002#2756#0" expanded="true" />
-            <element signature="e#2093#2109#1" expanded="true" />
-            <element signature="e#2002#2756#0" expanded="true" />
-            <element signature="e#2002#2756#0" expanded="true" />
-            <element signature="e#2002#2756#0" expanded="true" />
-            <element signature="e#2002#2756#0" expanded="true" />
-            <element signature="e#2214#2249#1" expanded="true" />
-            <element signature="e#2412#2423#0" expanded="true" />
-            <element signature="e#2485#2496#0" expanded="true" />
-            <element signature="e#3065#3066#0" expanded="true" />
-            <element signature="e#3099#3100#0" expanded="true" />
-            <element signature="e#3228#3264#1" expanded="true" />
-            <element signature="e#3239#3263#0" expanded="true" />
-            <element signature="e#3187#3287#0" expanded="true" />
-            <element signature="e#3278#3288#1" expanded="true" />
-            <element signature="e#3187#3287#0" expanded="true" />
-            <element signature="e#3187#3287#0" expanded="true" />
-            <element signature="e#3187#3287#0" expanded="true" />
-            <element signature="e#3187#3287#0" expanded="true" />
-            <element signature="e#3243#3276#0" expanded="true" />
-            <element signature="e#3338#3362#0" expanded="true" />
-            <element signature="e#3243#3276#0" expanded="true" />
-            <element signature="e#3404#3442#1" expanded="true" />
-            <element signature="e#3486#3525#1" expanded="true" />
-            <element signature="e#3570#3615#1" expanded="true" />
-            <element signature="e#3660#3703#1" expanded="true" />
-            <element signature="e#3748#3786#1" expanded="true" />
-            <element signature="e#3831#3870#1" expanded="true" />
-            <element signature="e#3915#3955#1" expanded="true" />
-            <element signature="e#4000#4041#1" expanded="true" />
-            <element signature="e#4086#4125#1" expanded="true" />
-            <element signature="e#4170#4212#1" expanded="true" />
-            <element signature="e#4258#4299#1" expanded="true" />
-            <element signature="e#4345#4385#1" expanded="true" />
-            <element signature="e#3489#3490#0" expanded="true" />
-            <element signature="e#3516#3517#0" expanded="true" />
-            <element signature="e#3593#3594#0" expanded="true" />
-            <element signature="e#3620#3621#0" expanded="true" />
-            <element signature="e#3672#3673#0" expanded="true" />
-            <element signature="e#3696#3697#0" expanded="true" />
+            <element signature="e#377#398#0" expanded="true" />
+            <element signature="e#390#396#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#700#730#0" expanded="true" />
+            <element signature="e#1611#1641#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-454">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#196#217#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#770#813#1" expanded="true" />
+            <element signature="e#796#813#0" expanded="true" />
+            <element signature="e#585#606#1" expanded="true" />
+            <element signature="e#615#633#1" expanded="true" />
+            <element signature="e#642#660#1" expanded="true" />
+            <element signature="e#567#583#0" expanded="true" />
+            <element signature="e#567#583#0" expanded="true" />
+            <element signature="e#683#709#1" expanded="true" />
+            <element signature="e#773#812#1" expanded="true" />
+            <element signature="e#767#797#1" expanded="true" />
+            <element signature="e#791#807#0" expanded="true" />
+            <element signature="e#791#807#0" expanded="true" />
+            <element signature="e#817#843#0" expanded="true" />
+            <element signature="e#817#843#0" expanded="true" />
+            <element signature="e#155#156#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
+            <element signature="e#1100#1137#1" expanded="true" />
+            <element signature="e#1108#1133#0" expanded="true" />
+            <element signature="e#1108#1133#0" expanded="true" />
+            <element signature="e#1135#1187#0" expanded="true" />
+            <element signature="e#1135#1187#0" expanded="true" />
+            <element signature="e#1135#1187#0" expanded="true" />
+            <element signature="e#1135#1187#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1338#1364#1" expanded="true" />
+            <element signature="e#1374#1390#1" expanded="true" />
+            <element signature="e#1401#1415#0" expanded="true" />
+            <element signature="e#1433#1449#0" expanded="true" />
+            <element signature="e#1433#1449#0" expanded="true" />
+            <element signature="e#1535#1576#1" expanded="true" />
+            <element signature="e#1554#1579#0" expanded="true" />
+            <element signature="e#1554#1579#0" expanded="true" />
+            <element signature="e#1572#1600#1" expanded="true" />
+            <element signature="e#1587#1599#0" expanded="true" />
+            <element signature="e#1651#1663#0" expanded="true" />
+            <element signature="e#1685#1717#0" expanded="true" />
+            <element signature="e#1695#1709#0" expanded="true" />
+            <element signature="e#1685#1717#0" expanded="true" />
+            <element signature="e#1685#1717#0" expanded="true" />
+            <element signature="e#1649#1669#1" expanded="true" />
+            <element signature="e#1660#1685#0" expanded="true" />
+            <element signature="e#1660#1685#0" expanded="true" />
+            <element signature="e#1877#1891#0" expanded="true" />
+            <element signature="e#1886#1890#0" expanded="true" />
+            <element signature="e#1877#1891#0" expanded="true" />
+            <element signature="e#1877#1906#0" expanded="true" />
+            <element signature="e#1668#1682#0" expanded="true" />
+            <element signature="e#1668#1682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunctionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="15" column="15" selection-start-line="15" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#172#189#0" expanded="true" />
+            <element signature="e#1005#1135#1" expanded="true" />
+            <element signature="e#1094#1107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4081#4105#1" expanded="true" />
+            <element signature="e#4534#4584#0" expanded="true" />
+            <element signature="e#4534#4584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TravelingSalesmanProblem/TSPUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="53" column="32" selection-start-line="53" selection-end-line="54" />
+        <state relative-caret-position="1005">
+          <caret line="67" column="44" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#185#223#1" expanded="true" />
-            <element signature="e#267#306#1" expanded="true" />
-            <element signature="e#351#396#1" expanded="true" />
-            <element signature="e#441#484#1" expanded="true" />
-            <element signature="e#529#567#1" expanded="true" />
-            <element signature="e#612#651#1" expanded="true" />
-            <element signature="e#696#736#1" expanded="true" />
-            <element signature="e#781#822#1" expanded="true" />
-            <element signature="e#867#906#1" expanded="true" />
-            <element signature="e#951#993#1" expanded="true" />
-            <element signature="e#1039#1080#1" expanded="true" />
-            <element signature="e#1126#1166#1" expanded="true" />
-            <element signature="e#1239#1260#1" expanded="true" />
-            <element signature="e#1293#1320#1" expanded="true" />
-            <element signature="e#1370#1404#1" expanded="true" />
-            <element signature="e#1480#1555#0" expanded="true" />
-            <element signature="e#1520#1554#0" expanded="true" />
-            <element signature="e#1480#1555#0" expanded="true" />
-            <element signature="e#1585#1611#0" expanded="true" />
-            <element signature="e#1585#1611#0" expanded="true" />
-            <element signature="e#1738#1786#1" expanded="true" />
-            <element signature="e#1759#1784#0" expanded="true" />
-            <element signature="e#1837#3398#0" expanded="true" />
-            <element signature="e#1837#3398#0" expanded="true" />
-            <element signature="e#1908#1963#1" expanded="true" />
-            <element signature="e#1936#1961#0" expanded="true" />
-            <element signature="e#2025#2086#1" expanded="true" />
-            <element signature="e#2099#2160#1" expanded="true" />
-            <element signature="e#2407#2454#1" expanded="true" />
-            <element signature="e#2467#2514#1" expanded="true" />
-            <element signature="e#2701#2760#1" expanded="true" />
-            <element signature="e#2725#2759#0" expanded="true" />
-            <element signature="e#2773#2828#1" expanded="true" />
-            <element signature="e#2797#2827#0" expanded="true" />
-            <element signature="e#2898#2935#1" expanded="true" />
-            <element signature="e#2949#3115#0" expanded="true" />
-            <element signature="e#2949#3115#0" expanded="true" />
-            <element signature="e#3077#3098#0" expanded="true" />
-            <element signature="e#3182#3323#0" expanded="true" />
-            <element signature="e#3185#3219#0" expanded="true" />
-            <element signature="e#3222#3245#0" expanded="true" />
-            <element signature="e#3182#3323#0" expanded="true" />
-            <element signature="e#3281#3306#0" expanded="true" />
-            <element signature="e#3427#3480#0" expanded="true" />
-            <element signature="e#3456#3479#0" expanded="true" />
-            <element signature="e#3427#3480#0" expanded="true" />
-            <element signature="e#3510#3525#0" expanded="true" />
-            <element signature="e#3510#3525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SAProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SAProblemsAbstractFactory.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TSP.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TSPFactory.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TSPManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TSPUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="e#155#204#1" expanded="true" />
-            <element signature="e#213#272#1" expanded="true" />
+            <element signature="e#673#725#1" expanded="true" />
+            <element signature="e#731#788#1" expanded="true" />
+            <element signature="e#845#871#1" expanded="true" />
+            <element signature="e#903#933#1" expanded="true" />
+            <element signature="e#982#1057#1" expanded="true" />
+            <element signature="e#1306#1382#1" expanded="true" />
+            <element signature="e#1355#1380#0" expanded="true" />
+            <element signature="e#1494#2506#0" expanded="true" />
+            <element signature="e#1494#2506#0" expanded="true" />
+            <element signature="e#1503#1578#1" expanded="true" />
+            <element signature="e#1551#1576#0" expanded="true" />
+            <element signature="e#1695#1757#1" expanded="true" />
+            <element signature="e#1770#1830#1" expanded="true" />
+            <element signature="e#1900#1940#1" expanded="true" />
+            <element signature="e#2010#2191#0" expanded="true" />
+            <element signature="e#2010#2191#0" expanded="true" />
+            <element signature="e#2102#2123#0" expanded="true" />
+            <element signature="e#2258#2432#0" expanded="true" />
+            <element signature="e#2258#2432#0" expanded="true" />
+            <element signature="e#2339#2364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -603,9 +722,81 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>hub-model-optimization</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.opencsv:opencsv:4.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
