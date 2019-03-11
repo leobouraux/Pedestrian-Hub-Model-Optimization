@@ -69,7 +69,7 @@ public class MinFunction extends SAProblem{
     @Override
     public double objectiveFunction() {
         double x = range.get(range.size()-1);
-        y = Math.sin(10*x)+Math.pow(x, 2);
+        y = 0.1*Math.sin(30*x) + Math.pow(x, 4) + 2*Math.pow(x,3) - x;
         return y;
     }
 }

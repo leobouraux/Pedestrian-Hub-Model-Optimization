@@ -16,7 +16,7 @@ public class Main {
         /**  MinFunction  */
         ArrayList<Double> range = MinFunction.problemInit();
         SAProblemsAbstractFactory factory = new MinFunctionFactory(range);
-        optimization(10000, 0.003, new ArrayList<>(range), factory);
+        optimization(1000, 0.003, new ArrayList<>(range), factory);
     }
 
 
@@ -38,6 +38,7 @@ public class Main {
         // Assume best solution is the current solution
         SAProblem bestSolution = factory.createSAProblem(currentSolution.getList());
 
+        int i =0;
         // Loop until system has cooled
         while (temp > 1) {
             //Create the neighbour tour
@@ -61,6 +62,9 @@ public class Main {
 
             // Cool system
             temp *= (1 - coolRate);
+            i++;
+            System.out.println("temp = " + temp + "-->" + i);
+            System.out.println("y = " + bestSolution.objectiveFunction());
         }
 
         bestSolution.printSolution("The best solution: ");
