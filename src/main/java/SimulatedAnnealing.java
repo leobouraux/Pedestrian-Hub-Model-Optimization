@@ -1,79 +1,68 @@
-import java.util.Random;
+import java.util.ArrayList;
 
 public class SimulatedAnnealing {
 
-   /* public Object simulation(Object param1, Object param2){
-        //Set initial temp
-        double temp = 100000;
 
-        //Cooling rate
-        double coolingRate = 0.003;
+    public static void main(String[] args) {
+        // Create and add our cities
+        ArrayList<City> tour = TourManager.problemInit();
+        SAProblemsAbstractFactory factory = new Tour2Factory(tour);
 
-        //create random intial solution
-        Tour currentSolution = new Tour();
-        currentSolution.generateIndividual();
-
-        // We would like to keep track if the best solution
-        // Assume best solution is the current solution
-        Tour best = new Tour(currentSolution.getTour());
-
-        // Loop until system has cooled
-        while (temp > 1) {
-            // Create new neighbour tour
-            Tour newSolution = new Tour(currentSolution.getTour());
-
-            // Get random positions in the tour
-            int tourPos1 = Utils.randomInt(0 , newSolution.tourSize());
-            int tourPos2 = Utils.randomInt(0 , newSolution.tourSize());
-
-            //to make sure that tourPos1 and tourPos2 are different
-            while(tourPos1 == tourPos2) {tourPos2 = Utils.randomInt(0 , newSolution.tourSize());}
-
-            // Get the cities at selected positions in the tour
-            City citySwap1 = newSolution.getCity(tourPos1);
-            City citySwap2 = newSolution.getCity(tourPos2);
-
-            // Swap them
-            newSolution.setCity(tourPos2, citySwap1);
-            newSolution.setCity(tourPos1, citySwap2);
-
-            // Get energy of solutions
-            int currentDistance   = currentSolution.getTotalDistance();
-            int neighbourDistance = newSolution.getTotalDistance();
-
-            // Decide if we should accept the neighbour
-            double rand = Utils.randomDouble();
-            if (Utils.acceptanceProbability(currentDistance, neighbourDistance, temp) > rand) {
-                currentSolution = new Tour(newSolution.getTour());
-            }
-
-            // Keep track of the best solution found
-            if (currentSolution.getTotalDistance() < best.getTotalDistance()) {
-                best = new Tour(currentSolution.getTour());
-            }
-
-            // Cool system
-            temp *= (1 - coolingRate);
-        }
-
-        System.out.println("Final solution distance: " + best.getTotalDistance());
-        System.out.println("Tour: " + best);
-    }
-
-    static double randomDouble()
-    {
-        Random r = new Random();
-        return r.nextInt(1000) / 1000.0;
+        TSP(10000, 0.003, tour, factory);
     }
 
 
 
-    public static double acceptanceProbability(int currentDistance, int newDistance, double temperature) {
-        // If the new solution is better, accept it
-        if (newDistance < currentDistance) {
-            return 1.0;
-        }
-        // If the new solution is worse, calculate an acceptance probability
-        return Math.exp((currentDistance - newDistance) / temperature);
-    }*/
+
+
+
+
+   public static void TSP(double temperature, double coolingRate, ArrayList<City> tour, SAProblemsAbstractFactory factory) {
+
+       //Set initial temp
+       double temp = temperature;
+       //Cooling rate
+       double coolRate = coolingRate;
+
+       //Create a random initial tour
+       SAProblem currentSolution = factory.createSAProblem(new ArrayList<>(tour));
+       currentSolution.initialSolution();
+
+       currentSolution.printSolution("Total distance of initial solution: ");
+
+       // We would like to keep track if the best solution
+       // Assume best solution is the current solution
+       SAProblem bestSolution = factory.createSAProblem(currentSolution.getList());
+
+       // Loop until system has cooled
+       while (temp > 1) {
+           //Create the neighbour tour
+           SAProblem newSolution = factory.createSAProblem(currentSolution.getList());
+           newSolution = newSolution.transformSolution();
+
+           // Get energy of both solutions
+           int currentObjective = currentSolution.objectiveFunction();
+           int neighbourObjective = newSolution.objectiveFunction();
+
+           // Decide if we should accept the neighbour
+           double rand = Utility.randomDouble();
+           if (Utility.acceptanceProbability(currentObjective, neighbourObjective, temp) > rand) {
+               currentSolution = factory.createSAProblem(newSolution.getList());
+           }
+
+           // Keep track of the best solution found
+           if (currentSolution.objectiveFunction() < bestSolution.objectiveFunction()) {
+               bestSolution = factory.createSAProblem(currentSolution.getList());
+           }
+
+           // Cool system
+           temp *= (1 - coolRate);
+       }
+
+       bestSolution.printSolution("Total distance of best solution: ");
+
+
+   }
+
+
 }
