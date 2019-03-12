@@ -1,5 +1,7 @@
 import SimulatedAnnealing.*;
 import SimulatedAnnealing.Others.Utils;
+import SimulatedAnnealing.TravelingSalesmanProblem.City;
+import SimulatedAnnealing.TravelingSalesmanProblem.TourManager;
 
 import java.util.ArrayList;
 
@@ -10,17 +12,17 @@ public class Main {
         /**  TSP  */
         /*ArrayList<City> tour = TourManager.problemInit();
         SAProblemsAbstractFactory factory = new TSPFactory(tour);
-        optimization(10000, 0.003, new ArrayList<>(tour), factory);
+        optimizationLSA(10000, 0.003, new ArrayList<>(tour), factory);
         */
 
         /**  MinFunction  */
         ArrayList<Double> range = MinFunction.problemInit();
         SAProblemsAbstractFactory factory = new MinFunctionFactory(range);
-        optimization(1000, 0.003, new ArrayList<>(range), factory);
+        optimizationLSA(1000, 0.003, new ArrayList<>(range), factory);
     }
 
 
-    public static void optimization(double temperature, double coolingRate,
+    public static void optimizationLSA(double temperature, double coolingRate,
                                     ArrayList<Object> objects, SAProblemsAbstractFactory factory) {
 
         //Set initial temp
@@ -50,7 +52,7 @@ public class Main {
             double neighbourObjective = newSolution.objectiveFunction();
 
             // Decide if we should accept the neighbour
-            double rand = Utils.randomDouble();
+            double rand = Utils.randomProba();
             if (Utils.acceptanceProbability(currentObjective, neighbourObjective, temp) > rand) {
                 currentSolution = factory.createSAProblem(newSolution.getList());
             }

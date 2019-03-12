@@ -134,7 +134,7 @@ public class Utils {
      *
      * @return random such that 0.0 <= random <= 1.0
      */
-    public static double randomDouble() {
+    public static double randomProba() {
         Random r = new Random();
         return r.nextInt(1000) / 1000.0;
     }
@@ -148,6 +148,6 @@ public class Utils {
      * @return rand a random int value between min and max [min,max)
      */
     public static int randomInt(int min, int max) {
-        return (int) (min + randomDouble() * Math.abs(max - min));
+        return (int) (min + randomProba() * Math.abs(max - min));
     }
 }

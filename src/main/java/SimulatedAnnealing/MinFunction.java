@@ -1,6 +1,8 @@
 package SimulatedAnnealing;
 
 
+import SimulatedAnnealing.Others.Utils;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,8 +28,8 @@ public class MinFunction extends SAProblem{
         //last index of range is the current solution
         Random rand = new Random();
         int index = rand.nextInt(range.size());
-        double currentSolution = range.get(index);
-        range.add(currentSolution);
+        double currentX = range.get(index);
+        range.add(currentX);
         return range;
     }
 
@@ -58,9 +60,23 @@ public class MinFunction extends SAProblem{
     @Override
     public SAProblem transformSolution() {
         double currX = range.get(range.size()-1);
-        double nextX = getRandomX();
-        while(currX==nextX) {
+        double w = Utils.randomProba();
+        double nextX;
+        if(w<0.75) {
             nextX = getRandomX();
+            while(currX==nextX) {
+                nextX = getRandomX();
+            }
+        }
+        else {
+            //local search
+            int currIndex = range.indexOf(currX);
+            int nextIndex = Utils.randomInt(currIndex-200, currIndex+200);
+            nextX = range.get(nextIndex);
+            while(currX==nextX) {
+                nextIndex = Utils.randomInt(currIndex-200, currIndex+200);
+                nextX = range.get(nextIndex);
+            }
         }
         range.set(range.size()-1, nextX);
         return new MinFunction(range);
