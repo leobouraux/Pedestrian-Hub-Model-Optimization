@@ -1,9 +1,6 @@
 package SimulatedAnnealing.Others;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -150,4 +147,25 @@ public class Utils {
     public static int randomInt(int min, int max) {
         return (int) (min + randomProba() * Math.abs(max - min));
     }
+
+    public static void dataToTxt(String title, String data, boolean append){
+        BufferedWriter writer = null;
+        try {
+            //create a temporary file
+            File logFile = new File(title);
+
+            writer = new BufferedWriter(new FileWriter(logFile, append));
+            writer.write(data+"\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // Close the writer regardless of what happens...
+                writer.close();
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
 }
