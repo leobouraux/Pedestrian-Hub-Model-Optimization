@@ -48,7 +48,6 @@ public class Main {
 
         // Loop until system has cooled
         while (temperature > final_temp) {
-        //while (loop_nb < K && temp > Tf) {
             //Create the neighbour tour
             SAProblem newSolution = factory.createSAProblem(currentSolution.getList());
             newSolution = newSolution.transformSolution();
