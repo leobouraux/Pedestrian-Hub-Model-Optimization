@@ -1,4 +1,4 @@
-package SimulatedAnnealing;
+package SimulatedAnnealing.Factories;
 
 import SimulatedAnnealing.Others.Utils;
 
@@ -8,11 +8,14 @@ public abstract class SAProblem {
 
     public abstract ArrayList<Object> getList();
 
+    public abstract ArrayList<Double> CGInit(int length);
+
     public abstract void printSolution(String s);
 
-    public abstract SAProblem initialSolution();
+    public abstract SAProblem transformSolutionLSA();
 
-    public abstract SAProblem transformSolution();
+    public abstract SAProblem transformSolutionDSA(ArrayList<Double> CGList, int problem_dimension);
+
 
     public abstract double objectiveFunction();
 

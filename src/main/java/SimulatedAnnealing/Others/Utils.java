@@ -1,10 +1,7 @@
 package SimulatedAnnealing.Others;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Utils {
 
@@ -122,7 +119,7 @@ public class Utils {
             return 1.0;
         }
         // If the new solution is worse, calculate an acceptance probability
-        return Math.exp((currentDistance - newDistance) / temperature);
+        return Math.exp(-(newDistance - currentDistance) / temperature);
     }
 
     /**
@@ -166,6 +163,14 @@ public class Utils {
 
             }
         }
+    }
+
+    public static ArrayList<Double> reorderCG(ArrayList<Double> A) {
+        int minI = A.indexOf(Collections.min(A));
+        int maxI = A.indexOf(Collections.max(A));
+        Collections.swap(A, 0, minI);
+        Collections.swap(A, A.size()-1, maxI);
+        return A;
     }
 
 }

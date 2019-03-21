@@ -1,13 +1,13 @@
-package SimulatedAnnealing.TravelingSalesmanProblem;
+package SimulatedAnnealing._TravelingSalesmanProblem;
 
 public class City {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private String cityName;
 
     //Constructor
     //creates a city given its name and (x,y) location
-    public City(String cityName, int x, int y) {
+    public City(String cityName, double x, double y) {
         this.cityName = cityName;
         this.x = x;
         this.y = y;
@@ -16,28 +16,28 @@ public class City {
     /**
      * @return the x
      */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
     /**
      * @param x the x to set
      */
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
     /**
      * @return the y
      */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
     /**
      * @param y the y to set
      */
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 

@@ -1,6 +1,7 @@
-package SimulatedAnnealing;
+package SimulatedAnnealing.Factories;
 
-import SimulatedAnnealing.TravelingSalesmanProblem.City;
+
+import SimulatedAnnealing._MinFunction.MinFunction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +22,11 @@ public class MinFunctionFactory implements SAProblemsAbstractFactory {
     @Override
     public SAProblem createSAProblem(ArrayList<Object> objects) {
 
-        //createSAProblem n a aps les bons arguments, il faut qu'ils soient les meme pour tous les pb
-
         List<Double> range = objects.stream()
                 .map(object -> (Double) object)
                 .collect(Collectors.toList());
 
         return new MinFunction(new ArrayList<>(range));
     }
+
 }

@@ -1,4 +1,4 @@
-package SimulatedAnnealing;
+package SimulatedAnnealing.Factories;
 
 import java.util.ArrayList;
 

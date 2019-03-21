@@ -1,7 +1,8 @@
-package SimulatedAnnealing;
+package SimulatedAnnealing.Factories;
 
-import SimulatedAnnealing.TravelingSalesmanProblem.City;
-import SimulatedAnnealing.TravelingSalesmanProblem.TourManager;
+import SimulatedAnnealing._TravelingSalesmanProblem.TSP;
+import SimulatedAnnealing._TravelingSalesmanProblem.City;
+import SimulatedAnnealing._TravelingSalesmanProblem.TourManager;
 
 import java.util.ArrayList;
 import java.util.List;
