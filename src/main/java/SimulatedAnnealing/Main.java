@@ -11,15 +11,14 @@ import java.util.ArrayList;
 
 public class Main {
 
+    private static boolean TSP_LSA = false;
+    private static boolean TSP_DSA = false;
+    private static boolean MiF_LSA = false;
+    private static boolean MiF_DSA = true;
+
 
     public static void main(String[] args) {
         String path = System.getProperty("user.dir")+"/src/main/java/SimulatedAnnealing/GraphData/";
-
-        boolean TSP_LSA = false;
-        boolean TSP_DSA = false;
-        boolean MiF_LSA = false;
-        boolean MiF_DSA = true;
-
 
         /**  TSP  */
         //LSA
