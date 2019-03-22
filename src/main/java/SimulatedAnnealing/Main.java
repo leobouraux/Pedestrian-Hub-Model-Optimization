@@ -13,8 +13,8 @@ public class Main {
 
     private static boolean TSP_LSA = false;
     private static boolean TSP_DSA = false;
-    private static boolean MiF_LSA = false;
-    private static boolean MiF_DSA = true;
+    private static boolean MiF_LSA = true;
+    private static boolean MiF_DSA = false;
 
 
     public static void main(String[] args) {

@@ -1,3 +1,7 @@
+import SimulatedAnnealing.Others.Utils;
+import org.apache.commons.beanutils.converters.DoubleConverter;
+
+import javax.xml.bind.SchemaOutputResolver;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,26 +15,20 @@ public class MainTest {
 
 
     public static void main(String[] args) throws InterruptedException {
-        int n = 1;
-        List<Integer> CGList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        double n = 5.100765244038015E-59;
+        String m = "3937506";
+        double nn = 0.5929150533937506;
 
-        List<Integer> CGcopy = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        Collections.shuffle(CGcopy);
-        CGcopy = CGcopy.subList(0, n);
+        int length = 20;
 
-        System.out.println("CGcopy = " + CGcopy);
+        System.out.println(Utils.format(nn, length));
+        System.out.println(Utils.format(m, length));
 
-        //compute nextX
-        double G = CGList.get(0);
-        System.out.println("G = " + G);
-
-        for (int i = 0; i < n-1 ; i++) {
-            G+=CGcopy.get(i);
-            System.out.println("G = " + G);
-        }
-
-        G = G / ((double) n);
 
 
     }
+
+
+
+
 }

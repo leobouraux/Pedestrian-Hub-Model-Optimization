@@ -111,14 +111,15 @@ public class MinFunction extends SAProblem {
         double w = Utils.randomProba();
         double nextX;
         if(w<0.75) {
+            //Uniform distribution
             nextX = getRandomX();
-
             while(currX==nextX) {
                 nextX = getRandomX();
             }
         }
         else {
-            //controlled generation
+            //Controlled generation
+
             //get n random elements in CGList
             List<Double> CGcopy = new ArrayList<>(CGList);
             CGcopy.remove(0);
@@ -127,15 +128,11 @@ public class MinFunction extends SAProblem {
 
             //compute nextX
             double G = CGList.get(0);
-
-
             for (int i = 0; i < n-1 ; i++) {
                 G+=CGcopy.get(i);
             }
             G = G / ((double) n);
-
             nextX = 2 * G - CGcopy.get(n-1);
-
 
             while(nextX < start || nextX > end || nextX == currX) {
                 CGcopy = new ArrayList<>(CGList);

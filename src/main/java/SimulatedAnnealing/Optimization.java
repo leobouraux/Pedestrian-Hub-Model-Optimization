@@ -12,7 +12,7 @@ public class Optimization {
     public static void optimizationLSA(double temperature, double coolingRate, final double final_temp,
                                        ArrayList<Object> objects, SAProblemsAbstractFactory factory, String title) {
         long startTime = System.nanoTime();
-        Utils.dataToTxt(title, "BEST y, CURR y, TEMP, ACCEPT PB, ACC-BEST Sol(TT/TF/FF)", false);
+        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|", false);
 
         //Create a random initial tour
         SAProblem currentSolution = factory.createSAProblem(objects);
@@ -57,9 +57,9 @@ public class Optimization {
             temperature *= (1 - coolingRate);
             loop_nb++;
 
-            //best x, best y, current x, current y, temperature, acceptance proba, accepted solutions?-new best solution?(TT/TF/FF), temps de convergence
-            currentSolution.writeData(title, temperature, currentSolution.objectiveFunction(),
-                    bestSolution.objectiveFunction(), isAcceptedBest, acceptanceProba);
+            //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
+            currentSolution.writeDataLSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(), acceptanceProba, isAcceptedBest, temperature
+            );
         }
 
         long endTime   = System.nanoTime();
@@ -84,7 +84,7 @@ public class Optimization {
                                        ArrayList<Object> objects, SAProblemsAbstractFactory factory, String title) {
         long startTime = System.nanoTime();
         //Overwrite the previous .txt file
-        Utils.dataToTxt(title, "BEST y, CURR y, TEMP, ACCEPT PB, ACC-BEST Sol(TT/TF/FF)", false);
+        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|MARKOV LENGTH|", false);
 
         //Create a random initial problem
         int CGListLength = 5*(n+1); //7*(n+1)   10*(n+1)
@@ -111,6 +111,7 @@ public class Optimization {
             //Markov chain param
             boolean check = false;
             int iterInner = 0, Lt = 10*n, maxIterInner = Lt;
+            double acceptanceProba = 0;
 
             while (!check) {
                 //Create the neighbour solution
@@ -123,7 +124,7 @@ public class Optimization {
 
                 //Decide if we should accept the neighbour (not only when it's better)
                 double rand = Utils.randomProba();
-                double acceptanceProba = Utils.acceptanceProbability(worstCGObjective, neighbourObjective, temperature);
+                acceptanceProba = Utils.acceptanceProbability(worstCGObjective, neighbourObjective, temperature);
 
                 //Solution is accepted
                 if (acceptanceProba > rand) {
@@ -174,10 +175,9 @@ public class Optimization {
             temperature *= factor;
             loop_nb++;
 
-            //TODO new writeData
-            //best x, best y, current x, current y, temperature, acceptance proba, accepted solutions?-new best solution?(TT/TF/FF), temps de convergence
-            //currentSolution.writeData(title, temperature, currentSolution.objectiveFunction(),
-            //        bestSolution.objectiveFunction(), isAcceptedBest, acceptanceProba);
+            //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
+            currentSolution.writeDataDSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
+                    acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
         }
 
         long endTime   = System.nanoTime();

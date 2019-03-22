@@ -70,7 +70,6 @@ public class Utils {
         return travelTimes;
     }
 
-
     public static double listSum(List<Double> list) {
         if (list.size() > 0) {
             int sum = 0;
@@ -82,19 +81,16 @@ public class Utils {
         return 0;
     }
 
-
     public static double listMean(List<Double> list) {
         double mean = 0;
         mean = listSum(list) / (float) (list.size());
         return mean;
     }
 
-
     public double listMedian(List<Double> list) {
         int middle = list.size() / 2;
         return (list.size() % 2 == 1) ? list.get(middle) : (list.get(middle - 1) + list.get(middle)) / 2.0;
     }
-
 
     public double listStd(List<Double> list) {
         int standardDeviation = 0;
@@ -163,6 +159,18 @@ public class Utils {
 
             }
         }
+    }
+
+    public static StringBuilder format(Object o, int length) {
+        String str =  String.valueOf(o);
+        int lengthStr = str.length();
+        StringBuilder toRet = new StringBuilder();
+        for (int i = 0; i < length-lengthStr; i++) {
+            toRet.append(" ");
+        }
+        toRet.append(str);
+        toRet.append("|");
+        return toRet;
     }
 
     public static ArrayList<Double> reorderCG(ArrayList<Double> A) {
