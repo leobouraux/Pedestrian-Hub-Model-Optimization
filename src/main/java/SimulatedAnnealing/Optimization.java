@@ -84,7 +84,7 @@ public class Optimization {
                                        ArrayList<Object> objects, SAProblemsAbstractFactory factory, String title) {
         long startTime = System.nanoTime();
         //Overwrite the previous .txt file
-        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|MARKOV LENGTH|", false);
+        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|MAX MARKV LEN|", false);
 
         //Create a random initial problem
         int CGListLength = 5*(n+1); //7*(n+1)   10*(n+1)
@@ -106,12 +106,16 @@ public class Optimization {
         double factor = 0.85, factorMin = 0.8, factorMax = 0.9;
         int prevIterInner = -1;
 
+        //todo
+        double todel = 0, todel2=0;
+
         //Loop until system has cooled
         while (!stopCriterion) {
             //Markov chain param
             boolean check = false;
             int iterInner = 0, Lt = 10*n, maxIterInner = Lt;
             double acceptanceProba = 0;
+
 
             while (!check) {
                 //Create the neighbour solution
@@ -137,6 +141,10 @@ public class Optimization {
                 iterInner++;
                 check = (iterInner>=maxIterInner);
 
+                //todo
+                todel = bestSolution.objectiveFunction();
+                todel2 = neighbourObjective;
+
                 //Keep track of the best solution found (=CGList[0])
                 if (neighbourObjective < bestSolution.objectiveFunction()) {
                     bestSolution = factory.createSAProblem(currentSolution.getList());
@@ -145,14 +153,20 @@ public class Optimization {
                     //Control param CASE 1
                     factor = factorMax;
                 }
+
                 Utils.reorderCG(CGList);
+                System.out.println("CGList = " + CGList);
 
                 //Compute length of the markov chains
                 double fh = CGList.get(CGListLength-1);
                 double fl = CGList.get(0);
                 double F = 1-Math.exp(-(fh-fl));
                 maxIterInner = Lt + (int)(Lt*F);
+                System.out.println("maxIterInner = " + maxIterInner);
             }
+
+
+            System.out.println("\n\nf_new ("+ todel2 +") < f_best ("+todel+")   else : "+iterInner+"<="+maxIterInner+" ------->   NEW OUTER LOOP");
 
             //New best sol has not been found in A && at least 2nd outer loop
             if(iterInner >= maxIterInner && prevIterInner != -1){
@@ -177,7 +191,7 @@ public class Optimization {
 
             //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
             currentSolution.writeDataDSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
-                    acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
+                    acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner, maxIterInner);
         }
 
         long endTime   = System.nanoTime();
