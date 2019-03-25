@@ -2,6 +2,7 @@ package SimulatedAnnealing._MinFunction;
 
 
 import SimulatedAnnealing.Factories.SAProblem;
+import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
@@ -27,12 +28,7 @@ public class MinFunction extends SAProblem {
     }
 
     public static ArrayList<Double> problemInit() {
-        ArrayList<Double> range = new ArrayList<>();
-        double i = start;
-        while(i<=end) {
-            range.add(i);
-            i+=step;
-        }
+        ArrayList<Double> range = createRange();
         //last index of range is the current solution
         Random rand = new Random();
         int index = rand.nextInt(range.size());
@@ -41,9 +37,24 @@ public class MinFunction extends SAProblem {
         return range;
     }
 
+    private static ArrayList<Double> problemInitCG(double nextX) {
+        ArrayList<Double> range = createRange();
+        //last index of range is the current solution
+        range.add(nextX);
+        return range;
+    }
 
+    private static ArrayList<Double> createRange() {
+        ArrayList<Double> range = new ArrayList<>();
+        double i = start;
+        while (i <= end) {
+            range.add(i);
+            i += step;
+        }
+        return range;
+    }
 
-    public double getCurrX(){
+    private double getCurrX(){
         return range.get(range.size()-1);
     }
 
@@ -53,20 +64,20 @@ public class MinFunction extends SAProblem {
     }
 
     @Override
-    public ArrayList<Double> CGInit(int length) {
+    public ControlledGestionLists CGInit(int length) {
         if(length > range.size())
             System.err.println("Length of A too big");
-        ArrayList<Double> A = new ArrayList<>(length);
+        ArrayList<SAProblem> X = new ArrayList<>(length);
+        ArrayList<Double> Y = new ArrayList<>(length);
         double newX;
         for (int i = 0; i < length; i++) {
             newX = getRandomX();
-            while(A.contains(newX)){
-                newX = getRandomX();
-            }
-            A.add(objectiveFunctionCG(newX));
+            MinFunction pb = new MinFunction(problemInitCG(newX));
+            X.add(pb);
+            Y.add(getObjectiveFunction(newX));
         }
-        Utils.reorderCG(A);
-        return A;
+        ControlledGestionLists.reorderCGs(X, Y);
+        return new ControlledGestionLists(X,Y);
     }
 
     @Override
@@ -105,7 +116,7 @@ public class MinFunction extends SAProblem {
     }
 
     @Override
-    public SAProblem transformSolutionDSA(ArrayList<Double> CGList, int n) {
+    public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
         double currX = getCurrX();
 
         double w = Utils.randomProba();
@@ -119,35 +130,56 @@ public class MinFunction extends SAProblem {
         }
         else {
             //Controlled generation
-
-            //get n random elements in CGList
-            List<Double> CGcopy = new ArrayList<>(CGList);
-            CGcopy.remove(0);
-            Collections.shuffle(CGcopy);
-            CGcopy = CGcopy.subList(0, n);
-
-            //compute nextX
-            double G = CGList.get(0);
-            for (int i = 0; i < n-1 ; i++) {
-                G+=CGcopy.get(i);
+            //System.out.print("CG     :    ");
+            nextX = getNextX(CGListX, n);
+            boolean unavailable = isUnavailable(CGListX, currX, nextX);
+            while(nextX < start || nextX > end || unavailable) {
+                nextX = getNextX(CGListX, n);
+                unavailable = isUnavailable(CGListX, currX, nextX);
             }
-            G = G / ((double) n);
-            nextX = 2 * G - CGcopy.get(n-1);
-
-            while(nextX < start || nextX > end || nextX == currX) {
-                CGcopy = new ArrayList<>(CGList);
-                CGcopy.remove(0);
-                Collections.shuffle(CGcopy);
-                G = CGList.get(0);
-                for (int i = 0; i < n-1 ; i++) { G+=CGcopy.get(i); }
-                G = G / ((double) n);
-                nextX = 2 * G - CGcopy.get(n-1);
-            }
+            //System.out.println("nextX = " + nextX);
         }
         range.set(range.size()-1, nextX);
         return new MinFunction(range);
     }
 
+    private boolean isUnavailable(ArrayList<SAProblem> CGListX, double currX, double nextX) {
+        boolean unavailable = (nextX == currX);
+        for (SAProblem pb : CGListX) {
+            double xInCG = (double) pb.getList().get(pb.getList().size()-1);
+            if(nextX == xInCG) {
+                unavailable = true;
+            }
+        }
+        return unavailable;
+    }
+
+    private double getNextX(ArrayList<SAProblem> CGListX, int n) {
+        ArrayList<Object> o; //created to get SAPB Lists
+        double nextX;
+
+        //get n random elements in CGList
+        List<SAProblem> CGcopy = new ArrayList<>(CGListX);
+        CGcopy.remove(0);
+        Collections.shuffle(CGcopy);
+        CGcopy = CGcopy.subList(0, n);
+
+        //compute nextX
+        o = CGListX.get(0).getList();
+        double G = (double)o.get(o.size()-1);
+        for (int i = 0; i < n-1 ; i++) {
+            o = CGcopy.get(i).getList();
+            G+=(double)o.get(o.size()-1);
+        }
+        G = G / ((double) n);
+        o = CGcopy.get(n-1).getList();
+        nextX = 2 * G - (double)o.get(o.size()-1);
+
+        //to avoid infinite loop when nextX already exist in CGListX
+        double epsilon = 0.0000000000000001*Utils.randomInt(0,1000);
+        return nextX+epsilon;
+
+    }
 
     private double getRandomX() {
         Random rand = new Random();
@@ -163,10 +195,10 @@ public class MinFunction extends SAProblem {
         return y;
     }
 
-    private double objectiveFunctionCG(double x) {
-        y = Math.log(0.1*Math.sin(30*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1;
-        return y;
+    public double getObjectiveFunction(Double x) {
+        return Math.log(0.1*Math.sin(30*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1;
     }
+
 
 
 }

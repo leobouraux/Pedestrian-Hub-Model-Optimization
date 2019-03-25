@@ -2,6 +2,7 @@ package SimulatedAnnealing;
 
 import SimulatedAnnealing.Factories.SAProblem;
 import SimulatedAnnealing.Factories.SAProblemsAbstractFactory;
+import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
@@ -87,11 +88,14 @@ public class Optimization {
         Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|MAX MARKV LEN|", false);
 
         //Create a random initial problem
-        int CGListLength = 5*(n+1); //7*(n+1)   10*(n+1)
+        int CGListLength = /*5*(n+1);*/ 7*(n+1);   /*10*(n+1);*/
         SAProblem currentSolution = factory.createSAProblem(objects);
 
         //Initialize list for CG
-        ArrayList<Double> CGList = currentSolution.CGInit(CGListLength);
+        ControlledGestionLists CGs = currentSolution.CGInit(CGListLength);
+        ArrayList<SAProblem> CGListX = CGs.getX();
+        ArrayList<Double> CGListY = CGs.getY();
+        ControlledGestionLists.reorderCGs(CGListX, CGListY);
         currentSolution.printSolution("The initial solution: ");
 
         //Keep track if the best solution
@@ -106,24 +110,22 @@ public class Optimization {
         double factor = 0.85, factorMin = 0.8, factorMax = 0.9;
         int prevIterInner = -1;
 
-        //todo
-        double todel = 0, todel2=0;
-
         //Loop until system has cooled
         while (!stopCriterion) {
             //Markov chain param
             boolean check = false;
-            int iterInner = 0, Lt = 10*n, maxIterInner = Lt;
+            int iterInner = 0, Lt = 10*n, maxIterInner =Lt;
             double acceptanceProba = 0;
 
+            System.out.println();
 
             while (!check) {
                 //Create the neighbour solution
                 SAProblem newSolution = factory.createSAProblem(currentSolution.getList());
-                newSolution = newSolution.transformSolutionDSA(CGList, n);
+                newSolution = newSolution.transformSolutionDSA(CGListX, n);
 
-                //Get energy of new solution and worst solution of CGList
-                double worstCGObjective = CGList.get(CGListLength-1);
+                //Get energy of new solution and worst solution of CGListX
+                double worstCGObjective = CGListY.get(CGListLength-1);
                 double neighbourObjective = newSolution.objectiveFunction();
 
                 //Decide if we should accept the neighbour (not only when it's better)
@@ -131,8 +133,10 @@ public class Optimization {
                 acceptanceProba = Utils.acceptanceProbability(worstCGObjective, neighbourObjective, temperature);
 
                 //Solution is accepted
+                //todo là je met le Y dans la liste des X ET faire le reorder
                 if (acceptanceProba > rand) {
-                    CGList.set(CGListLength-1, neighbourObjective);
+                    CGListX.set(CGListLength-1, newSolution);
+                    CGListY.set(CGListLength-1, newSolution.objectiveFunction());
                     currentSolution = factory.createSAProblem(newSolution.getList());
                     isAcceptedBest="TF";
                 }
@@ -141,11 +145,8 @@ public class Optimization {
                 iterInner++;
                 check = (iterInner>=maxIterInner);
 
-                //todo
-                todel = bestSolution.objectiveFunction();
-                todel2 = neighbourObjective;
 
-                //Keep track of the best solution found (=CGList[0])
+                //Keep track of the best solution found (=CGListX[0])
                 if (neighbourObjective < bestSolution.objectiveFunction()) {
                     bestSolution = factory.createSAProblem(currentSolution.getList());
                     isAcceptedBest="TT";
@@ -154,19 +155,24 @@ public class Optimization {
                     factor = factorMax;
                 }
 
-                Utils.reorderCG(CGList);
-                System.out.println("CGList = " + CGList);
+                ControlledGestionLists.reorderCGs(CGListX, CGListY);
+
+                //DEBUG
+//                System.out.print("CGListX = [");
+//                for (SAProblem pb: CGListX) {
+//                    System.out.print((double)pb.getList().get(pb.getList().size()-1)+",");
+//                }
+//                System.out.print("]\n");
+//                System.out.println("CGListY = " + CGListY);
 
                 //Compute length of the markov chains
-                double fh = CGList.get(CGListLength-1);
-                double fl = CGList.get(0);
-                double F = 1-Math.exp(-(fh-fl));
+
+                //Compute length of the markov chains
+                double fh = CGListY.get(CGListLength-1);
+                double fl = CGListY.get(0);
+                double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
-                System.out.println("maxIterInner = " + maxIterInner);
             }
-
-
-            System.out.println("\n\nf_new ("+ todel2 +") < f_best ("+todel+")   else : "+iterInner+"<="+maxIterInner+" ------->   NEW OUTER LOOP");
 
             //New best sol has not been found in A && at least 2nd outer loop
             if(iterInner >= maxIterInner && prevIterInner != -1){
@@ -182,7 +188,7 @@ public class Optimization {
             prevIterInner = iterInner;
 
             //Stopping criterion
-            double CG_density = Math.abs(1 - CGList.get(0)/CGList.get(CGListLength-1));
+            double CG_density = Math.abs(1 - CGListY.get(0)/CGListY.get(CGListLength-1));
             stopCriterion = temperature <= final_temp && CG_density <= final_CG_density;
 
             //Cool system

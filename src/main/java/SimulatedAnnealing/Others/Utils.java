@@ -1,5 +1,7 @@
 package SimulatedAnnealing.Others;
 
+import SimulatedAnnealing.Factories.SAProblem;
+
 import java.io.*;
 import java.util.*;
 
@@ -171,14 +173,6 @@ public class Utils {
         toRet.append(str);
         toRet.append("|");
         return toRet;
-    }
-
-    public static ArrayList<Double> reorderCG(ArrayList<Double> A) {
-        int minI = A.indexOf(Collections.min(A));
-        int maxI = A.indexOf(Collections.max(A));
-        Collections.swap(A, 0, minI);
-        Collections.swap(A, A.size()-1, maxI);
-        return A;
     }
 
 }

@@ -1,10 +1,12 @@
 package SimulatedAnnealing._TravelingSalesmanProblem;
 
 import SimulatedAnnealing.Factories.SAProblem;
+import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class TSP extends SAProblem {
 
@@ -17,7 +19,7 @@ public class TSP extends SAProblem {
     //another Constructor
     //starts a tour from another tour
     public TSP(ArrayList<City> tour) {
-        this.tour = (ArrayList<City>) tour.clone();
+        this.tour = new ArrayList<>(tour);
     }
 
     public ArrayList<Object> getList() {
@@ -26,31 +28,32 @@ public class TSP extends SAProblem {
 
 
     @Override
-    public ArrayList<Double> CGInit(int length) {
-        ArrayList<Double> A = new ArrayList<>(length);
-        ArrayList<City> cities = new ArrayList<>(tour);
-        double y;
-        for (int i = 0; i < length ; i++) {
-            Collections.shuffle(cities);
-            y = objectiveFunctionCG(cities);
-            A.add(y);
-        }
-        Utils.reorderCG(A);
-        return A;
+    public ControlledGestionLists CGInit(int length) {
+//        ArrayList<SAProblem> X = new ArrayList<>(length);
+//        ArrayList<Double> Y = new ArrayList<>(length);
+//        for (int i = 0; i < length; i++) {
+//            ArrayList<City> cities = TourManager.problemInit();
+//            TSP pb = new TSP(cities);
+//            X.add(pb);
+//            Y.add(getObjectiveFunction(cities));
+//        }
+//        ControlledGestionLists.reorderCGs(X, Y);
+//        return new ControlledGestionLists(X,Y);
+        return null;
     }
 
 
-    public City getCity(int index) {
+    private City getCity(int index) {
         return tour.get(index);
     }
 
-    public void setCity(int index, City city) {
+    private void setCity(int index, City city) {
         tour.set(index, city);
         // If the tour has been altered we need to reset the fitness and distance
         distance = 0;
     }
 
-    public int tourSize() {
+    private int tourSize() {
         return tour.size();
     }
 
@@ -76,36 +79,38 @@ public class TSP extends SAProblem {
         TSP newSolution = new TSP(tour);
 
         // Get random positions in the tour
-        int tourPos1 = Utils.randomInt(0, newSolution.tourSize());
-        int tourPos2 = Utils.randomInt(0, newSolution.tourSize());
-        int tourPos3 = Utils.randomInt(0, newSolution.tourSize());
-
-
-        //to make sure that tourPos1 and tourPos2 are different
-        while (tourPos1 == tourPos2 || tourPos3 == tourPos2 || tourPos1 == tourPos3) {
+        int tourPos1, tourPos2;
+        do {
+            tourPos1 = Utils.randomInt(0, newSolution.tourSize());
             tourPos2 = Utils.randomInt(0, newSolution.tourSize());
-            tourPos3 = Utils.randomInt(0, newSolution.tourSize());
-
-        }
+        } while(tourPos1 == tourPos2);
 
         // Get the cities at selected positions in the tour
         City citySwap1 = newSolution.getCity(tourPos1);
         City citySwap2 = newSolution.getCity(tourPos2);
-        City citySwap3 = newSolution.getCity(tourPos3);
-
-
 
         // Swap them
-        newSolution.setCity(tourPos3, citySwap1);
-        newSolution.setCity(tourPos2, citySwap3);
         newSolution.setCity(tourPos1, citySwap2);
+        newSolution.setCity(tourPos2, citySwap1);
 
-        return newSolution;    }
+        return newSolution;
+    }
 
     @Override
-    public SAProblem transformSolutionDSA(ArrayList<Double> CGList, int problem_dimension) {
+    public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
+//        double w = Utils.randomProba();
+//        if(w<0.75) {
+//            return transformSolutionLSA();
+//        }
+//        else {
+//            TSP newSolution = new TSP(tour);
+//            List<SAProblem> CGcopy = new ArrayList<>(CGListX);
+//            CGcopy.remove(0);
+//            Collections.shuffle(CGcopy);
+//            CGcopy = CGcopy.subList(0, n);
+//            double G = CGListX.get(0); //not continuous
+//        }
         return null;
-        //todo
     }
 
 
@@ -135,7 +140,9 @@ public class TSP extends SAProblem {
         return distance;
     }
 
-    private double objectiveFunctionCG(ArrayList<City> cities) {
+
+
+    private double getObjectiveFunction(ArrayList<City> cities) {
         double distance = 0;
         // Loop through our tour's cities
         for (int cityIndex = 0; cityIndex < cities.size(); cityIndex++) {

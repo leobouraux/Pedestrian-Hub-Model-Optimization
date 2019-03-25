@@ -1,5 +1,6 @@
 package SimulatedAnnealing.Factories;
 
+import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
@@ -8,15 +9,17 @@ public abstract class SAProblem {
 
     public abstract ArrayList<Object> getList();
 
-    public abstract ArrayList<Double> CGInit(int length);
+    public abstract ControlledGestionLists CGInit(int length);
 
     public abstract void printSolution(String s);
 
     public abstract SAProblem transformSolutionLSA();
 
-    public abstract SAProblem transformSolutionDSA(ArrayList<Double> CGList, int problem_dimension);
+    public abstract SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int problem_dimension);
 
     public abstract double objectiveFunction();
+
+
 
     public void writeDataLSA(String title, double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp) {
         //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
@@ -46,7 +49,4 @@ public abstract class SAProblem {
         return data;
     }
 
-    //TODO : @@@@@@@ refaire tous les liens avec python
-    //TODO : et essayer d'écrire des fichiers texts lisibles
-    //TODO : est ce que les 5.100765244038015E-59; posent pb ?
 }

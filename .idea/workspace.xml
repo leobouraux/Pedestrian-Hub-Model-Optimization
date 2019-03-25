@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3b4301f-d6f1-479e-873e-c01629374743" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/ProcessData.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/ProcessData.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +48,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="70" />
-          <entry key="PLAIN_TEXT" value="27" />
+          <entry key="JAVA" value="86" />
+          <entry key="PLAIN_TEXT" value="28" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -56,84 +61,290 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13453" />
-          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="JAVA" value="16186" />
+          <entry key="PLAIN_TEXT" value="53" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="27" column="191" selection-start-line="27" selection-start-column="191" selection-end-line="27" selection-end-column="191" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-294">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="167" column="101" selection-start-line="167" selection-start-column="101" selection-end-line="167" selection-end-column="101" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#optimizationLSA#0;class#Optimization#0" />
-                <element signature="docComment;method#optimizationDSA#0;class#Optimization#0" />
-                <element signature="e#4705#4722#1" expanded="true" />
-                <element signature="e#5009#5084#1" expanded="true" />
-                <element signature="e#5057#5082#0" expanded="true" />
-                <element signature="e#5251#5304#1" expanded="true" />
-                <element signature="e#5343#5369#0" expanded="true" />
-                <element signature="e#5354#5368#0" expanded="true" />
-                <element signature="e#5343#5369#0" expanded="true" />
-                <element signature="e#5321#5381#1" expanded="true" />
-                <element signature="e#5486#5520#1" expanded="true" />
-                <element signature="e#5757#5999#0" expanded="true" />
-                <element signature="e#5757#5999#0" expanded="true" />
-                <element signature="e#5807#5853#0" expanded="true" />
-                <element signature="e#5818#5832#0" expanded="true" />
-                <element signature="e#5807#5853#0" expanded="true" />
-                <element signature="e#5807#5853#0" expanded="true" />
-                <element signature="e#5851#5872#0" expanded="true" />
-                <element signature="e#6336#6659#0" expanded="true" />
-                <element signature="e#6336#6659#0" expanded="true" />
-                <element signature="e#6263#6288#0" expanded="true" />
-                <element signature="e#6737#6757#0" expanded="true" />
-                <element signature="e#6737#6757#0" expanded="true" />
-                <element signature="e#7047#7079#0" expanded="true" />
-                <element signature="e#7047#7079#0" expanded="true" />
-                <element signature="e#6864#6877#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-                <element signature="e#7129#7243#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.88520616">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="285">
+                  <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#writeDataLSA#0;class#SAProblem#0" />
+                    <element signature="method#writeDataDSA#0;class#SAProblem#0" />
+                    <element signature="method#getString#0;class#SAProblem#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#optimizationLSA#0;class#Optimization#0" />
+                    <element signature="docComment;method#optimizationDSA#0;class#Optimization#0" />
+                    <element signature="e#4061#4101#1" expanded="true" />
+                    <element signature="e#4126#4187#1" expanded="true" />
+                    <element signature="e#4230#4296#1" expanded="true" />
+                    <element signature="e#4305#4347#1" expanded="true" />
+                    <element signature="e#4336#4346#0" expanded="true" />
+                    <element signature="e#4356#4395#1" expanded="true" />
+                    <element signature="e#4384#4394#0" expanded="true" />
+                    <element signature="e#4573#4649#1" expanded="true" />
+                    <element signature="e#4622#4647#0" expanded="true" />
+                    <element signature="e#4691#4706#0" expanded="true" />
+                    <element signature="e#4719#4748#1" expanded="true" />
+                    <element signature="e#4757#4787#1" expanded="true" />
+                    <element signature="e#4826#4846#0" expanded="true" />
+                    <element signature="e#4890#4913#1" expanded="true" />
+                    <element signature="e#4962#8775#0" expanded="true" />
+                    <element signature="e#4962#8775#0" expanded="true" />
+                    <element signature="e#5091#5113#1" expanded="true" />
+                    <element signature="e#5126#5143#0" expanded="true" />
+                    <element signature="e#5091#5095#0" expanded="true" />
+                    <element signature="e#5168#5195#1" expanded="true" />
+                    <element signature="e#5185#7599#0" expanded="true" />
+                    <element signature="e#5185#7599#0" expanded="true" />
+                    <element signature="e#5591#5666#1" expanded="true" />
+                    <element signature="e#5639#5664#0" expanded="true" />
+                    <element signature="e#5835#5889#1" expanded="true" />
+                    <element signature="e#5536#5563#0" expanded="true" />
+                    <element signature="e#5548#5562#0" expanded="true" />
+                    <element signature="e#5536#5563#0" expanded="true" />
+                    <element signature="e#5906#5966#1" expanded="true" />
+                    <element signature="e#6071#6105#1" expanded="true" />
+                    <element signature="e#6029#6347#0" expanded="true" />
+                    <element signature="e#6029#6347#0" expanded="true" />
+                    <element signature="e#6079#6119#0" expanded="true" />
+                    <element signature="e#6091#6105#0" expanded="true" />
+                    <element signature="e#6079#6119#0" expanded="true" />
+                    <element signature="e#6079#6119#0" expanded="true" />
+                    <element signature="e#6141#6201#0" expanded="true" />
+                    <element signature="e#6153#6167#0" expanded="true" />
+                    <element signature="e#6141#6201#0" expanded="true" />
+                    <element signature="e#6141#6201#0" expanded="true" />
+                    <element signature="e#6590#6611#0" expanded="true" />
+                    <element signature="e#6559#6882#0" expanded="true" />
+                    <element signature="e#6559#6882#0" expanded="true" />
+                    <element signature="e#7137#7162#0" expanded="true" />
+                    <element signature="e#6900#6907#0" />
+                    <element signature="e#7379#7419#1" expanded="true" />
+                    <element signature="e#7414#7441#0" expanded="true" />
+                    <element signature="e#7426#7440#0" expanded="true" />
+                    <element signature="e#7414#7441#0" expanded="true" />
+                    <element signature="e#7432#7459#1" expanded="true" />
+                    <element signature="e#7472#7501#1" expanded="true" />
+                    <element signature="e#7514#7531#0" expanded="true" />
+                    <element signature="e#7514#7550#1" expanded="true" />
+                    <element signature="e#7573#7584#0" expanded="true" />
+                    <element signature="e#7579#7583#0" expanded="true" />
+                    <element signature="e#7573#7584#0" expanded="true" />
+                    <element signature="e#8018#8073#0" expanded="true" />
+                    <element signature="e#7971#7992#0" expanded="true" />
+                    <element signature="e#8112#8189#1" expanded="true" />
+                    <element signature="e#8213#8269#0" expanded="true" />
+                    <element signature="e#8226#8268#0" expanded="true" />
+                    <element signature="e#8241#8268#0" expanded="true" />
+                    <element signature="e#8253#8267#0" expanded="true" />
+                    <element signature="e#8241#8268#0" expanded="true" />
+                    <element signature="e#8213#8269#0" expanded="true" />
+                    <element signature="e#8704#8739#1" expanded="true" />
+                    <element signature="e#8748#8839#1" expanded="true" />
+                    <element signature="e#8762#8838#0" expanded="true" />
+                    <element signature="e#8762#8838#0" expanded="true" />
+                    <element signature="e#8937#8974#0" expanded="true" />
+                    <element signature="e#8937#8974#0" expanded="true" />
+                    <element signature="e#8937#8974#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="678">
+                  <caret line="178" column="38" lean-forward="true" selection-start-line="178" selection-start-column="38" selection-end-line="178" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#createRange#0;class#MinFunction#0" />
+                    <element signature="e#1768#1769#0" expanded="true" />
+                    <element signature="e#1813#1814#0" expanded="true" />
+                    <element signature="e#2286#2319#0" expanded="true" />
+                    <element signature="e#2286#2319#0" expanded="true" />
+                    <element signature="e#2710#2736#1" expanded="true" />
+                    <element signature="e#2745#2776#1" expanded="true" />
+                    <element signature="method#isUnavailable#0;class#MinFunction#0" />
+                    <element signature="e#5089#5139#1" expanded="true" />
+                    <element signature="e#5279#5303#0" expanded="true" />
+                    <element signature="e#5313#5350#1" expanded="true" />
+                    <element signature="e#5324#5349#0" expanded="true" />
+                    <element signature="e#5332#5349#0" expanded="true" />
+                    <element signature="e#5332#5349#0" expanded="true" />
+                    <element signature="e#5759#5772#0" expanded="true" />
+                    <element signature="e#6209#6283#0" expanded="true" />
+                    <element signature="e#6209#6283#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="122">
+                  <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#listFilenames#0;class#Utils#0" />
+                    <element signature="method#csvToList#0;class#Utils#0" />
+                    <element signature="method#getTravelTimes#0;class#Utils#0" />
+                    <element signature="method#listSum#0;class#Utils#0" />
+                    <element signature="method#listMean#0;class#Utils#0" />
+                    <element signature="method#listMedian#0;class#Utils#0" />
+                    <element signature="method#listStd#0;class#Utils#0" />
+                    <element signature="docComment;method#acceptanceProbability#0;class#Utils#0" />
+                    <element signature="docComment;method#randomProba#0;class#Utils#0" />
+                    <element signature="method#randomProba#0;class#Utils#0" />
+                    <element signature="docComment;method#randomInt#0;class#Utils#0" />
+                    <element signature="method#dataToTxt#0;class#Utils#0" />
+                    <element signature="e#5182#5201#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="870">
+                  <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1207">
+                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#565#566#0" expanded="true" />
+                    <element signature="e#621#622#0" expanded="true" />
+                    <element signature="e#796#855#0" />
+                    <element signature="e#1277#1278#0" expanded="true" />
+                    <element signature="e#1335#1350#0" expanded="true" />
+                    <element signature="e#1335#1350#0" expanded="true" />
+                    <element signature="e#1315#1316#0" expanded="true" />
+                    <element signature="method#setCity#0;class#TSP#0" />
+                    <element signature="e#1416#1437#0" expanded="true" />
+                    <element signature="e#1416#1437#0" expanded="true" />
+                    <element signature="e#1416#1437#0" expanded="true" />
+                    <element signature="e#1536#1537#0" expanded="true" />
+                    <element signature="e#1570#1571#0" expanded="true" />
+                    <element signature="method#toString#0;class#TSP#0" />
+                    <element signature="e#1626#1662#1" expanded="true" />
+                    <element signature="e#1637#1661#0" expanded="true" />
+                    <element signature="e#1712#1812#0" expanded="true" />
+                    <element signature="e#1676#1686#1" expanded="true" />
+                    <element signature="e#1712#1812#0" expanded="true" />
+                    <element signature="e#1712#1812#0" expanded="true" />
+                    <element signature="e#1712#1812#0" expanded="true" />
+                    <element signature="e#1712#1812#0" expanded="true" />
+                    <element signature="e#1768#1801#0" expanded="true" />
+                    <element signature="e#1736#1760#0" expanded="true" />
+                    <element signature="e#1768#1801#0" expanded="true" />
+                    <element signature="method#printSolution#0;class#TSP#0" />
+                    <element signature="e#1979#1994#0" expanded="true" />
+                    <element signature="e#1979#1994#0" expanded="true" />
+                    <element signature="e#2069#2101#1" expanded="true" />
+                    <element signature="e#2434#2481#1" expanded="true" />
+                    <element signature="e#2490#2537#1" expanded="true" />
+                    <element signature="e#2832#2873#0" />
+                    <element signature="e#3364#4381#0" expanded="true" />
+                    <element signature="e#3364#4381#0" expanded="true" />
+                    <element signature="e#3294#3318#1" expanded="true" />
+                    <element signature="e#3480#4259#0" expanded="true" />
+                    <element signature="e#3382#3400#1" expanded="true" />
+                    <element signature="e#3480#4259#0" expanded="true" />
+                    <element signature="e#3480#4259#0" expanded="true" />
+                    <element signature="e#3480#4259#0" expanded="true" />
+                    <element signature="e#3480#4259#0" expanded="true" />
+                    <element signature="e#3505#3540#1" expanded="true" />
+                    <element signature="e#3917#4106#0" expanded="true" />
+                    <element signature="e#3917#4106#0" expanded="true" />
+                    <element signature="e#4184#4223#0" expanded="true" />
+                    <element signature="e#4295#4326#0" expanded="true" />
+                    <element signature="e#4295#4326#0" expanded="true" />
+                    <element signature="method#getObjectiveFunction#0;class#TSP#0" />
+                    <element signature="e#4387#4407#1" expanded="true" />
+                    <element signature="e#4458#5164#0" expanded="true" />
+                    <element signature="e#4463#4481#1" expanded="true" />
+                    <element signature="e#4458#5164#0" expanded="true" />
+                    <element signature="e#4581#4619#1" expanded="true" />
+                    <element signature="e#4458#5164#0" expanded="true" />
+                    <element signature="e#4700#4721#0" expanded="true" />
+                    <element signature="e#4458#5164#0" expanded="true" />
+                    <element signature="e#4700#4721#0" expanded="true" />
+                    <element signature="e#4948#5130#0" expanded="true" />
+                    <element signature="e#4948#5130#0" expanded="true" />
+                    <element signature="e#5090#5115#0" expanded="true" />
+                    <element signature="e#5090#5115#0" expanded="true" />
+                    <element signature="e#5184#5219#0" expanded="true" />
+                    <element signature="e#5295#5322#0" expanded="true" />
+                    <element signature="e#5295#5322#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TourManager.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="154">
+                  <caret line="114" column="10" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -147,6 +358,11 @@
       <find>objective</find>
       <find>A</find>
       <find>Sys</find>
+      <find>9509999999999987</find>
+      <find>736999999999912</find>
+      <find>74800000000069</find>
+      <find>658999999999497</find>
+      <find>getObjectiveFunction</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,13 +414,15 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunctionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/MinFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MainTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TourManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java" />
+        <option value="$PROJECT_DIR$/src/test/java/MainTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java" />
       </list>
     </option>
@@ -310,7 +528,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553431780628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553553501901" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -405,12 +623,12 @@
       <workItem from="1552325274626" duration="347000" />
       <workItem from="1552326016390" duration="32828000" />
       <workItem from="1552549107636" duration="3569000" />
-      <workItem from="1552944634248" duration="61317000" />
+      <workItem from="1552944634248" duration="93489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111884000" />
+    <option name="totallyTimeSpent" value="144056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -425,7 +643,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09450727" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1736672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -433,9 +651,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47945204" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.087671235" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
@@ -456,7 +674,7 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20597738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1736672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -465,25 +683,26 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46986303" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4328767" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.124657534" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.17123288" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.29726028" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32956383" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,195 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1076">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#661#0" expanded="true" />
-            <element signature="e#619#661#0" expanded="true" />
-            <element signature="method#problemInit#0;class#MinFunction#0" />
-            <element signature="e#932#944#0" expanded="true" />
-            <element signature="e#932#944#0" expanded="true" />
-            <element signature="e#1141#1157#0" expanded="true" />
-            <element signature="e#1141#1157#0" expanded="true" />
-            <element signature="e#1167#1186#0" expanded="true" />
-            <element signature="e#1167#1186#0" expanded="true" />
-            <element signature="method#CGInit#0;class#MinFunction#0" />
-            <element signature="e#1498#1508#1" expanded="true" />
-            <element signature="e#1804#1836#0" expanded="true" />
-            <element signature="e#1804#1836#0" expanded="true" />
-            <element signature="method#transformSolutionLSA#0;class#MinFunction#0" />
-            <element signature="e#2033#2059#1" expanded="true" />
-            <element signature="e#2048#2058#0" expanded="true" />
-            <element signature="e#2068#2099#1" expanded="true" />
-            <element signature="e#2373#2410#1" expanded="true" />
-            <element signature="e#2427#2488#1" expanded="true" />
-            <element signature="e#2535#2580#0" expanded="true" />
-            <element signature="e#2535#2580#0" expanded="true" />
-            <element signature="e#2505#2579#1" expanded="true" />
-            <element signature="e#2609#2667#0" expanded="true" />
-            <element signature="e#2609#2667#0" expanded="true" />
-            <element signature="e#2596#2648#1" expanded="true" />
-            <element signature="e#2955#2987#0" expanded="true" />
-            <element signature="e#2965#2979#0" expanded="true" />
-            <element signature="e#2955#2987#0" expanded="true" />
-            <element signature="e#2955#2987#0" expanded="true" />
-            <element signature="e#2985#3011#1" expanded="true" />
-            <element signature="e#3000#3010#0" expanded="true" />
-            <element signature="e#3020#3051#1" expanded="true" />
-            <element signature="e#3115#3127#0" expanded="true" />
-            <element signature="e#3702#3748#1" expanded="true" />
-            <element signature="e#3671#3691#0" expanded="true" />
-            <element signature="e#3671#3691#0" expanded="true" />
-            <element signature="e#3671#3691#0" expanded="true" />
-            <element signature="e#4024#4049#1" expanded="true" />
-            <element signature="e#3772#3852#0" expanded="true" />
-            <element signature="e#4210#4220#1" expanded="true" />
-            <element signature="e#3772#3852#0" expanded="true" />
-            <element signature="e#3772#3852#0" expanded="true" />
-            <element signature="e#3792#3795#0" expanded="true" />
-            <element signature="e#3772#3852#0" expanded="true" />
-            <element signature="e#3772#3852#0" expanded="true" />
-            <element signature="e#3824#3837#0" expanded="true" />
-            <element signature="e#3824#3837#0" expanded="true" />
-            <element signature="e#4201#4221#0" expanded="true" />
-            <element signature="e#3873#3885#0" expanded="true" />
-            <element signature="e#3873#3885#0" expanded="true" />
-            <element signature="e#3915#3930#0" expanded="true" />
-            <element signature="e#3926#3929#0" expanded="true" />
-            <element signature="e#3915#3930#0" expanded="true" />
-            <element signature="e#4193#4245#0" expanded="true" />
-            <element signature="e#3938#3948#1" expanded="true" />
-            <element signature="e#4193#4245#0" expanded="true" />
-            <element signature="e#4193#4245#0" expanded="true" />
-            <element signature="e#4213#4216#0" expanded="true" />
-            <element signature="e#4193#4245#0" expanded="true" />
-            <element signature="e#4193#4245#0" expanded="true" />
-            <element signature="e#4229#4242#0" expanded="true" />
-            <element signature="e#4229#4242#0" expanded="true" />
-            <element signature="e#4919#4939#0" expanded="true" />
-            <element signature="e#4270#4282#0" expanded="true" />
-            <element signature="e#4270#4282#0" expanded="true" />
-            <element signature="e#4316#4331#0" expanded="true" />
-            <element signature="e#4327#4330#0" expanded="true" />
-            <element signature="e#4316#4331#0" expanded="true" />
-            <element signature="e#4365#4397#0" expanded="true" />
-            <element signature="e#4375#4389#0" expanded="true" />
-            <element signature="e#4365#4397#0" expanded="true" />
-            <element signature="e#4365#4397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="method#setCity#0;class#TSP#0" />
-            <element signature="method#toString#0;class#TSP#0" />
-            <element signature="method#printSolution#0;class#TSP#0" />
-            <element signature="e#2134#2192#1" expanded="true" />
-            <element signature="e#2201#2259#1" expanded="true" />
-            <element signature="e#2268#2326#1" expanded="true" />
-            <element signature="e#2243#2466#0" expanded="true" />
-            <element signature="e#2243#2466#0" expanded="true" />
-            <element signature="e#2694#2741#1" expanded="true" />
-            <element signature="e#2750#2797#1" expanded="true" />
-            <element signature="e#2806#2853#1" expanded="true" />
-            <element signature="e#3110#3134#1" expanded="true" />
-            <element signature="e#2997#3015#1" expanded="true" />
-            <element signature="e#3120#3155#1" expanded="true" />
-            <element signature="e#3671#3860#0" expanded="true" />
-            <element signature="e#3671#3860#0" expanded="true" />
-            <element signature="e#3981#4016#0" expanded="true" />
-            <element signature="e#4049#4080#0" expanded="true" />
-            <element signature="e#4049#4080#0" expanded="true" />
-            <element signature="e#4106#4126#1" expanded="true" />
-            <element signature="e#3973#4679#0" expanded="true" />
-            <element signature="e#3978#3996#1" expanded="true" />
-            <element signature="e#3973#4679#0" expanded="true" />
-            <element signature="e#4096#4134#1" expanded="true" />
-            <element signature="e#3973#4679#0" expanded="true" />
-            <element signature="e#3973#4679#0" expanded="true" />
-            <element signature="e#4982#5021#0" expanded="true" />
-            <element signature="e#5046#5073#0" expanded="true" />
-            <element signature="e#5046#5073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TourManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="114" column="10" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_TSP.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="38222" selection-start-line="38222" selection-end-line="38222" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="166" column="48" selection-start-line="166" selection-start-column="48" selection-end-line="166" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#listFilenames#0;class#Utils#0" />
-            <element signature="method#csvToList#0;class#Utils#0" />
-            <element signature="method#getTravelTimes#0;class#Utils#0" />
-            <element signature="method#listSum#0;class#Utils#0" />
-            <element signature="method#listMean#0;class#Utils#0" />
-            <element signature="method#listMedian#0;class#Utils#0" />
-            <element signature="method#listStd#0;class#Utils#0" />
-            <element signature="docComment;method#acceptanceProbability#0;class#Utils#0" />
-            <element signature="method#acceptanceProbability#0;class#Utils#0" />
-            <element signature="docComment;method#randomProba#0;class#Utils#0" />
-            <element signature="method#randomProba#0;class#Utils#0" />
-            <element signature="docComment;method#randomInt#0;class#Utils#0" />
-            <element signature="method#dataToTxt#0;class#Utils#0" />
-            <element signature="e#5085#5117#1" expanded="true" />
-            <element signature="e#5095#5112#0" expanded="true" />
-            <element signature="e#5095#5112#0" expanded="true" />
-            <element signature="e#5126#5155#1" expanded="true" />
-            <element signature="e#5164#5209#1" expanded="true" />
-            <element signature="e#5211#5296#0" expanded="true" />
-            <element signature="e#5223#5233#1" expanded="true" />
-            <element signature="e#5211#5296#0" expanded="true" />
-            <element signature="e#5211#5296#0" expanded="true" />
-            <element signature="e#5231#5247#0" expanded="true" />
-            <element signature="e#5211#5296#0" expanded="true" />
-            <element signature="e#5211#5296#0" expanded="true" />
-            <element signature="e#5268#5285#0" expanded="true" />
-            <element signature="e#5268#5285#0" expanded="true" />
-            <element signature="e#5305#5322#0" expanded="true" />
-            <element signature="e#5305#5322#0" expanded="true" />
-            <element signature="e#5332#5349#0" expanded="true" />
-            <element signature="e#5332#5349#0" expanded="true" />
-            <element signature="method#reorderCG#0;class#Utils#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,72 +797,284 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="27" column="191" selection-start-line="27" selection-start-column="191" selection-end-line="27" selection-end-column="191" />
+        <state relative-caret-position="135">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#409#462#1" expanded="true" />
+            <element signature="e#471#539#1" expanded="true" />
+            <element signature="e#624#677#1" expanded="true" />
+            <element signature="e#686#754#1" expanded="true" />
+            <element signature="e#763#829#1" expanded="true" />
+            <element signature="e#839#892#1" expanded="true" />
+            <element signature="e#901#969#1" expanded="true" />
+            <element signature="e#978#1044#1" expanded="true" />
+            <element signature="e#1054#1107#1" expanded="true" />
+            <element signature="e#1116#1184#1" expanded="true" />
+            <element signature="e#1193#1259#1" expanded="true" />
+            <element signature="e#1269#1322#1" expanded="true" />
+            <element signature="e#1331#1399#1" expanded="true" />
+            <element signature="e#1408#1474#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#listFilenames#0;class#Utils#0" />
+            <element signature="method#csvToList#0;class#Utils#0" />
+            <element signature="method#getTravelTimes#0;class#Utils#0" />
+            <element signature="method#listSum#0;class#Utils#0" />
+            <element signature="method#listMean#0;class#Utils#0" />
+            <element signature="method#listMedian#0;class#Utils#0" />
+            <element signature="method#listStd#0;class#Utils#0" />
+            <element signature="docComment;method#acceptanceProbability#0;class#Utils#0" />
+            <element signature="docComment;method#randomProba#0;class#Utils#0" />
+            <element signature="method#randomProba#0;class#Utils#0" />
+            <element signature="docComment;method#randomInt#0;class#Utils#0" />
+            <element signature="method#dataToTxt#0;class#Utils#0" />
+            <element signature="e#5182#5201#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-294">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state relative-caret-position="870">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TourManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="114" column="10" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#writeDataLSA#0;class#SAProblem#0" />
+            <element signature="method#writeDataDSA#0;class#SAProblem#0" />
+            <element signature="method#getString#0;class#SAProblem#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1207">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#796#855#0" />
+            <element signature="e#1277#1278#0" expanded="true" />
+            <element signature="e#1335#1350#0" expanded="true" />
+            <element signature="e#1335#1350#0" expanded="true" />
+            <element signature="e#1315#1316#0" expanded="true" />
+            <element signature="method#setCity#0;class#TSP#0" />
+            <element signature="e#1416#1437#0" expanded="true" />
+            <element signature="e#1416#1437#0" expanded="true" />
+            <element signature="e#1416#1437#0" expanded="true" />
+            <element signature="e#1536#1537#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="method#toString#0;class#TSP#0" />
+            <element signature="e#1626#1662#1" expanded="true" />
+            <element signature="e#1637#1661#0" expanded="true" />
+            <element signature="e#1712#1812#0" expanded="true" />
+            <element signature="e#1676#1686#1" expanded="true" />
+            <element signature="e#1712#1812#0" expanded="true" />
+            <element signature="e#1712#1812#0" expanded="true" />
+            <element signature="e#1712#1812#0" expanded="true" />
+            <element signature="e#1712#1812#0" expanded="true" />
+            <element signature="e#1768#1801#0" expanded="true" />
+            <element signature="e#1736#1760#0" expanded="true" />
+            <element signature="e#1768#1801#0" expanded="true" />
+            <element signature="method#printSolution#0;class#TSP#0" />
+            <element signature="e#1979#1994#0" expanded="true" />
+            <element signature="e#1979#1994#0" expanded="true" />
+            <element signature="e#2069#2101#1" expanded="true" />
+            <element signature="e#2434#2481#1" expanded="true" />
+            <element signature="e#2490#2537#1" expanded="true" />
+            <element signature="e#2832#2873#0" />
+            <element signature="e#3364#4381#0" expanded="true" />
+            <element signature="e#3364#4381#0" expanded="true" />
+            <element signature="e#3294#3318#1" expanded="true" />
+            <element signature="e#3480#4259#0" expanded="true" />
+            <element signature="e#3382#3400#1" expanded="true" />
+            <element signature="e#3480#4259#0" expanded="true" />
+            <element signature="e#3480#4259#0" expanded="true" />
+            <element signature="e#3480#4259#0" expanded="true" />
+            <element signature="e#3480#4259#0" expanded="true" />
+            <element signature="e#3505#3540#1" expanded="true" />
+            <element signature="e#3917#4106#0" expanded="true" />
+            <element signature="e#3917#4106#0" expanded="true" />
+            <element signature="e#4184#4223#0" expanded="true" />
+            <element signature="e#4295#4326#0" expanded="true" />
+            <element signature="e#4295#4326#0" expanded="true" />
+            <element signature="method#getObjectiveFunction#0;class#TSP#0" />
+            <element signature="e#4387#4407#1" expanded="true" />
+            <element signature="e#4458#5164#0" expanded="true" />
+            <element signature="e#4463#4481#1" expanded="true" />
+            <element signature="e#4458#5164#0" expanded="true" />
+            <element signature="e#4581#4619#1" expanded="true" />
+            <element signature="e#4458#5164#0" expanded="true" />
+            <element signature="e#4700#4721#0" expanded="true" />
+            <element signature="e#4458#5164#0" expanded="true" />
+            <element signature="e#4700#4721#0" expanded="true" />
+            <element signature="e#4948#5130#0" expanded="true" />
+            <element signature="e#4948#5130#0" expanded="true" />
+            <element signature="e#5090#5115#0" expanded="true" />
+            <element signature="e#5090#5115#0" expanded="true" />
+            <element signature="e#5184#5219#0" expanded="true" />
+            <element signature="e#5295#5322#0" expanded="true" />
+            <element signature="e#5295#5322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="178" column="38" lean-forward="true" selection-start-line="178" selection-start-column="38" selection-end-line="178" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createRange#0;class#MinFunction#0" />
+            <element signature="e#1768#1769#0" expanded="true" />
+            <element signature="e#1813#1814#0" expanded="true" />
+            <element signature="e#2286#2319#0" expanded="true" />
+            <element signature="e#2286#2319#0" expanded="true" />
+            <element signature="e#2710#2736#1" expanded="true" />
+            <element signature="e#2745#2776#1" expanded="true" />
+            <element signature="method#isUnavailable#0;class#MinFunction#0" />
+            <element signature="e#5089#5139#1" expanded="true" />
+            <element signature="e#5279#5303#0" expanded="true" />
+            <element signature="e#5313#5350#1" expanded="true" />
+            <element signature="e#5324#5349#0" expanded="true" />
+            <element signature="e#5332#5349#0" expanded="true" />
+            <element signature="e#5332#5349#0" expanded="true" />
+            <element signature="e#5759#5772#0" expanded="true" />
+            <element signature="e#6209#6283#0" expanded="true" />
+            <element signature="e#6209#6283#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="167" column="101" selection-start-line="167" selection-start-column="101" selection-end-line="167" selection-end-column="101" />
+        <state relative-caret-position="214">
+          <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#optimizationLSA#0;class#Optimization#0" />
             <element signature="docComment;method#optimizationDSA#0;class#Optimization#0" />
-            <element signature="e#4705#4722#1" expanded="true" />
-            <element signature="e#5009#5084#1" expanded="true" />
-            <element signature="e#5057#5082#0" expanded="true" />
-            <element signature="e#5251#5304#1" expanded="true" />
-            <element signature="e#5343#5369#0" expanded="true" />
-            <element signature="e#5354#5368#0" expanded="true" />
-            <element signature="e#5343#5369#0" expanded="true" />
-            <element signature="e#5321#5381#1" expanded="true" />
-            <element signature="e#5486#5520#1" expanded="true" />
-            <element signature="e#5757#5999#0" expanded="true" />
-            <element signature="e#5757#5999#0" expanded="true" />
-            <element signature="e#5807#5853#0" expanded="true" />
-            <element signature="e#5818#5832#0" expanded="true" />
-            <element signature="e#5807#5853#0" expanded="true" />
-            <element signature="e#5807#5853#0" expanded="true" />
-            <element signature="e#5851#5872#0" expanded="true" />
-            <element signature="e#6336#6659#0" expanded="true" />
-            <element signature="e#6336#6659#0" expanded="true" />
-            <element signature="e#6263#6288#0" expanded="true" />
-            <element signature="e#6737#6757#0" expanded="true" />
-            <element signature="e#6737#6757#0" expanded="true" />
-            <element signature="e#7047#7079#0" expanded="true" />
-            <element signature="e#7047#7079#0" expanded="true" />
-            <element signature="e#6864#6877#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
-            <element signature="e#7129#7243#0" expanded="true" />
+            <element signature="e#4061#4101#1" expanded="true" />
+            <element signature="e#4126#4187#1" expanded="true" />
+            <element signature="e#4230#4296#1" expanded="true" />
+            <element signature="e#4305#4347#1" expanded="true" />
+            <element signature="e#4336#4346#0" expanded="true" />
+            <element signature="e#4356#4395#1" expanded="true" />
+            <element signature="e#4384#4394#0" expanded="true" />
+            <element signature="e#4573#4649#1" expanded="true" />
+            <element signature="e#4622#4647#0" expanded="true" />
+            <element signature="e#4691#4706#0" expanded="true" />
+            <element signature="e#4719#4748#1" expanded="true" />
+            <element signature="e#4757#4787#1" expanded="true" />
+            <element signature="e#4826#4846#0" expanded="true" />
+            <element signature="e#4890#4913#1" expanded="true" />
+            <element signature="e#4962#8775#0" expanded="true" />
+            <element signature="e#4962#8775#0" expanded="true" />
+            <element signature="e#5091#5113#1" expanded="true" />
+            <element signature="e#5126#5143#0" expanded="true" />
+            <element signature="e#5091#5095#0" expanded="true" />
+            <element signature="e#5168#5195#1" expanded="true" />
+            <element signature="e#5185#7599#0" expanded="true" />
+            <element signature="e#5185#7599#0" expanded="true" />
+            <element signature="e#5591#5666#1" expanded="true" />
+            <element signature="e#5639#5664#0" expanded="true" />
+            <element signature="e#5835#5889#1" expanded="true" />
+            <element signature="e#5536#5563#0" expanded="true" />
+            <element signature="e#5548#5562#0" expanded="true" />
+            <element signature="e#5536#5563#0" expanded="true" />
+            <element signature="e#5906#5966#1" expanded="true" />
+            <element signature="e#6071#6105#1" expanded="true" />
+            <element signature="e#6029#6347#0" expanded="true" />
+            <element signature="e#6029#6347#0" expanded="true" />
+            <element signature="e#6079#6119#0" expanded="true" />
+            <element signature="e#6091#6105#0" expanded="true" />
+            <element signature="e#6079#6119#0" expanded="true" />
+            <element signature="e#6079#6119#0" expanded="true" />
+            <element signature="e#6141#6201#0" expanded="true" />
+            <element signature="e#6153#6167#0" expanded="true" />
+            <element signature="e#6141#6201#0" expanded="true" />
+            <element signature="e#6141#6201#0" expanded="true" />
+            <element signature="e#6590#6611#0" expanded="true" />
+            <element signature="e#6559#6882#0" expanded="true" />
+            <element signature="e#6559#6882#0" expanded="true" />
+            <element signature="e#7137#7162#0" expanded="true" />
+            <element signature="e#6900#6907#0" />
+            <element signature="e#7379#7419#1" expanded="true" />
+            <element signature="e#7414#7441#0" expanded="true" />
+            <element signature="e#7426#7440#0" expanded="true" />
+            <element signature="e#7414#7441#0" expanded="true" />
+            <element signature="e#7432#7459#1" expanded="true" />
+            <element signature="e#7472#7501#1" expanded="true" />
+            <element signature="e#7514#7531#0" expanded="true" />
+            <element signature="e#7514#7550#1" expanded="true" />
+            <element signature="e#7573#7584#0" expanded="true" />
+            <element signature="e#7579#7583#0" expanded="true" />
+            <element signature="e#7573#7584#0" expanded="true" />
+            <element signature="e#8018#8073#0" expanded="true" />
+            <element signature="e#7971#7992#0" expanded="true" />
+            <element signature="e#8112#8189#1" expanded="true" />
+            <element signature="e#8213#8269#0" expanded="true" />
+            <element signature="e#8226#8268#0" expanded="true" />
+            <element signature="e#8241#8268#0" expanded="true" />
+            <element signature="e#8253#8267#0" expanded="true" />
+            <element signature="e#8241#8268#0" expanded="true" />
+            <element signature="e#8213#8269#0" expanded="true" />
+            <element signature="e#8704#8739#1" expanded="true" />
+            <element signature="e#8748#8839#1" expanded="true" />
+            <element signature="e#8762#8838#0" expanded="true" />
+            <element signature="e#8762#8838#0" expanded="true" />
+            <element signature="e#8937#8974#0" expanded="true" />
+            <element signature="e#8937#8974#0" expanded="true" />
+            <element signature="e#8937#8974#0" expanded="true" />
           </folding>
         </state>
       </provider>
