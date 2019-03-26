@@ -28,12 +28,13 @@ public abstract class SAProblem {
         Utils.dataToTxt(title, data, true);
     }
 
-    public void writeDataDSA(String title, double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp, double density, int markovLen, int maxMarkovLen) {
+    public void writeDataDSA(String title, double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp, double density, int markovLen, double currX) {
         //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
         String data = getString(bestSolution, currentSolution, acceptanceProba, isAccepted, temp);
         data += Utils.format(density, 23);
         data += Utils.format(markovLen, 13);
-        data += Utils.format(maxMarkovLen, 13);
+        data += Utils.format(currX, 23);
+
 
         Utils.dataToTxt(title, data, true);
     }

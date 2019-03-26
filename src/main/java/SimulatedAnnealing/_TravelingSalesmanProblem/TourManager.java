@@ -12,7 +12,7 @@ import java.util.Collections;
 public class TourManager {
 
     // Holds our cities
-    private static ArrayList<City> destinationCities = new ArrayList<City>();
+    public static ArrayList<City> destinationCities = new ArrayList<City>();
 
     /**
      * Adds a destination city
@@ -109,11 +109,10 @@ public class TourManager {
         TourManager.addCity(city20);
         TourManager.addCity(city21);
         TourManager.addCity(city22);
-        TourManager.addCity(city22);
         TourManager.addCity(city23);
         TourManager.addCity(city24);
-        /*TourManager.addCity(city25);
-        TourManager.addCity(city26);
+        //TourManager.addCity(city25);
+        /*TourManager.addCity(city26);
         TourManager.addCity(city27);
         TourManager.addCity(city28);
         TourManager.addCity(city29);

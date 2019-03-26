@@ -52,7 +52,8 @@ public class Main {
         SAProblemsAbstractFactory factory1 = new MinFunctionFactory(range1);
         String title1 = path+"DSA_MinFunction.txt";
         if(MiF_DSA)
-            Optimization.optimizationDSA(10e5, 0.005, 0.05, 1, new ArrayList<>(range1), factory1, title1);  //*/
+            Optimization.optimizationDSA(10e3, 0.002, 0.05, 1, new ArrayList<>(range1), factory1, title1);  //*/
+
     }
 
 

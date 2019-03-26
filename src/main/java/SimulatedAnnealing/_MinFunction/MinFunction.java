@@ -16,8 +16,8 @@ public class MinFunction extends SAProblem {
 
     private double y = Double.POSITIVE_INFINITY;
 
-    private final static double start = -10;
-    private final static double end = 10;
+    private final static double start = -2;
+    private final static double end = 2;
     private final static double step = 0.001;
 
     //to avoid to IndexOutOfRangeError
@@ -133,10 +133,10 @@ public class MinFunction extends SAProblem {
             //System.out.print("CG     :    ");
             nextX = getNextX(CGListX, n);
             boolean unavailable = isUnavailable(CGListX, currX, nextX);
-            while(nextX < start || nextX > end || unavailable) {
+            /*while(nextX < start || nextX > end || unavailable) {
                 nextX = getNextX(CGListX, n);
                 unavailable = isUnavailable(CGListX, currX, nextX);
-            }
+            }*/
             //System.out.println("nextX = " + nextX);
         }
         range.set(range.size()-1, nextX);
@@ -175,9 +175,9 @@ public class MinFunction extends SAProblem {
         o = CGcopy.get(n-1).getList();
         nextX = 2 * G - (double)o.get(o.size()-1);
 
-        //to avoid infinite loop when nextX already exist in CGListX
-        double epsilon = 0.0000000000000001*Utils.randomInt(0,1000);
-        return nextX+epsilon;
+        //to avoid infinite loop when nextX already exist in CGListX when n = 1 OR delete while in transformF° CG part
+        double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
+        return nextX;//+epsilon;
 
     }
 
@@ -191,12 +191,14 @@ public class MinFunction extends SAProblem {
     @Override
     public double objectiveFunction() {
         double x = getCurrX();
-        y = Math.log(0.1*Math.sin(30*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1;
+        y = Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+        //y = x*x+1;
         return y;
     }
 
     public double getObjectiveFunction(Double x) {
-        return Math.log(0.1*Math.sin(30*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1;
+        return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+        //return x*x+1;
     }
 
 
