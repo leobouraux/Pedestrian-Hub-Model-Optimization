@@ -5,8 +5,6 @@ import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class TSP extends SAProblem {
 
@@ -22,7 +20,7 @@ public class TSP extends SAProblem {
         this.tour = new ArrayList<>(tour);
     }
 
-    public ArrayList<Object> getList() {
+    public ArrayList<Object> getParams() {
         return new ArrayList<>(tour);
     }
 

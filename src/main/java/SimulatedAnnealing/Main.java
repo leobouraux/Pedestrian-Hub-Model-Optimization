@@ -40,19 +40,19 @@ public class Main {
 
         /**  MinFunction  */
         //LSA
-        ArrayList<Double> range = MinFunction.problemInit();
-        SAProblemsAbstractFactory factory = new MinFunctionFactory(range);
+        ArrayList<Double> x_only = MinFunction.problemInit();
+        SAProblemsAbstractFactory factory = new MinFunctionFactory(x_only.get(0));
         String title = path+"LSA_MinFunction.txt";
         //initial temp + final temp = small when typical increase of the objective function is small, and the objective function results are small
         if(MiF_LSA)
-            Optimization.optimizationLSA(10, 0.005, 0.001, new ArrayList<>(range), factory, title); //*/
+            Optimization.optimizationLSA(10, 0.005, 0.001, new ArrayList<>(x_only), factory, title); //*/
 
         //DSA
-        ArrayList<Double> range1 = MinFunction.problemInit();
-        SAProblemsAbstractFactory factory1 = new MinFunctionFactory(range1);
+        ArrayList<Double> x_only1 = MinFunction.problemInit();
+        SAProblemsAbstractFactory factory1 = new MinFunctionFactory(x_only1.get(0));
         String title1 = path+"DSA_MinFunction.txt";
         if(MiF_DSA)
-            Optimization.optimizationDSA(10e3, 0.002, 0.05, 1, new ArrayList<>(range1), factory1, title1);  //*/
+            Optimization.optimizationDSA(10e3, 0.002, 0.05, 1, new ArrayList<>(x_only1), factory1, title1);  //*/
 
     }
 

@@ -9,16 +9,13 @@ import java.util.stream.Collectors;
 
 public class MinFunctionFactory implements SAProblemsAbstractFactory {
 
-    private ArrayList<Double> range = new ArrayList<>();
     private double x;
 
-    public MinFunctionFactory(ArrayList<Double> range){
-        this.range = new ArrayList<>(range);
-        this.x=x;
+    public MinFunctionFactory(double x){
+        this.x = x;
     }
 
-
-
+    // MinFunction est definie que par un seul double
     @Override
     public SAProblem createSAProblem(ArrayList<Object> objects) {
 
@@ -26,7 +23,7 @@ public class MinFunctionFactory implements SAProblemsAbstractFactory {
                 .map(object -> (Double) object)
                 .collect(Collectors.toList());
 
-        return new MinFunction(new ArrayList<>(range));
+        return new MinFunction(range.get(0));
     }
 
 }

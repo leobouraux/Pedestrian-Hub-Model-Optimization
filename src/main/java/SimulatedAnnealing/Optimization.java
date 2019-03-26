@@ -12,18 +12,18 @@ public class Optimization {
     //TODO: faire une fonction qui modifie au lieu de créer des instances à chque fois !
 
     public static void optimizationLSA(double temperature, double coolingRate, final double final_temp,
-                                       ArrayList<Object> objects, SAProblemsAbstractFactory factory, String title) {
+                                       ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
         long startTime = System.nanoTime();
         Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|", false);
 
         //Create a random initial tour
-        SAProblem currentSolution = factory.createSAProblem(objects);
+        SAProblem currentSolution = factory.createSAProblem(parameters);
 
         currentSolution.printSolution("The initial solution: ");
 
         // We would like to keep track if the best solution
         // Assume best solution is the current solution
-        SAProblem bestSolution = factory.createSAProblem(currentSolution.getList());
+        SAProblem bestSolution = factory.createSAProblem(currentSolution.getParams());
 
         int loop_nb =0;
         String isAcceptedBest;
@@ -31,7 +31,7 @@ public class Optimization {
         // Loop until system has cooled
         while (temperature > final_temp) {
             //Create the neighbour tour
-            SAProblem newSolution = factory.createSAProblem(currentSolution.getList());
+            SAProblem newSolution = factory.createSAProblem(currentSolution.getParams());
             newSolution = newSolution.transformSolutionLSA();
             isAcceptedBest = "FF";
 
@@ -45,13 +45,13 @@ public class Optimization {
             double rand = Utils.randomProba();
             double acceptanceProba = Utils.acceptanceProbability(currentObjective, neighbourObjective, temperature);
             if (acceptanceProba > rand) {
-                currentSolution = factory.createSAProblem(newSolution.getList());
+                currentSolution = factory.createSAProblem(newSolution.getParams());
                 isAcceptedBest="TF";
             }
 
             // Keep track of the best solution found
             if (currentSolution.objectiveFunction() < bestSolution.objectiveFunction()) {
-                bestSolution = factory.createSAProblem(currentSolution.getList());
+                bestSolution = factory.createSAProblem(currentSolution.getParams());
                 isAcceptedBest="TT";
             }
 
@@ -78,17 +78,17 @@ public class Optimization {
      * @param final_CG_density : objective indicator of the density of the CGList
      * @param final_temp : final temperature
      * @param n : dimension of the problem
-     * @param objects : list that defines the problem
+     * @param parameters : list that defines the problem
      * @param factory : type of problem used
      * @param title : title for data.txt file
      */
     public static void optimizationDSA(double temperature, final double final_CG_density, double final_temp, int n,
-                                       ArrayList<Object> objects, SAProblemsAbstractFactory factory, String title) {
+                                       ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
         long startTime = System.nanoTime();
 
         //Create a random initial problem
         int CGListLength = /*5*(n+1);*/ 7*(n+1);   /*10*(n+1);*/
-        SAProblem currentSolution = factory.createSAProblem(objects);
+        SAProblem currentSolution = factory.createSAProblem(parameters);
 
         //Overwrite the previous .txt file
         Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|", false);
@@ -102,7 +102,7 @@ public class Optimization {
         currentSolution.printSolution("The initial solution: ");
 
         //Keep track if the best solution
-        SAProblem bestSolution = factory.createSAProblem(currentSolution.getList());
+        SAProblem bestSolution = factory.createSAProblem(currentSolution.getParams());
 
         //Outer loop parameters
         int loop_nb =0; //t
@@ -122,7 +122,7 @@ public class Optimization {
 
             while (!check) {
                 //Create the neighbour solution
-                SAProblem newSolution = factory.createSAProblem(currentSolution.getList());
+                SAProblem newSolution = factory.createSAProblem(currentSolution.getParams());
                 newSolution = newSolution.transformSolutionDSA(CGListX, n);
 
                 //Get energy of new solution and worst solution of CGListX
@@ -134,11 +134,10 @@ public class Optimization {
                 acceptanceProba = Utils.acceptanceProbability(worstCGObjective, neighbourObjective, temperature);
 
                 //Solution is accepted
-                //todo là je met le Y dans la liste des X ET faire le reorder
                 if (acceptanceProba > rand) {
                     CGListX.set(CGListLength-1, newSolution);
                     CGListY.set(CGListLength-1, newSolution.objectiveFunction());
-                    currentSolution = factory.createSAProblem(newSolution.getList());
+                    currentSolution = factory.createSAProblem(newSolution.getParams());
                     isAcceptedBest="TF";
                 }
 
@@ -149,7 +148,7 @@ public class Optimization {
 
                 //Keep track of the best solution found (=CGListX[0])
                 if (neighbourObjective < bestSolution.objectiveFunction()) {
-                    bestSolution = factory.createSAProblem(currentSolution.getList());
+                    bestSolution = factory.createSAProblem(currentSolution.getParams());
                     isAcceptedBest="TT";
                     check = true;
                     //Control param CASE 1
@@ -195,7 +194,7 @@ public class Optimization {
 
             if(currentSolution instanceof MinFunction){
                 String s = title.replace("DSA_MinFunction", "DSA_MF_currX");
-                ((MinFunction) currentSolution).writeDataCurrX(s, (double)currentSolution.getList().get(currentSolution.getList().size()-1));
+                ((MinFunction) currentSolution).writeDataCurrX(s, ((MinFunction) currentSolution).getX());
             }
 
         }

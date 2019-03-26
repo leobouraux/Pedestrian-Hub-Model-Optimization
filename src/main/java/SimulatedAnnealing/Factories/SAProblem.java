@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public abstract class SAProblem {
 
-    public abstract ArrayList<Object> getList();
+    public abstract ArrayList<Object> getParams();
 
     public abstract ControlledGestionLists CGInit(int length);
 

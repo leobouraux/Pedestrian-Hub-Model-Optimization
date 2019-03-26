@@ -1,48 +1,67 @@
-package SimulatedAnnealing._MinFunction;
-
+/*package SimulatedAnnealing._MinFunction;
 
 import SimulatedAnnealing.Factories.SAProblem;
 import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
-public class MinFunction extends SAProblem {
+public class MinFunction3D extends SAProblem {
+    private static ArrayList<Double> rangeX = new ArrayList<>();
+    private static ArrayList<Double> rangeY = new ArrayList<>();
+    private static double x;
+    private static double y;
 
-    private final static ArrayList<Double> range = createRange();
+    private final static double startX = -2;
+    private final static double endX = 2;
+    private final static double startY = -2;
+    private final static double endY = 2;
 
-    private double x;
-
-    private final static double start = -2;
-    private final static double end = 2;
     private final static double step = 0.001;
 
     //to avoid to IndexOutOfRangeError
-    private final static int intervalForLocalSearch = Math.min(20, (int)((end-step)/(step*2)-1));
+    private final static int intervalForLocalSearchX = Math.min(20, (int)((endX-step)/(step*2)-1));
+    private final static int intervalForLocalSearchY = Math.min(20, (int)((endY-step)/(step*2)-1));
 
-    public MinFunction(double x){
+
+    public MinFunction3D(ArrayList<Double> rangeX, ArrayList<Double> rangeY, double x, double y){
+        MinFunction3D.rangeX = new ArrayList<>(rangeX);
+        MinFunction3D.rangeX = new ArrayList<>(rangeY);
         this.x = x;
+        this.y = y;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    //liste des paramètres défénissant entièrement le problème : ici une seule variable
     public static ArrayList<Double> problemInit() {
+        rangeX = createRange(startX, endX);
+        rangeY = createRange(startY, endY);
         //last index of range is the current solution
         Random rand = new Random();
-        int index = rand.nextInt(range.size());
-        ArrayList<Double> minFunction = new ArrayList<>();
-        minFunction.add(range.get(index));
-        return minFunction;
+        int index_x = rand.nextInt(rangeX.size());
+        int index_y = rand.nextInt(rangeY.size());
+
+        x = rangeX.get(index_x);
+        y = rangeY.get(index_y);
+
+        rangeX.add(currentX);
+        rangeY.add()
+        return range;
     }
 
-    private static ArrayList<Double> createRange() {
+    //todo
+    private static ArrayList<Double> problemInitCG(double nextX) {
+        ArrayList<Double> rangeX = createRange(startX, endX);
+        ArrayList<Double> rangeY = createRange(startY, endY);
+
+        //last index of range is the current solution
+        rangeX.add(nextX);
+
+        return range;
+    }
+
+    private static ArrayList<Double> createRange(double start, double end) {
         ArrayList<Double> range = new ArrayList<>();
         double i = start;
         while (i <= end) {
@@ -52,11 +71,13 @@ public class MinFunction extends SAProblem {
         return range;
     }
 
+    private double getCurrX(){
+        return range.get(range.size()-1);
+    }
+
     @Override
     public ArrayList<Object> getParams() {
-        ArrayList<Double> list = new ArrayList<>();
-        list.add(x);
-        return new ArrayList<>(list);
+        return new ArrayList<>(range);
     }
 
     @Override
@@ -68,7 +89,7 @@ public class MinFunction extends SAProblem {
         double newX;
         for (int i = 0; i < length; i++) {
             newX = getRandomX();
-            MinFunction pb = new MinFunction(newX);
+            MinFunction pb = new MinFunction(problemInitCG(newX));
             X.add(pb);
             Y.add(getObjectiveFunction(newX));
         }
@@ -79,34 +100,41 @@ public class MinFunction extends SAProblem {
     @Override
     public void printSolution(String s) {
         System.out.println(s);
+        double x = getCurrX();
         System.out.println("For x = " + x + ", y = " + this.objectiveFunction());
     }
 
     @Override
     public SAProblem transformSolutionLSA() {
+        double currX = getCurrX();
         double w = Utils.randomProba();
         double nextX;
         if(w<0.75) {
-            do {
+            nextX = getRandomX();
+            while(currX==nextX) {
                 nextX = getRandomX();
-            } while(x==nextX);
+            }
         }
         else {
             //local search
-            int currIndex = range.indexOf(x);
+            int currIndex = range.indexOf(currX);
             int minIndex = Math.max(0, currIndex-intervalForLocalSearch);
             int maxIndex = Math.min(range.size()-2, currIndex+intervalForLocalSearch);
-            int nextIndex;
-            do{
-                nextIndex = Utils.randomInt(minIndex, maxIndex);
+            int nextIndex = Utils.randomInt(minIndex, maxIndex);
+            nextX = range.get(nextIndex);
+
+            while(currX==nextX) {
+                nextIndex =  Utils.randomInt(minIndex, maxIndex);
                 nextX = range.get(nextIndex);
-            } while(x==nextX);
+            }
         }
-        return new MinFunction(nextX);
+        range.set(range.size()-1, nextX);
+        return new MinFunction(range);
     }
 
     @Override
     public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
+        double currX = getCurrX();
 
         double w = Utils.randomProba();
         double nextX;
@@ -114,7 +142,7 @@ public class MinFunction extends SAProblem {
             //Uniform distribution
             do {
                 nextX = getRandomX();
-            } while(x==nextX);
+            } while(currX==nextX);
         }
         else {
             //Controlled generation
@@ -125,7 +153,8 @@ public class MinFunction extends SAProblem {
             //    unavailable = isUnavailable(CGListX, currX, nextX);
             //}
         }
-        return new MinFunction(nextX);
+        range.set(range.size()-1, nextX);
+        return new MinFunction(range);
     }
 
     private boolean isUnavailable(ArrayList<SAProblem> CGListX, double currX, double nextX) {
@@ -140,6 +169,7 @@ public class MinFunction extends SAProblem {
     }
 
     private double getNextX(ArrayList<SAProblem> CGListX, int n) {
+        ArrayList<Object> o; //created to get SAPB Lists
         double nextX;
 
         //get n random elements in CGList
@@ -149,12 +179,15 @@ public class MinFunction extends SAProblem {
         CGcopy = CGcopy.subList(0, n);
 
         //compute nextX
-        double G = ((MinFunction) (CGListX.get(0))).getX();
+        o = CGListX.get(0).getParams();
+        double G = (double)o.get(o.size()-1);
         for (int i = 0; i < n-1 ; i++) {
-            G+= ((MinFunction) (CGcopy.get(i))).getX();
+            o = CGcopy.get(i).getParams();
+            G+=(double)o.get(o.size()-1);
         }
         G = G / ((double) n);
-        nextX = 2 * G - ((MinFunction) (CGcopy.get(n-1))).getX();
+        o = CGcopy.get(n-1).getParams();
+        nextX = 2 * G - (double)o.get(o.size()-1);
 
         //to avoid infinite loop when nextX already exist in CGListX when n = 1 OR delete while in transformF° CG part
         //double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
@@ -171,7 +204,9 @@ public class MinFunction extends SAProblem {
 
     @Override
     public double objectiveFunction() {
-        return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+        double x = getCurrX();
+        y = Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+        return y;
     }
 
     public double getObjectiveFunction(Double x) {
@@ -184,7 +219,5 @@ public class MinFunction extends SAProblem {
 
         Utils.dataToTxt(title, data, true);
     }
-
-
-
 }
+*/
