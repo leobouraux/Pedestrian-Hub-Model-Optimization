@@ -123,21 +123,18 @@ public class MinFunction extends SAProblem {
         double nextX;
         if(w<0.75) {
             //Uniform distribution
-            nextX = getRandomX();
-            while(currX==nextX) {
+            do {
                 nextX = getRandomX();
-            }
+            } while(currX==nextX);
         }
         else {
             //Controlled generation
-            //System.out.print("CG     :    ");
             nextX = getNextX(CGListX, n);
-            boolean unavailable = isUnavailable(CGListX, currX, nextX);
-            /*while(nextX < start || nextX > end || unavailable) {
-                nextX = getNextX(CGListX, n);
-                unavailable = isUnavailable(CGListX, currX, nextX);
-            }*/
-            //System.out.println("nextX = " + nextX);
+            //boolean unavailable = isUnavailable(CGListX, currX, nextX);
+            //while(nextX < start || nextX > end || unavailable) {
+            //    nextX = getNextX(CGListX, n);
+            //    unavailable = isUnavailable(CGListX, currX, nextX);
+            //}
         }
         range.set(range.size()-1, nextX);
         return new MinFunction(range);
@@ -176,7 +173,7 @@ public class MinFunction extends SAProblem {
         nextX = 2 * G - (double)o.get(o.size()-1);
 
         //to avoid infinite loop when nextX already exist in CGListX when n = 1 OR delete while in transformF° CG part
-        double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
+        //double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
         return nextX;//+epsilon;
 
     }
@@ -192,13 +189,18 @@ public class MinFunction extends SAProblem {
     public double objectiveFunction() {
         double x = getCurrX();
         y = Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
-        //y = x*x+1;
         return y;
     }
 
     public double getObjectiveFunction(Double x) {
         return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
-        //return x*x+1;
+    }
+
+    public void writeDataCurrX(String title, double currX) {
+        String data = "";
+        data += Utils.format(currX, 23);
+
+        Utils.dataToTxt(title, data, true);
     }
 
 

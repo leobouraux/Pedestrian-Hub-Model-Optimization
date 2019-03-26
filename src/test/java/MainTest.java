@@ -15,7 +15,8 @@ public class MainTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.out.println(0.5692953114849433-0.569290294642631);
+        String s = "xyz/pomme.txt";
+        System.out.println(s.replace("pomme", "currx"));
     }
 
 }
