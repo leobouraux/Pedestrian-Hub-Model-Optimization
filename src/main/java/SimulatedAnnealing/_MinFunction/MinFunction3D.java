@@ -1,4 +1,4 @@
-/*package SimulatedAnnealing._MinFunction;
+package SimulatedAnnealing._MinFunction;
 
 import SimulatedAnnealing.Factories.SAProblem;
 import SimulatedAnnealing.Others.ControlledGestionLists;
@@ -10,214 +10,207 @@ import java.util.List;
 import java.util.Random;
 
 public class MinFunction3D extends SAProblem {
-    private static ArrayList<Double> rangeX = new ArrayList<>();
-    private static ArrayList<Double> rangeY = new ArrayList<>();
-    private static double x;
-    private static double y;
 
-    private final static double startX = -2;
-    private final static double endX = 2;
-    private final static double startY = -2;
-    private final static double endY = 2;
-
-    private final static double step = 0.001;
+    private final static double startX = -10;
+    private final static double endX = -10;
+    private final static double startY = -10;
+    private final static double endY = 10;
 
     //to avoid to IndexOutOfRangeError
-    private final static int intervalForLocalSearchX = Math.min(20, (int)((endX-step)/(step*2)-1));
-    private final static int intervalForLocalSearchY = Math.min(20, (int)((endY-step)/(step*2)-1));
+    private final static double intervalForLocalSearchX = (endX-startX)/20.0;
+    private final static double intervalForLocalSearchY = (endY-startY)/20.0;
+
+    private double curr_x;
+    private double curr_y;
 
 
-    public MinFunction3D(ArrayList<Double> rangeX, ArrayList<Double> rangeY, double x, double y){
-        MinFunction3D.rangeX = new ArrayList<>(rangeX);
-        MinFunction3D.rangeX = new ArrayList<>(rangeY);
-        this.x = x;
-        this.y = y;
+
+    public MinFunction3D(double curr_x, double curr_y){
+        this.curr_x = curr_x;
+        this.curr_y = curr_y;
     }
 
+    public double getX() {
+        return curr_x;
+    }
+
+    public double getY() {
+        return curr_y;
+    }
+
+
+    //liste des paramètres défénissant entièrement le problème : ici une seule variable
     public static ArrayList<Double> problemInit() {
-        rangeX = createRange(startX, endX);
-        rangeY = createRange(startY, endY);
-        //last index of range is the current solution
-        Random rand = new Random();
-        int index_x = rand.nextInt(rangeX.size());
-        int index_y = rand.nextInt(rangeY.size());
+        ArrayList<Double> minFunction = new ArrayList<>();
+        double x = Utils.randomDouble(startX, endX);
+        double y = Utils.randomDouble(startY, endY);
+        minFunction.add(x);
+        minFunction.add(y);
 
-        x = rangeX.get(index_x);
-        y = rangeY.get(index_y);
-
-        rangeX.add(currentX);
-        rangeY.add()
-        return range;
+        return minFunction;
     }
 
-    //todo
-    private static ArrayList<Double> problemInitCG(double nextX) {
-        ArrayList<Double> rangeX = createRange(startX, endX);
-        ArrayList<Double> rangeY = createRange(startY, endY);
-
-        //last index of range is the current solution
-        rangeX.add(nextX);
-
-        return range;
-    }
-
-    private static ArrayList<Double> createRange(double start, double end) {
-        ArrayList<Double> range = new ArrayList<>();
-        double i = start;
-        while (i <= end) {
-            range.add(i);
-            i += step;
-        }
-        return range;
-    }
-
-    private double getCurrX(){
-        return range.get(range.size()-1);
-    }
 
     @Override
     public ArrayList<Object> getParams() {
-        return new ArrayList<>(range);
+        ArrayList<Double> list = new ArrayList<>();
+        list.add(curr_x);
+        list.add(curr_y);
+        return new ArrayList<>(list);
     }
 
     @Override
     public ControlledGestionLists CGInit(int length) {
-        if(length > range.size())
-            System.err.println("Length of A too big");
-        ArrayList<SAProblem> X = new ArrayList<>(length);
-        ArrayList<Double> Y = new ArrayList<>(length);
-        double newX;
+        ArrayList<SAProblem> XY = new ArrayList<>(length);
+        ArrayList<Double> Z = new ArrayList<>(length);
+        double newX, newY;
         for (int i = 0; i < length; i++) {
             newX = getRandomX();
-            MinFunction pb = new MinFunction(problemInitCG(newX));
-            X.add(pb);
-            Y.add(getObjectiveFunction(newX));
+            newY = getRandomY();
+            MinFunction3D pb = new MinFunction3D(newX, newY);
+            XY.add(pb);
+            Z.add(getObjectiveFunction(newX, newY));
         }
-        ControlledGestionLists.reorderCGs(X, Y);
-        return new ControlledGestionLists(X,Y);
+        ControlledGestionLists.reorderCGs(XY, Z);
+        return new ControlledGestionLists(XY,Z);
     }
 
     @Override
     public void printSolution(String s) {
         System.out.println(s);
-        double x = getCurrX();
-        System.out.println("For x = " + x + ", y = " + this.objectiveFunction());
+        System.out.println("For x = " + curr_x + ", y = " + curr_y + " ---> z = " + this.objectiveFunction());
     }
 
     @Override
     public SAProblem transformSolutionLSA() {
-        double currX = getCurrX();
         double w = Utils.randomProba();
-        double nextX;
+        double nextX, nextY;
         if(w<0.75) {
-            nextX = getRandomX();
-            while(currX==nextX) {
+            do {
                 nextX = getRandomX();
-            }
+                nextY = getRandomY();
+            } while(curr_x==nextX || curr_y==nextY);
         }
         else {
             //local search
-            int currIndex = range.indexOf(currX);
-            int minIndex = Math.max(0, currIndex-intervalForLocalSearch);
-            int maxIndex = Math.min(range.size()-2, currIndex+intervalForLocalSearch);
-            int nextIndex = Utils.randomInt(minIndex, maxIndex);
-            nextX = range.get(nextIndex);
-
-            while(currX==nextX) {
-                nextIndex =  Utils.randomInt(minIndex, maxIndex);
-                nextX = range.get(nextIndex);
-            }
+            double minX = Math.max(startX, curr_x-intervalForLocalSearchX);
+            double maxX = Math.min(curr_x+intervalForLocalSearchX, endX);
+            double minY = Math.max(startY, curr_y-intervalForLocalSearchY);
+            double maxY = Math.min(curr_y+intervalForLocalSearchY, endY);
+            do{
+                nextX = Utils.randomDouble(minX, maxX);
+                nextY = Utils.randomDouble(minY, maxY);
+            } while(curr_x==nextX || curr_y==nextY);
         }
-        range.set(range.size()-1, nextX);
-        return new MinFunction(range);
+        return new MinFunction3D(nextX, nextY);
     }
 
     @Override
-    public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
-        double currX = getCurrX();
+    public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListXY, int n) {
 
         double w = Utils.randomProba();
         double nextX;
+        double nextY;
         if(w<0.75) {
             //Uniform distribution
             do {
                 nextX = getRandomX();
-            } while(currX==nextX);
+                nextY = getRandomY();
+            } while(curr_x==nextX || curr_y==nextY);
         }
         else {
             //Controlled generation
-            nextX = getNextX(CGListX, n);
-            //boolean unavailable = isUnavailable(CGListX, currX, nextX);
-            //while(nextX < start || nextX > end || unavailable) {
-            //    nextX = getNextX(CGListX, n);
-            //    unavailable = isUnavailable(CGListX, currX, nextX);
-            //}
-        }
-        range.set(range.size()-1, nextX);
-        return new MinFunction(range);
-    }
-
-    private boolean isUnavailable(ArrayList<SAProblem> CGListX, double currX, double nextX) {
-        boolean unavailable = (nextX == currX);
-        for (SAProblem pb : CGListX) {
-            double xInCG = (double) pb.getParams().get(pb.getParams().size()-1);
-            if(nextX == xInCG) {
-                unavailable = true;
+            boolean check, stuck = false;
+            int i = 0;
+            do {
+                nextX = getNextCGx(CGListXY, n);
+                nextY = getNextCGy(CGListXY, n);
+                check = nextX >= startX && nextX <= endX
+                        && nextY >= startY && nextY <= endY;
+                //on est bloqué
+                if(i>=7*(n+1)) {
+                    check = true;
+                    stuck = true;
+                }
+                i++;
+            } while(!check);
+            //quand on est bloqué dans le CG : deux mini locaux sont trop près de xMin et xMax et quand n = 1 --> nextX = 2 * xMin - xMax = OUT
+            //local best search
+            if(stuck) {
+                double bestX = ((MinFunction3D)CGListXY.get(0)).getX();
+                double bestY = ((MinFunction3D)CGListXY.get(0)).getY();
+                double minX = Math.max(startX, bestX-intervalForLocalSearchX);
+                double maxX = Math.min(bestX+intervalForLocalSearchX, endX);
+                double minY = Math.max(startY, bestY-intervalForLocalSearchY);
+                double maxY = Math.min(bestY+intervalForLocalSearchY, endY);
+                nextX = Utils.randomDouble(minX, maxX);
+                nextY = Utils.randomDouble(minY, maxY);
+                System.out.println("local best search");
             }
         }
-        return unavailable;
+        return new MinFunction3D(nextX, nextY);
     }
 
-    private double getNextX(ArrayList<SAProblem> CGListX, int n) {
-        ArrayList<Object> o; //created to get SAPB Lists
-        double nextX;
-
+    private double getNextCGx(ArrayList<SAProblem> CGList, int n) {
         //get n random elements in CGList
-        List<SAProblem> CGcopy = new ArrayList<>(CGListX);
+        List<SAProblem> CGcopy = new ArrayList<>(CGList);
         CGcopy.remove(0);
         Collections.shuffle(CGcopy);
         CGcopy = CGcopy.subList(0, n);
 
         //compute nextX
-        o = CGListX.get(0).getParams();
-        double G = (double)o.get(o.size()-1);
+        double G = ((MinFunction3D) (CGList.get(0))).getX();
         for (int i = 0; i < n-1 ; i++) {
-            o = CGcopy.get(i).getParams();
-            G+=(double)o.get(o.size()-1);
+            G+= ((MinFunction3D) (CGcopy.get(i))).getX();
         }
         G = G / ((double) n);
-        o = CGcopy.get(n-1).getParams();
-        nextX = 2 * G - (double)o.get(o.size()-1);
-
-        //to avoid infinite loop when nextX already exist in CGListX when n = 1 OR delete while in transformF° CG part
-        //double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
-        return nextX;//+epsilon;
+        return 2 * G - ((MinFunction3D) (CGcopy.get(n-1))).getX();
 
     }
 
+    private double getNextCGy(ArrayList<SAProblem> CGList, int n) {
+        //get n random elements in CGList
+        List<SAProblem> CGcopy = new ArrayList<>(CGList);
+        CGcopy.remove(0);
+        Collections.shuffle(CGcopy);
+        CGcopy = CGcopy.subList(0, n);
+
+        //compute nextX
+        double G = ((MinFunction3D) (CGList.get(0))).getY();
+        for (int i = 0; i < n-1 ; i++) {
+            G+= ((MinFunction3D) (CGcopy.get(i))).getY();
+        }
+        G = G / ((double) n);
+        return 2 * G - ((MinFunction3D) (CGcopy.get(n-1))).getY();
+    }
+
     private double getRandomX() {
-        Random rand = new Random();
-        int index = rand.nextInt(range.size()-2);
-        return range.get(index);
+        return Utils.randomDouble(startX, endX);
+    }
+
+    private double getRandomY() {
+        return Utils.randomDouble(startY, endY);
     }
 
 
     @Override
     public double objectiveFunction() {
-        double x = getCurrX();
-        y = Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
-        return y;
+        return getObjectiveFunction(curr_x, curr_y);
     }
 
-    public double getObjectiveFunction(Double x) {
-        return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+    private double getObjectiveFunction(double x, double y) {
+        return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(x-2, 2))+2;
     }
 
-    public void writeDataCurrX(String title, double currX) {
+    public void writeDataCurrXY(String title, double bestX, double currX, double bestY, double currY) {
         String data = "";
+        data += Utils.format(bestX, 23);
         data += Utils.format(currX, 23);
+        data += Utils.format(bestY, 23);
+        data += Utils.format(currY, 23);
 
         Utils.dataToTxt(title, data, true);
     }
+
+
 }
-*/

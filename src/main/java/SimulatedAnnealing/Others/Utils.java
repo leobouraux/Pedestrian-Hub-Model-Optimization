@@ -143,6 +143,20 @@ public class Utils {
         return (int) (min + randomProba() * Math.abs(max - min));
     }
 
+    public static double randomDouble(double min, double max) {
+        if(min>max) {
+            double temp = min;
+            min = max;
+            max = temp;
+        } else if(min==max) {
+            return min;
+        }
+        Random r = new Random();
+        double randomValue = min + (max - min) * r.nextDouble();
+        return randomValue;
+
+    }
+
     public static void dataToTxt(String title, String data, boolean append){
         BufferedWriter writer = null;
         try {

@@ -9,24 +9,17 @@ import java.util.*;
 
 public class MinFunction extends SAProblem {
 
-    private final static ArrayList<Double> range = createRange();
-
     private double x;
 
-    private final static double start = -2;
-    private final static double end = 2;
-    private final static double step = 0.001;
+    private final static double start = -3;
+    private final static double end = 3;
 
-    //to avoid to IndexOutOfRangeError
-    private final static int intervalForLocalSearch = Math.min(20, (int)((end-step)/(step*2)-1));
+    private final static double intervalForLocalSearch = (end-start)/20.0;
 
     public MinFunction(double x){
         this.x = x;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
 
     public double getX() {
         return x;
@@ -34,22 +27,10 @@ public class MinFunction extends SAProblem {
 
     //liste des paramètres défénissant entièrement le problème : ici une seule variable
     public static ArrayList<Double> problemInit() {
-        //last index of range is the current solution
-        Random rand = new Random();
-        int index = rand.nextInt(range.size());
+        double x = Utils.randomDouble(start, end);
         ArrayList<Double> minFunction = new ArrayList<>();
-        minFunction.add(range.get(index));
+        minFunction.add(x);
         return minFunction;
-    }
-
-    private static ArrayList<Double> createRange() {
-        ArrayList<Double> range = new ArrayList<>();
-        double i = start;
-        while (i <= end) {
-            range.add(i);
-            i += step;
-        }
-        return range;
     }
 
     @Override
@@ -61,8 +42,7 @@ public class MinFunction extends SAProblem {
 
     @Override
     public ControlledGestionLists CGInit(int length) {
-        if(length > range.size())
-            System.err.println("Length of A too big");
+
         ArrayList<SAProblem> X = new ArrayList<>(length);
         ArrayList<Double> Y = new ArrayList<>(length);
         double newX;
@@ -93,13 +73,10 @@ public class MinFunction extends SAProblem {
         }
         else {
             //local search
-            int currIndex = range.indexOf(x);
-            int minIndex = Math.max(0, currIndex-intervalForLocalSearch);
-            int maxIndex = Math.min(range.size()-2, currIndex+intervalForLocalSearch);
-            int nextIndex;
+            double min = Math.max(start, x-intervalForLocalSearch);
+            double max = Math.min(x+intervalForLocalSearch, end);
             do{
-                nextIndex = Utils.randomInt(minIndex, maxIndex);
-                nextX = range.get(nextIndex);
+                nextX = Utils.randomDouble(min, max);
             } while(x==nextX);
         }
         return new MinFunction(nextX);
@@ -107,8 +84,8 @@ public class MinFunction extends SAProblem {
 
     @Override
     public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
-
         double w = Utils.randomProba();
+
         double nextX;
         if(w<0.75) {
             //Uniform distribution
@@ -118,25 +95,30 @@ public class MinFunction extends SAProblem {
         }
         else {
             //Controlled generation
-            nextX = getNextX(CGListX, n);
-            //boolean unavailable = isUnavailable(CGListX, currX, nextX);
-            //while(nextX < start || nextX > end || unavailable) {
-            //    nextX = getNextX(CGListX, n);
-            //    unavailable = isUnavailable(CGListX, currX, nextX);
-            //}
-        }
-        return new MinFunction(nextX);
-    }
+            boolean check, stuck = false;
+            int i = 0;
+            do {
+                nextX = getNextX(CGListX, n);
+                check = nextX >= start && nextX <= end;
+                //on est bloqué
+                if(i>=7*(n+1)) {
+                    check = true;
+                    stuck = true;
+                }
+                i++;
+            } while(!check);
 
-    private boolean isUnavailable(ArrayList<SAProblem> CGListX, double currX, double nextX) {
-        boolean unavailable = (nextX == currX);
-        for (SAProblem pb : CGListX) {
-            double xInCG = (double) pb.getParams().get(pb.getParams().size()-1);
-            if(nextX == xInCG) {
-                unavailable = true;
+            //quand on est bloqué dans le CG : deux mini locaux sont trop près de xMin et xMax et quand n = 1 --> nextX = 2 * xMin - xMax = OUT
+            //local best search
+            if(stuck) {
+                double bestX = ((MinFunction)CGListX.get(0)).getX();
+                double min = Math.max(start, bestX-intervalForLocalSearch);
+                double max = Math.min(bestX+intervalForLocalSearch, end);
+                nextX = Utils.randomDouble(min, max);
+                System.out.println("local best search");
             }
         }
-        return unavailable;
+        return new MinFunction(nextX);
     }
 
     private double getNextX(ArrayList<SAProblem> CGListX, int n) {
@@ -156,30 +138,32 @@ public class MinFunction extends SAProblem {
         G = G / ((double) n);
         nextX = 2 * G - ((MinFunction) (CGcopy.get(n-1))).getX();
 
-        //to avoid infinite loop when nextX already exist in CGListX when n = 1 OR delete while in transformF° CG part
-        //double epsilon = 0.0000000000000001*Utils.randomInt(0,10);
-        return nextX;//+epsilon;
+        return nextX;
 
     }
 
     private double getRandomX() {
-        Random rand = new Random();
-        int index = rand.nextInt(range.size()-2);
-        return range.get(index);
+        return Utils.randomDouble(start, end);
     }
 
 
     @Override
     public double objectiveFunction() {
-        return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+        return getObjectiveFunction(x);
+
     }
 
-    public double getObjectiveFunction(Double x) {
-        return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+    private double getObjectiveFunction(Double x) {
+        //easy one
+        //return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
+
+        //hard one
+        return Math.log(0.1*Math.sin(30*x)+0.01*Math.pow(x, 4)-0.1*Math.pow(x, 2) + 1)+1;
     }
 
-    public void writeDataCurrX(String title, double currX) {
+    public void writeDataCurrX(String title, double bestX, double currX) {
         String data = "";
+        data += Utils.format(bestX, 23);
         data += Utils.format(currX, 23);
 
         Utils.dataToTxt(title, data, true);

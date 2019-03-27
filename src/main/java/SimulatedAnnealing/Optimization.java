@@ -13,13 +13,13 @@ public class Optimization {
 
     public static void optimizationLSA(double temperature, double coolingRate, final double final_temp,
                                        ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
-        long startTime = System.nanoTime();
-        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|", false);
-
         //Create a random initial tour
         SAProblem currentSolution = factory.createSAProblem(parameters);
-
         currentSolution.printSolution("The initial solution: ");
+
+        long startTime = dataVisualizationGeneral1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|");
+        if(currentSolution instanceof MinFunction){ String s = title.replace("LSA_MinFunction", "LSA_MF_currX"); Utils.dataToTxt(s, "                 BEST x|                 CURR x|", false); }
+
 
         // We would like to keep track if the best solution
         // Assume best solution is the current solution
@@ -64,12 +64,7 @@ public class Optimization {
             );
         }
 
-        long endTime   = System.nanoTime();
-        String data = "Runtime: " + String.valueOf((endTime - startTime)/Math.pow(10, 9)) + " sec";
-        data += "\n" + "Nbr itérations: " + loop_nb;
-        Utils.dataToTxt(title, data, true);
-
-        bestSolution.printSolution("The best solution: ");
+        dataVisualizationGeneral2(title, startTime, bestSolution, loop_nb, "Nbr itérations: ");
     }
 
 
@@ -84,15 +79,13 @@ public class Optimization {
      */
     public static void optimizationDSA(double temperature, final double final_CG_density, double final_temp, int n,
                                        ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
-        long startTime = System.nanoTime();
-
         //Create a random initial problem
         int CGListLength = /*5*(n+1);*/ 7*(n+1);   /*10*(n+1);*/
         SAProblem currentSolution = factory.createSAProblem(parameters);
 
         //Overwrite the previous .txt file
-        Utils.dataToTxt(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|", false);
-        if(currentSolution instanceof MinFunction){ String s = title.replace("DSA_MinFunction", "DSA_MF_currX"); Utils.dataToTxt(s, "|", false); }
+        long startTime = dataVisualizationGeneral1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|");
+        if(currentSolution instanceof MinFunction){ String s = title.replace("DSA_MinFunction", "DSA_MF_currX"); Utils.dataToTxt(s, "                 BEST x|                 CURR x|", false); }
 
         //Initialize list for CG
         ControlledGestionLists CGs = currentSolution.CGInit(CGListLength);
@@ -124,6 +117,8 @@ public class Optimization {
                 //Create the neighbour solution
                 SAProblem newSolution = factory.createSAProblem(currentSolution.getParams());
                 newSolution = newSolution.transformSolutionDSA(CGListX, n);
+
+                System.out.println("currX = " + newSolution.getParams().get(0));
 
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
@@ -164,6 +159,7 @@ public class Optimization {
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
             }
+            System.out.println();
 
 
 
@@ -182,6 +178,15 @@ public class Optimization {
 
             //Stopping criterion
             double CG_density = CGListY.get(CGListLength-1)-CGListY.get(0); //Math.abs(1 - CGListY.get(0)/CGListY.get(CGListLength-1));
+            System.out.println("CG_density = " + CG_density);
+            System.out.println("temperature = " + temperature);
+            System.out.print("CGListX = [");
+            for (SAProblem pb : CGListX) {
+                System.out.print(pb.getParams().get(0)+", ");
+            }
+            System.out.println("]");
+            System.out.println("CGListY = " + CGListY);
+
             stopCriterion = temperature <= final_temp && CG_density <= final_CG_density;
 
             //Cool system
@@ -194,17 +199,27 @@ public class Optimization {
 
             if(currentSolution instanceof MinFunction){
                 String s = title.replace("DSA_MinFunction", "DSA_MF_currX");
-                ((MinFunction) currentSolution).writeDataCurrX(s, ((MinFunction) currentSolution).getX());
+                ((MinFunction) currentSolution).writeDataCurrX(s, ((MinFunction) bestSolution).getX(),((MinFunction) currentSolution).getX());
             }
 
         }
 
-        long endTime   = System.nanoTime();
-        String data = "Runtime: " + String.valueOf((endTime - startTime)/Math.pow(10, 9)) + " sec";
-        data += "\n" + "Nbr d'outer loop: " + loop_nb;
+        dataVisualizationGeneral2(title, startTime, bestSolution, loop_nb, "Nbr d'outer loop: ");
+    }//*/
+
+
+    private static long dataVisualizationGeneral1(String title, String s2) {
+        long startTime = System.nanoTime();
+        Utils.dataToTxt(title, s2, false);
+        return startTime;
+    }
+    private static void dataVisualizationGeneral2(String title, long startTime, SAProblem bestSolution, int loop_nb, String s2) {
+        long endTime = System.nanoTime();
+        String data = "Runtime: " + String.valueOf((endTime - startTime) / Math.pow(10, 9)) + " sec";
+        data += "\n" + s2 + loop_nb;
         Utils.dataToTxt(title, data, true);
 
         bestSolution.printSolution("The best solution: ");
-    }//*/
+    }
 
 }
