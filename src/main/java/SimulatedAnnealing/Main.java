@@ -16,10 +16,10 @@ public class Main {
     private static boolean TSP_LSA = false;
 
     private static boolean MiF_LSA = false;
-    private static boolean MiF_DSA = true;
+    private static boolean MiF_DSA = false;
 
     private static boolean MiF3D_LSA = false;
-    private static boolean MiF3D_DSA = false;
+    private static boolean MiF3D_DSA = true;
 
 
 
@@ -65,10 +65,12 @@ public class Main {
 
         //DSA
         ArrayList<Double> x_y1 = MinFunction3D.problemInit();
+        System.out.println(x_y1);
         SAProblemsAbstractFactory factory3 = new MinFunction3DFactory(x_y1.get(0), x_y1.get(1));
         String title3Db = path+"DSA_MinFunction3D.txt";
         if(MiF3D_DSA)
-            Optimization.optimizationDSA(10e3, 0.002, 0.05, 1, new ArrayList<>(x_y1), factory3, title3Db);  //*/
+            Optimization.optimizationDSA(10e3, 0.002, 0.05, 2, new ArrayList<>(x_y1), factory3, title3Db);  //*/
+
 
     }
 

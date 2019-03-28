@@ -5,6 +5,7 @@ import SimulatedAnnealing.Factories.SAProblemsAbstractFactory;
 import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 import SimulatedAnnealing._MinFunction.MinFunction;
+import SimulatedAnnealing._MinFunction.MinFunction3D;
 
 import java.util.ArrayList;
 
@@ -85,7 +86,7 @@ public class Optimization {
 
         //Overwrite the previous .txt file
         long startTime = dataVisualizationGeneral1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|");
-        if(currentSolution instanceof MinFunction){ String s = title.replace("DSA_MinFunction", "DSA_MF_currX"); Utils.dataToTxt(s, "                 BEST x|                 CURR x|", false); }
+        dataVisualizationSpecial(title, currentSolution);
 
         //Initialize list for CG
         ControlledGestionLists CGs = currentSolution.CGInit(CGListLength);
@@ -178,14 +179,14 @@ public class Optimization {
 
             //Stopping criterion
             double CG_density = CGListY.get(CGListLength-1)-CGListY.get(0); //Math.abs(1 - CGListY.get(0)/CGListY.get(CGListLength-1));
-            System.out.println("CG_density = " + CG_density);
-            System.out.println("temperature = " + temperature);
-            System.out.print("CGListX = [");
-            for (SAProblem pb : CGListX) {
-                System.out.print(pb.getParams().get(0)+", ");
-            }
-            System.out.println("]");
-            System.out.println("CGListY = " + CGListY);
+//            System.out.println("CG_density = " + CG_density);
+//            System.out.println("temperature = " + temperature);
+//            System.out.print("CGListX = [");
+//            for (SAProblem pb : CGListX) {
+//                System.out.print(pb.getParams().get(0)+", ");
+//            }
+//            System.out.println("]");
+//            System.out.println("CGListY = " + CGListY);
 
             stopCriterion = temperature <= final_temp && CG_density <= final_CG_density;
 
@@ -197,10 +198,7 @@ public class Optimization {
             currentSolution.writeDataDSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
                     acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
 
-            if(currentSolution instanceof MinFunction){
-                String s = title.replace("DSA_MinFunction", "DSA_MF_currX");
-                ((MinFunction) currentSolution).writeDataCurrX(s, ((MinFunction) bestSolution).getX(),((MinFunction) currentSolution).getX());
-            }
+            dataVisualizationSpecial2(title, currentSolution, bestSolution);
 
         }
 
@@ -208,6 +206,28 @@ public class Optimization {
     }//*/
 
 
+    private static void dataVisualizationSpecial(String title, SAProblem currentSolution) {
+        if(currentSolution instanceof MinFunction){
+            String s = title.replace("DSA_MinFunction", "DSA_MF_currX");
+            Utils.dataToTxt(s, "                 BEST x|                 CURR x|", false);
+        }
+        else if(currentSolution instanceof MinFunction3D){
+            String s = title.replace("DSA_MinFunction3D", "DSA_MF3D_currXY");
+            Utils.dataToTxt(s, "                 BEST x|                 CURR x|                 BEST y|                 CURR y|", false);
+        }
+    }
+    private static void dataVisualizationSpecial2(String title, SAProblem currentSolution, SAProblem bestSolution) {
+        if(currentSolution instanceof MinFunction){
+            String s = title.replace("DSA_MinFunction", "DSA_MF_currX");
+            ((MinFunction) currentSolution).writeDataCurrX(s, ((MinFunction) bestSolution).getX(),((MinFunction) currentSolution).getX());
+        }
+        else if(currentSolution instanceof MinFunction3D){
+            String s = title.replace("DSA_MinFunction3D", "DSA_MF3D_currXY");
+            ((MinFunction3D) currentSolution).writeDataCurrXY(s,
+                    ((MinFunction3D) bestSolution).getX(),((MinFunction3D) currentSolution).getX(),
+                    ((MinFunction3D) bestSolution).getY(),((MinFunction3D) currentSolution).getY());
+        }
+    }
     private static long dataVisualizationGeneral1(String title, String s2) {
         long startTime = System.nanoTime();
         Utils.dataToTxt(title, s2, false);

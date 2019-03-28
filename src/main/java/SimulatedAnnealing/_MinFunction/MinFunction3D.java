@@ -12,7 +12,7 @@ import java.util.Random;
 public class MinFunction3D extends SAProblem {
 
     private final static double startX = -10;
-    private final static double endX = -10;
+    private final static double endX = 10;
     private final static double startY = -10;
     private final static double endY = 10;
 
@@ -199,7 +199,7 @@ public class MinFunction3D extends SAProblem {
     }
 
     private double getObjectiveFunction(double x, double y) {
-        return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(x-2, 2))+2;
+        return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2))+2;
     }
 
     public void writeDataCurrXY(String title, double bestX, double currX, double bestY, double currY) {
