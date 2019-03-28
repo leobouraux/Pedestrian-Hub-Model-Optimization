@@ -27,16 +27,6 @@ public class TSP extends SAProblem {
 
     @Override
     public ControlledGestionLists CGInit(int length) {
-//        ArrayList<SAProblem> X = new ArrayList<>(length);
-//        ArrayList<Double> Y = new ArrayList<>(length);
-//        for (int i = 0; i < length; i++) {
-//            ArrayList<City> cities = TourManager.problemInit();
-//            TSP pb = new TSP(cities);
-//            X.add(pb);
-//            Y.add(getObjectiveFunction(cities));
-//        }
-//        ControlledGestionLists.reorderCGs(X, Y);
-//        return new ControlledGestionLists(X,Y);
         return null;
     }
 
@@ -96,18 +86,6 @@ public class TSP extends SAProblem {
 
     @Override
     public SAProblem transformSolutionDSA(ArrayList<SAProblem> CGListX, int n) {
-//        double w = Utils.randomProba();
-//        if(w<0.75) {
-//            return transformSolutionLSA();
-//        }
-//        else {
-//            TSP newSolution = new TSP(tour);
-//            List<SAProblem> CGcopy = new ArrayList<>(CGListX);
-//            CGcopy.remove(0);
-//            Collections.shuffle(CGcopy);
-//            CGcopy = CGcopy.subList(0, n);
-//            double G = CGListX.get(0); //not continuous
-//        }
         return null;
     }
 

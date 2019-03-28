@@ -16,8 +16,8 @@ public class MinFunction extends SAProblem {
 
     private final static double intervalForLocalSearch = (end-start)/20.0;
 
-    public MinFunction(double x){
-        this.x = x;
+    public MinFunction(List<Double> param){
+        this.x = param.get(0);
     }
 
 
@@ -48,7 +48,7 @@ public class MinFunction extends SAProblem {
         double newX;
         for (int i = 0; i < length; i++) {
             newX = getRandomX();
-            MinFunction pb = new MinFunction(newX);
+            MinFunction pb = new MinFunction(Collections.singletonList(newX));
             X.add(pb);
             Y.add(getObjectiveFunction(newX));
         }
@@ -79,7 +79,7 @@ public class MinFunction extends SAProblem {
                 nextX = Utils.randomDouble(min, max);
             } while(x==nextX);
         }
-        return new MinFunction(nextX);
+        return new MinFunction(Arrays.asList(nextX));
     }
 
     @Override
@@ -118,7 +118,7 @@ public class MinFunction extends SAProblem {
                 System.out.println("local best search");
             }
         }
-        return new MinFunction(nextX);
+        return new MinFunction((Arrays.asList(nextX)));
     }
 
     private double getNextX(ArrayList<SAProblem> CGListX, int n) {

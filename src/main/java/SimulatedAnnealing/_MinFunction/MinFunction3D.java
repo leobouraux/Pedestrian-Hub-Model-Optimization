@@ -5,9 +5,9 @@ import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class MinFunction3D extends SAProblem {
 
@@ -25,9 +25,9 @@ public class MinFunction3D extends SAProblem {
 
 
 
-    public MinFunction3D(double curr_x, double curr_y){
-        this.curr_x = curr_x;
-        this.curr_y = curr_y;
+    public MinFunction3D(List<Double> params){
+        this.curr_x = params.get(0);
+        this.curr_y = params.get(1);
     }
 
     public double getX() {
@@ -67,7 +67,7 @@ public class MinFunction3D extends SAProblem {
         for (int i = 0; i < length; i++) {
             newX = getRandomX();
             newY = getRandomY();
-            MinFunction3D pb = new MinFunction3D(newX, newY);
+            MinFunction3D pb = new MinFunction3D(Arrays.asList(newX, newY));
             XY.add(pb);
             Z.add(getObjectiveFunction(newX, newY));
         }
@@ -102,7 +102,7 @@ public class MinFunction3D extends SAProblem {
                 nextY = Utils.randomDouble(minY, maxY);
             } while(curr_x==nextX || curr_y==nextY);
         }
-        return new MinFunction3D(nextX, nextY);
+        return new MinFunction3D(Arrays.asList(nextX, nextY));
     }
 
     @Override
@@ -148,7 +148,7 @@ public class MinFunction3D extends SAProblem {
                 System.out.println("local best search");
             }
         }
-        return new MinFunction3D(nextX, nextY);
+        return new MinFunction3D(Arrays.asList(nextX, nextY));
     }
 
     private double getNextCGx(ArrayList<SAProblem> CGList, int n) {
@@ -203,7 +203,7 @@ public class MinFunction3D extends SAProblem {
         //return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2))+2;
 
         //hard one
-        return 0.5*(Math.sin(2*x)+Math.sin(2*y))+0.005*(Math.pow(x,2)+Math.pow(y,2));
+        return 0.5*(Math.sin(2*x)+Math.sin(2*y))+0.005*(Math.pow(x,2)+Math.pow(y,2))+1;
     }
 
     public void writeDataCurrXY(String title, double bestX, double currX, double bestY, double currY) {

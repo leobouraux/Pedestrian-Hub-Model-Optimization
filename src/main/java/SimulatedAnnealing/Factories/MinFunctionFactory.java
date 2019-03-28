@@ -9,21 +9,15 @@ import java.util.stream.Collectors;
 
 public class MinFunctionFactory implements SAProblemsAbstractFactory {
 
-    private double x;
-
-    public MinFunctionFactory(double x){
-        this.x = x;
-    }
-
     // MinFunction est definie que par un seul double
     @Override
     public SAProblem createSAProblem(ArrayList<Object> objects) {
 
-        List<Double> range = objects.stream()
+        List<Double> param = objects.stream()
                 .map(object -> (Double) object)
                 .collect(Collectors.toList());
 
-        return new MinFunction(range.get(0));
+        return new MinFunction(param);
     }
 
 }
