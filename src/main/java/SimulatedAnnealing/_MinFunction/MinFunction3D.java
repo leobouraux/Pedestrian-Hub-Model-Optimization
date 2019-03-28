@@ -199,7 +199,11 @@ public class MinFunction3D extends SAProblem {
     }
 
     private double getObjectiveFunction(double x, double y) {
-        return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2))+2;
+        //easy one
+        //return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2))+2;
+
+        //hard one
+        return 0.5*(Math.sin(2*x)+Math.sin(2*y))+0.005*(Math.pow(x,2)+Math.pow(y,2));
     }
 
     public void writeDataCurrXY(String title, double bestX, double currX, double bestY, double currY) {
