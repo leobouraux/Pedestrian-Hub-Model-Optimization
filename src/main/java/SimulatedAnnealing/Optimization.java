@@ -119,8 +119,6 @@ public class Optimization {
                 SAProblem newSolution = factory.createSAProblem(currentSolution.getParams());
                 newSolution = newSolution.transformSolutionDSA(CGListX, n);
 
-                System.out.println("currX = " + newSolution.getParams().get(0));
-
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
                 double neighbourObjective = newSolution.objectiveFunction();
@@ -160,8 +158,6 @@ public class Optimization {
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
             }
-            System.out.println();
-
 
 
             //New best sol has not been found in A && at least 2nd outer loop
