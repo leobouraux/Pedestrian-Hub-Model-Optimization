@@ -13,6 +13,7 @@ public class MinFunction extends ContinuousProblem {
         super(param);
     }
 
+    @Override
     public ControlledGestionLists CGInit(int length) {
         ArrayList<ContinuousProblem> X = new ArrayList<>(length);
         ArrayList<Double> Y = new ArrayList<>(length);

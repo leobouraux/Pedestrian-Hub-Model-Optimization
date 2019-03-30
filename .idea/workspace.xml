@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3b4301f-d6f1-479e-873e-c01629374743" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/grapher/MinFunction3D.gcx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grapher/MinFunction3D.gcx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunction3DFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunction3DFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunctionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblemsAbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblemsAbstractFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/TSPFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/TSPFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MF3D_currXY.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MF_currX.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_TSP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_TSP.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Optimization.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TourManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3b4301f-d6f1-479e-873e-c01629374743" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
+            <state relative-caret-position="210">
               <caret line="22" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -109,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-383">
+            <state relative-caret-position="-61">
               <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -501,12 +473,12 @@
       <workItem from="1552944634248" duration="163400000" />
       <workItem from="1553862254172" duration="26000" />
       <workItem from="1553862330447" duration="2235000" />
-      <workItem from="1553874214714" duration="5384000" />
+      <workItem from="1553874214714" duration="5845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221612000" />
+    <option name="totallyTimeSpent" value="222073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,14 +503,14 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42876166" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42876166" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32756326" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.11369863" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.49134487" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.2969374" />
       <window_info anchor="right" id="Maven" />
@@ -855,20 +827,20 @@
         <state relative-caret-position="-27271" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="22" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state relative-caret-position="-61">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-383">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        <state relative-caret-position="210">
+          <caret line="22" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
