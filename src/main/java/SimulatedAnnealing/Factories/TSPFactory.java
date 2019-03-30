@@ -1,5 +1,6 @@
 package SimulatedAnnealing.Factories;
 
+import SimulatedAnnealing.SAProblem;
 import SimulatedAnnealing._TravelingSalesmanProblem.TSP;
 import SimulatedAnnealing._TravelingSalesmanProblem.City;
 
@@ -10,7 +11,7 @@ import java.util.stream.Collectors;
 public class TSPFactory implements SAProblemsAbstractFactory {
 
     @Override
-    public SAProblem createSAProblem(ArrayList<Object> objects) {
+    public SAProblem createSAProblem(List<Object> objects) {
 
         List<City> cities = objects.stream()
                 .map(object -> (City) object)

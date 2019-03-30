@@ -1,20 +1,21 @@
 package SimulatedAnnealing.Others;
 
-import SimulatedAnnealing.Factories.SAProblem;
+import SimulatedAnnealing.ContinuousProblem;
+import SimulatedAnnealing.SAProblem;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class ControlledGestionLists {
-    private ArrayList<SAProblem> X;
+    private ArrayList<ContinuousProblem> X;
     private ArrayList<Double> Y;
 
-    public ControlledGestionLists(ArrayList<SAProblem> X, ArrayList<Double> Y) {
+    public ControlledGestionLists(ArrayList<ContinuousProblem> X, ArrayList<Double> Y) {
         this.X = X;
         this.Y = Y;
     }
 
-    public ArrayList<SAProblem> getX() {
+    public ArrayList<ContinuousProblem> getX() {
         return X;
     }
 
@@ -22,7 +23,7 @@ public class ControlledGestionLists {
         return Y;
     }
 
-    public static void reorderCGs(ArrayList<SAProblem> X, ArrayList<Double> Y) {
+    public static void reorderCGs(ArrayList<ContinuousProblem> X, ArrayList<Double> Y) {
         int minI = Y.indexOf(Collections.min(Y));
         int maxI = Y.indexOf(Collections.max(Y));
 

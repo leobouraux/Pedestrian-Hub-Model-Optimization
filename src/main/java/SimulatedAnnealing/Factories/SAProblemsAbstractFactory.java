@@ -1,8 +1,10 @@
 package SimulatedAnnealing.Factories;
 
-import java.util.ArrayList;
+import SimulatedAnnealing.SAProblem;
+
+import java.util.List;
 
 public interface SAProblemsAbstractFactory {
 
-    SAProblem createSAProblem(ArrayList<Object> objectList);
+    SAProblem createSAProblem(List<Object> objectList);
 }

@@ -1,7 +1,5 @@
 package SimulatedAnnealing.Others;
 
-import SimulatedAnnealing.Factories.SAProblem;
-
 import java.io.*;
 import java.util.*;
 

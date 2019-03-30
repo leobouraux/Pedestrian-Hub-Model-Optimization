@@ -1,5 +1,6 @@
 package SimulatedAnnealing.Factories;
 
+import SimulatedAnnealing.SAProblem;
 import SimulatedAnnealing._MinFunction.MinFunction3D;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class MinFunction3DFactory implements SAProblemsAbstractFactory{
 
     // MinFunction est definie que par un seul double
     @Override
-    public SAProblem createSAProblem(ArrayList<Object> objects) {
+    public SAProblem createSAProblem(List<Object> objects) {
 
         List<Double> params = objects.stream()
                 .map(object -> (Double) object)
