@@ -308,7 +308,7 @@ public abstract class ContinuousProblem extends SAProblem {
                 //Solution is accepted
                 if (acceptanceProba > rand) {
                     CGListX.set(CGListLength-1, newSolution);
-                    CGListY.set(CGListLength-1, newSolution.objectiveFunction());
+                    CGListY.set(CGListLength-1, neighbourObjective);
                     currentSolution = (ContinuousProblem) factory.createSAProblem(newSolution.getXs());
                     isAcceptedBest="TF";
                 }
@@ -319,7 +319,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
 
                 //Keep track of the best solution found (=CGListX[0])
-                if (neighbourObjective < bestSolution.objectiveFunction()) {
+                if (neighbourObjective < CGListY.get(0)) {
                     bestSolution = (ContinuousProblem) factory.createSAProblem(currentSolution.getXs());
                     isAcceptedBest="TT";
                     check = true;
