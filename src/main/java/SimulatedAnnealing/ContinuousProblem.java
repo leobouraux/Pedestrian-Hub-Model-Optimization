@@ -298,6 +298,7 @@ public abstract class ContinuousProblem extends SAProblem {
         ArrayList<ContinuousProblem> CGListX = CGs.getX();
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
+        double CG_density = 0;
 
         //Keep track if the best solution
         ContinuousProblem bestSolution = currentSolution;
@@ -362,13 +363,16 @@ public abstract class ContinuousProblem extends SAProblem {
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
 
+                //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
+                currentSolution.writeDataDSA(title, CGListY.get(0), currentObjective,
+                        acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
+
+
                 /*System.out.print("CGListX = [");
                 for (ContinuousProblem pb: CGListX) {
                     System.out.print(pb.X.get(0)+", ");
                 }
                 System.out.println("CGListY = " + CGListY);//*/
-
-
             }
             //System.out.println("\n#######################################################################################################\n");
 
@@ -386,16 +390,14 @@ public abstract class ContinuousProblem extends SAProblem {
             prevIterInner = iterInner;
 
             //Stopping criterion
-            double CG_density = CGListY.get(CGListLength-1)-CGListY.get(0); //Math.abs(1 - CGListY.get(0)/CGListY.get(CGListLength-1));
+            CG_density = CGListY.get(CGListLength-1)-CGListY.get(0); //Math.abs(1 - CGListY.get(0)/CGListY.get(CGListLength-1));
 
             stopCriterion = temperature <= final_temp && CG_density <= final_CG_density;
 
             //Cool system
             temperature *= factor;
             loop_nb++;
-            //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
-            currentSolution.writeDataDSA(title, CGListY.get(0), currentObjective,
-                    acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
+
             SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
         }
 
