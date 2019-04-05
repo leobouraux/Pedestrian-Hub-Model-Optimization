@@ -3,6 +3,7 @@ package SimulatedAnnealing;
 import SimulatedAnnealing.Factories.SAProblemsAbstractFactory;
 import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
+import SimulatedAnnealing._MinFunction.MinFunction3D;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -152,6 +153,24 @@ public abstract class ContinuousProblem extends SAProblem {
             } while (getXi(i) == nextXi);
             nextX.add(nextXi);
         }
+    }
+
+    public ControlledGestionLists CGInit(int length) {
+        ArrayList<ContinuousProblem> X = new ArrayList<>(length);
+        ArrayList<Double> Y = new ArrayList<>(length);
+        ArrayList<Double> newX = new ArrayList<>(0);
+        int dimension = getDimension();
+        for (int i = 0; i < length; i++) {
+            newX.clear();
+            for (int d = 0; d < dimension; d++) {
+                newX.add(getRandomXi(getStarts().get(d), getEnds().get(d)));
+            }
+            ContinuousProblem pb = getTypeOfFunction(newX);
+            X.add(pb);
+            Y.add(getObjectiveFunction(newX));
+        }
+        ControlledGestionLists.reorderCGs(X, Y);
+        return new ControlledGestionLists(X,Y);
     }
 
     /**
@@ -386,7 +405,7 @@ public abstract class ContinuousProblem extends SAProblem {
      * This function is left abstract because it must use the objective
      * function which is problem defined so defined in a subclass.
      */
-    public abstract ControlledGestionLists CGInit(int length);
+    public abstract ContinuousProblem getTypeOfFunction(ArrayList<Double> newX);
 
     public abstract void printSolution(String s);
 

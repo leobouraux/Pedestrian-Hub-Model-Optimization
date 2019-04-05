@@ -4,8 +4,6 @@ import SimulatedAnnealing.ContinuousProblem;
 import SimulatedAnnealing.Others.ControlledGestionLists;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class MinFunction3D extends ContinuousProblem {
@@ -17,23 +15,10 @@ public class MinFunction3D extends ContinuousProblem {
         super(params);
     }
 
-    @Override
-    public ControlledGestionLists CGInit(int length) {
-        ArrayList<ContinuousProblem> X = new ArrayList<>(length);
-        ArrayList<Double> Y = new ArrayList<>(length);
-        ArrayList<Double> newX = new ArrayList<>(0);
-        int dimension = getDimension();
-        for (int i = 0; i < length; i++) {
-            newX.clear();
-            for (int d = 0; d < dimension; d++) {
-                newX.add(super.getRandomXi(super.getStarts().get(d), super.getEnds().get(d)));
-            }
-            MinFunction3D pb = new MinFunction3D(newX);
-            X.add(pb);
-            Y.add(getObjectiveFunction(newX));
-        }
-        ControlledGestionLists.reorderCGs(X, Y);
-        return new ControlledGestionLists(X,Y);
+
+
+    public MinFunction3D getTypeOfFunction(ArrayList<Double> newX) {
+        return new MinFunction3D(newX);
     }
 
     @Override

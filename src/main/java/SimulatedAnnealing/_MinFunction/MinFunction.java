@@ -14,25 +14,9 @@ public class MinFunction extends ContinuousProblem {
     }
 
     @Override
-    public ControlledGestionLists CGInit(int length) {
-        ArrayList<ContinuousProblem> X = new ArrayList<>(length);
-        ArrayList<Double> Y = new ArrayList<>(length);
-        ArrayList<Double> newX = new ArrayList<>(0);
-        int dimension = getDimension();
-        for (int i = 0; i < length; i++) {
-            newX.clear();
-            for (int d = 0; d < dimension; d++) {
-                newX.add(super.getRandomXi(super.getStarts().get(d), super.getEnds().get(d)));
-            }
-            MinFunction pb = new MinFunction(newX);
-            X.add(pb);
-            Y.add(getObjectiveFunction(newX));
-        }
-        ControlledGestionLists.reorderCGs(X, Y);
-        return new ControlledGestionLists(X,Y);
+    public ContinuousProblem getTypeOfFunction(ArrayList<Double> newX) {
+        return new MinFunction(newX);
     }
-
-
 
 
     @Override
