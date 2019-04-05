@@ -3,7 +3,6 @@ package SimulatedAnnealing;
 import SimulatedAnnealing.Factories.SAProblemsAbstractFactory;
 import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
-import SimulatedAnnealing._MinFunction.MinFunction3D;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,7 +91,7 @@ public abstract class ContinuousProblem extends SAProblem {
      * @param end : last possible value
      * @return a random double in [start, end]
      */
-    protected double getRandomXi(double start, double end) {
+    private double getRandomXi(double start, double end) {
         return Utils.randomDouble(start, end);
     }
 
@@ -100,7 +99,7 @@ public abstract class ContinuousProblem extends SAProblem {
      *
      * @return start of range for each axis (size = dim)
      */
-    protected ArrayList<Double> getStarts() {
+    private ArrayList<Double> getStarts() {
         return starts;
     }
 
@@ -108,7 +107,7 @@ public abstract class ContinuousProblem extends SAProblem {
      *
      * @return end of range for each axis (size = dim)
      */
-    protected ArrayList<Double> getEnds() {
+    private ArrayList<Double> getEnds() {
         return ends;
     }
 
@@ -155,17 +154,16 @@ public abstract class ContinuousProblem extends SAProblem {
         }
     }
 
-    public ControlledGestionLists CGInit(int length) {
+    private ControlledGestionLists CGInit(int length) {
         ArrayList<ContinuousProblem> X = new ArrayList<>(length);
         ArrayList<Double> Y = new ArrayList<>(length);
-        ArrayList<Double> newX = new ArrayList<>(0);
         int dimension = getDimension();
         for (int i = 0; i < length; i++) {
-            newX.clear();
+            ArrayList<Double> newX = new ArrayList<>(0);
             for (int d = 0; d < dimension; d++) {
                 newX.add(getRandomXi(getStarts().get(d), getEnds().get(d)));
             }
-            ContinuousProblem pb = getTypeOfFunction(newX);
+            ContinuousProblem pb = pbWithGoodType(newX);
             X.add(pb);
             Y.add(getObjectiveFunction(newX));
         }
@@ -177,7 +175,7 @@ public abstract class ContinuousProblem extends SAProblem {
      *
      * @param CGListXs : the CGList for each axis
      * @param i : the axis
-     * @return nextXi that shoud be next added to nextX (uses the local search if CG is stuck)
+     * @return nextXi that should be next added to nextX (uses the local search if CG is stuck)
      */
     private double controlledGeneration(ArrayList<ContinuousProblem> CGListXs, int i) {
         boolean check, stuck = false;
@@ -187,7 +185,7 @@ public abstract class ContinuousProblem extends SAProblem {
             nextXi = getNextXiForCG(CGListXs, i);
 
             check = nextXi >= starts.get(i) && nextXi <= ends.get(i);
-            //on est bloqué
+            //to keep stuck not infinitely
             if(counter>=7*(dim+1)) {
                 check = true;
                 stuck = true;
@@ -199,7 +197,7 @@ public abstract class ContinuousProblem extends SAProblem {
         // Example for n = 1 --> nextX = 2 * xMin - xMax => OUT OF RANGE
         // Local best search
         if(stuck) {
-            double bestXi = ((ContinuousProblem)CGListXs.get(0)).getXi(i);
+            double bestXi = CGListXs.get(0).getXi(i);
             nextXi = localSearchAroundX(i, bestXi);
         }
         return nextXi;
@@ -209,7 +207,7 @@ public abstract class ContinuousProblem extends SAProblem {
      *
      * @param CGListXs : the CGList for each axis
      * @param i : the axis
-     * @return nextXi that shoud be next added to nextX iff it's not stuck
+     * @return nextXi that shoud be next added to nextX if it's not stuck
      */
     private double getNextXiForCG(ArrayList<ContinuousProblem> CGListXs, int i) {
         //CGListXs is equivalent to an ArrayList<ArrayList<Double>>
@@ -260,20 +258,19 @@ public abstract class ContinuousProblem extends SAProblem {
      */
     private List<Object> transformSolutionDSA(ArrayList<ContinuousProblem> CGListXs) {
         double w = Utils.randomProba();
-
-        ArrayList<Double> nextX = new ArrayList<>(dim);
+        ArrayList<Double> nextXs = new ArrayList<>(dim);
         if(w<0.75) {
             //Uniform distribution
-            uniformDistribution(nextX);
+            uniformDistribution(nextXs);
         }
         else {
             //Controlled generation
             for (int i = 0; i < dim; i++) {
                 double nextXi = controlledGeneration(CGListXs, i);
-                nextX.add(nextXi);
+                nextXs.add(nextXi);
             }
         }
-        return new ArrayList<>(nextX);
+        return new ArrayList<>(nextXs);
     }
 
     /**
@@ -302,7 +299,7 @@ public abstract class ContinuousProblem extends SAProblem {
         currentSolution.printSolution("The initial solution: ");
 
         //Keep track if the best solution
-        ContinuousProblem bestSolution = (ContinuousProblem) factory.createSAProblem(currentSolution.getXs());
+        ContinuousProblem bestSolution = currentSolution;
 
         //Outer loop parameters
         int loop_nb =0; //t
@@ -336,7 +333,7 @@ public abstract class ContinuousProblem extends SAProblem {
                 if (acceptanceProba > rand) {
                     CGListX.set(CGListLength-1, newSolution);
                     CGListY.set(CGListLength-1, neighbourObjective);
-                    currentSolution = (ContinuousProblem) factory.createSAProblem(newSolution.getXs());
+                    currentSolution = newSolution;
                     isAcceptedBest="TF";
                 }
 
@@ -347,7 +344,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
                 //Keep track of the best solution found (=CGListX[0])
                 if (neighbourObjective < CGListY.get(0)) {
-                    bestSolution = (ContinuousProblem) factory.createSAProblem(currentSolution.getXs());
+                    bestSolution = currentSolution;
                     isAcceptedBest="TT";
                     check = true;
                     //Control param CASE 1
@@ -362,8 +359,16 @@ public abstract class ContinuousProblem extends SAProblem {
                 double fl = CGListY.get(0);
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
-            }
 
+                /*System.out.print("CGListX = [");
+                for (ContinuousProblem pb: CGListX) {
+                    System.out.print(pb.X.get(0)+", ");
+                }
+                System.out.println("\nCGListY = " + CGListY);//*/
+
+
+            }
+            //System.out.println("\n#######################################################################################################\n");
 
             //New best sol has not been found in A && at least 2nd outer loop
             if(iterInner >= maxIterInner && prevIterInner != -1){
@@ -405,7 +410,7 @@ public abstract class ContinuousProblem extends SAProblem {
      * This function is left abstract because it must use the objective
      * function which is problem defined so defined in a subclass.
      */
-    public abstract ContinuousProblem getTypeOfFunction(ArrayList<Double> newX);
+    public abstract ContinuousProblem pbWithGoodType(ArrayList<Double> newX);
 
     public abstract void printSolution(String s);
 

@@ -1,7 +1,6 @@
 package SimulatedAnnealing.Others;
 
 import SimulatedAnnealing.ContinuousProblem;
-import SimulatedAnnealing.SAProblem;
 
 import java.util.ArrayList;
 import java.util.Collections;

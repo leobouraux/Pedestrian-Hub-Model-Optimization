@@ -17,7 +17,7 @@ public class MinFunction3D extends ContinuousProblem {
 
 
 
-    public MinFunction3D getTypeOfFunction(ArrayList<Double> newX) {
+    public MinFunction3D pbWithGoodType(ArrayList<Double> newX) {
         return new MinFunction3D(newX);
     }
 

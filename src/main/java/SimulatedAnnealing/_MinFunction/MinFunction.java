@@ -2,7 +2,6 @@ package SimulatedAnnealing._MinFunction;
 
 
 import SimulatedAnnealing.ContinuousProblem;
-import SimulatedAnnealing.Others.ControlledGestionLists;
 
 import java.util.*;
 
@@ -14,7 +13,7 @@ public class MinFunction extends ContinuousProblem {
     }
 
     @Override
-    public ContinuousProblem getTypeOfFunction(ArrayList<Double> newX) {
+    public ContinuousProblem pbWithGoodType(ArrayList<Double> newX) {
         return new MinFunction(newX);
     }
 
@@ -25,7 +24,7 @@ public class MinFunction extends ContinuousProblem {
         System.out.println("For x = " + super.getXs().get(0) + ", y = " + this.objectiveFunction());
     }
 
-
+    @Override
     public double getObjectiveFunction(ArrayList<Double> X) {
         //easy one
         //return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
@@ -34,8 +33,5 @@ public class MinFunction extends ContinuousProblem {
         double x = X.get(0);
         return Math.log(0.1*Math.sin(30*x)+0.01*Math.pow(x, 4)-0.1*Math.pow(x, 2) + 1)+1;
     }
-
-
-
 
 }
