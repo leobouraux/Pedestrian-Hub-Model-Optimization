@@ -7,6 +7,7 @@ import SimulatedAnnealing.Others.Utils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class ContinuousProblem extends SAProblem {
 
@@ -113,6 +114,13 @@ public abstract class ContinuousProblem extends SAProblem {
 
 
     // Algorithms
+
+    public double objectiveFunction() {
+        List<Double> d = getXs().stream().map(object -> (double) object).collect(Collectors.toList());
+        return getObjectiveFunction(new ArrayList<>(d));
+    }
+
+
 
     /**
      *
@@ -363,7 +371,6 @@ public abstract class ContinuousProblem extends SAProblem {
             //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
             currentSolution.writeDataDSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
                     acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
-
             SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
 
         }
@@ -383,7 +390,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
     public abstract void printSolution(String s);
 
-    public abstract double objectiveFunction();
+    public abstract double getObjectiveFunction(ArrayList<Double> x);
 
 
 

@@ -127,7 +127,7 @@ public abstract class SAProblem {
             }
         }
         static void dataVisuForDrawing2(String title, SAProblem currentSolution, SAProblem bestSolution) {
-            if(currentSolution.getDimension() != 1 || currentSolution.getDimension() != 2) {
+            if(currentSolution.getDimension() != 1 && currentSolution.getDimension() != 2) {
                 return;
             }
             String s = title.replace(".txt", "_currX.txt");
@@ -138,7 +138,6 @@ public abstract class SAProblem {
             List<Double> currXs = currentSolution.getXs().stream()
                     .map(object -> (Double) object)
                     .collect(Collectors.toList());
-
             currentSolution.writeDataCurrX(s, bestXs, currXs);
         }
 
