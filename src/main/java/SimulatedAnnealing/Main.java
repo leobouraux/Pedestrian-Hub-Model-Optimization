@@ -14,10 +14,10 @@ public class Main {
     private static boolean TSP_LSA = false;
 
     private static boolean MiF_LSA = false;
-    private static boolean MiF_DSA = true;
+    private static boolean MiF_DSA = false;
 
     private static boolean MiF3D_LSA = false;
-    private static boolean MiF3D_DSA = false;
+    private static boolean MiF3D_DSA = true;
 
 
 

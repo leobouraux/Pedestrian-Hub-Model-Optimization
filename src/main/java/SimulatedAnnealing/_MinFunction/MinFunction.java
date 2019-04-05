@@ -19,9 +19,9 @@ public class MinFunction extends ContinuousProblem {
 
 
     @Override
-    public void printSolution(String s) {
+    public void printSolution(String s, double currObjective) {
         System.out.println(s);
-        System.out.println("For x = " + super.getXs().get(0) + ", y = " + this.objectiveFunction());
+        System.out.println("For x = " + super.getXs().get(0) + ", y = " + currObjective);
     }
 
     @Override

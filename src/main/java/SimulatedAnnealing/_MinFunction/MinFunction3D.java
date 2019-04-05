@@ -1,7 +1,6 @@
 package SimulatedAnnealing._MinFunction;
 
 import SimulatedAnnealing.ContinuousProblem;
-import SimulatedAnnealing.Others.ControlledGestionLists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +21,9 @@ public class MinFunction3D extends ContinuousProblem {
     }
 
     @Override
-    public void printSolution(String s) {
+    public void printSolution(String s, double currObjective) {
         System.out.println(s);
-        System.out.println("For x = " + curr_x1 + ", y = " + curr_x2 + " ---> z = " + this.objectiveFunction());
+        System.out.println("For x = " + curr_x1 + ", y = " + curr_x2 + " ---> z = " + currObjective);
     }
 
     @Override

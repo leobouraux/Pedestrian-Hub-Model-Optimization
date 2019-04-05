@@ -286,6 +286,8 @@ public abstract class ContinuousProblem extends SAProblem {
         //Create a random initial problem
         int CGListLength = /*5*(n+1);*/ 7*(dim+1);   /*10*(n+1);*/
         ContinuousProblem currentSolution = (ContinuousProblem) factory.createSAProblem(parameters);
+        double currentObjective = currentSolution.objectiveFunction();
+        currentSolution.printSolution("The initial solution: ", currentObjective);
 
         //Overwrite the previous .txt file
         long startTime = SAProblem.Helper.dataVisuForGraphs1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|");
@@ -296,7 +298,6 @@ public abstract class ContinuousProblem extends SAProblem {
         ArrayList<ContinuousProblem> CGListX = CGs.getX();
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
-        currentSolution.printSolution("The initial solution: ");
 
         //Keep track if the best solution
         ContinuousProblem bestSolution = currentSolution;
@@ -334,6 +335,7 @@ public abstract class ContinuousProblem extends SAProblem {
                     CGListX.set(CGListLength-1, newSolution);
                     CGListY.set(CGListLength-1, neighbourObjective);
                     currentSolution = newSolution;
+                    currentObjective = neighbourObjective;
                     isAcceptedBest="TF";
                 }
 
@@ -364,7 +366,7 @@ public abstract class ContinuousProblem extends SAProblem {
                 for (ContinuousProblem pb: CGListX) {
                     System.out.print(pb.X.get(0)+", ");
                 }
-                System.out.println("\nCGListY = " + CGListY);//*/
+                System.out.println("CGListY = " + CGListY);//*/
 
 
             }
@@ -391,15 +393,13 @@ public abstract class ContinuousProblem extends SAProblem {
             //Cool system
             temperature *= factor;
             loop_nb++;
-
             //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
-            currentSolution.writeDataDSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
+            currentSolution.writeDataDSA(title, CGListY.get(0), currentObjective,
                     acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
             SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
-
         }
 
-        SAProblem.Helper.dataVisuForGraphs2(title, startTime, bestSolution, loop_nb, "Nbr d'outer loop: ");
+        SAProblem.Helper.dataVisuForGraphs2(title, startTime, bestSolution, CGListY.get(0), loop_nb, "Nbr d'outer loop: ");
     }
 
 
@@ -412,7 +412,7 @@ public abstract class ContinuousProblem extends SAProblem {
      */
     public abstract ContinuousProblem pbWithGoodType(ArrayList<Double> newX);
 
-    public abstract void printSolution(String s);
+    public abstract void printSolution(String s, double currObjective);
 
     public abstract double getObjectiveFunction(ArrayList<Double> x);
 

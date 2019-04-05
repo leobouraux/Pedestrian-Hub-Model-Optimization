@@ -58,8 +58,8 @@ public class TSP extends DiscreteProblem {
     }
 
     @Override
-    public void printSolution(String s) {
-        System.out.println(s + this.objectiveFunction());
+    public void printSolution(String s, double currObjective) {
+        System.out.println(s + currObjective);
         System.out.println("Tour: " + this);
     }
 

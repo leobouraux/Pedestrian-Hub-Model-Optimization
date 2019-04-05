@@ -1,7 +1,6 @@
 package SimulatedAnnealing;
 
 import SimulatedAnnealing.Factories.SAProblemsAbstractFactory;
-import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public abstract class SAProblem {
 
     public abstract List<Object> getXs();
 
-    public abstract void printSolution(String s);
+    public abstract void printSolution(String s, double currObjective);
 
     public abstract double objectiveFunction();
 
@@ -28,7 +27,8 @@ public abstract class SAProblem {
                                 ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
         //Create a random initial tour
         SAProblem currentSolution = factory.createSAProblem(parameters);
-        currentSolution.printSolution("The initial solution: ");
+        double currentObjective = currentSolution.objectiveFunction();
+        currentSolution.printSolution("The initial solution: ", currentObjective);
 
         long startTime = Helper.dataVisuForGraphs1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|");
         SAProblem.Helper.dataVisuForDrawing1(title, currentSolution.getDimension());
@@ -37,6 +37,7 @@ public abstract class SAProblem {
         // We would like to keep track if the best solution
         // Assume best solution is the current solution
         SAProblem bestSolution = currentSolution;
+        double bestObjective = currentObjective;
 
         int loop_nb =0;
         String isAcceptedBest;
@@ -50,7 +51,6 @@ public abstract class SAProblem {
 
 
             // Get energy of both solutions
-            double currentObjective = currentSolution.objectiveFunction();
             double neighbourObjective = newSolution.objectiveFunction();
 
 
@@ -59,12 +59,14 @@ public abstract class SAProblem {
             double acceptanceProba = Utils.acceptanceProbability(currentObjective, neighbourObjective, temperature);
             if (acceptanceProba > rand) {
                 currentSolution = newSolution;
+                currentObjective = neighbourObjective;
                 isAcceptedBest="TF";
             }
 
             // Keep track of the best solution found
             if (currentSolution.objectiveFunction() < bestSolution.objectiveFunction()) {
                 bestSolution = currentSolution;
+                bestObjective = currentObjective;
                 isAcceptedBest="TT";
             }
 
@@ -73,14 +75,14 @@ public abstract class SAProblem {
             loop_nb++;
 
             //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
-            currentSolution.writeDataLSA(title, bestSolution.objectiveFunction(), currentSolution.objectiveFunction(),
+            currentSolution.writeDataLSA(title, bestObjective, currentObjective,
                     acceptanceProba, isAcceptedBest, temperature);
 
             SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
 
         }
 
-        Helper.dataVisuForGraphs2(title, startTime, bestSolution, loop_nb, "Nbr itérations: ");
+        Helper.dataVisuForGraphs2(title, startTime, bestSolution, bestObjective, loop_nb, "Nbr itérations: ");
     }
 
     //DataVisualization functions for both Continuous and Discrete problems
@@ -107,13 +109,13 @@ public abstract class SAProblem {
             Utils.dataToTxt(title, s2, false);
             return startTime;
         }
-        static void dataVisuForGraphs2(String title, long startTime, SAProblem bestSolution, int loop_nb, String s2) {
+        static void dataVisuForGraphs2(String title, long startTime, SAProblem bestSolution,  double bestObjective, int loop_nb, String s2) {
             long endTime = System.nanoTime();
             String data = "Runtime: " + String.valueOf((endTime - startTime) / Math.pow(10, 9)) + " sec";
             data += "\n" + s2 + loop_nb;
             Utils.dataToTxt(title, data, true);
 
-            bestSolution.printSolution("The best solution: ");
+            bestSolution.printSolution("The best solution: ", bestObjective);
         }
 
         static void dataVisuForDrawing1(String title, int dimension) {

@@ -49,7 +49,7 @@ public abstract class DiscreteProblem extends SAProblem {
      */
     public abstract ControlledGestionLists CGInit(int length);
 
-    public abstract void printSolution(String s);
+    public abstract void printSolution(String s, double currObjective);
 
     public abstract double objectiveFunction();
 
