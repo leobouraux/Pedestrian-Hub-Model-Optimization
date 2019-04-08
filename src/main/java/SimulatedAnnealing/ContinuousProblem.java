@@ -281,7 +281,7 @@ public abstract class ContinuousProblem extends SAProblem {
      * @param factory : type of problem used
      * @param title : title for data.txt file
      */
-    static void optimizationDSA(double temperature, final double final_CG_density, double final_temp,
+    public static void optimizationDSA(double temperature, final double final_CG_density, double final_temp,
                                 ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
         //Create a random initial problem
         int CGListLength = /*5*(n+1);*/ 7*(dim+1);   /*10*(n+1);*/
