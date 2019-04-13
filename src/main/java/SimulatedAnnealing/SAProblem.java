@@ -30,8 +30,10 @@ public abstract class SAProblem {
         double currentObjective = currentSolution.objectiveFunction();
         currentSolution.printSolution("The initial solution: ", currentObjective);
 
-        long startTime = Helper.dataVisuForGraphs1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|");
-        SAProblem.Helper.dataVisuForDrawing1(title, currentSolution.getDimension());
+        //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, BEST y, CURR y
+        String names = "              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                 BEST y|                 CURR y|";
+        names += Helper.getNamesForXi(title, currentSolution.getDimension(), currentSolution);
+        long startTime = SAProblem.Helper.TXT_Titles(title, names);
 
 
         // We would like to keep track if the best solution
@@ -74,85 +76,83 @@ public abstract class SAProblem {
             temperature *= (1 - coolingRate);
             loop_nb++;
 
-            //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
-            currentSolution.writeDataLSA(title, bestObjective, currentObjective,
-                    acceptanceProba, isAcceptedBest, temperature);
-
-            SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
+            //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, BEST y, CURR y
+            currentSolution.writeDataLSA(title, acceptanceProba, isAcceptedBest, temperature, bestObjective, currentObjective, bestSolution, currentSolution);
 
         }
 
-        Helper.dataVisuForGraphs2(title, startTime, bestSolution, bestObjective, loop_nb, "Nbr itérations: ");
+        Helper.TXT_End_Print(title, startTime, bestSolution, bestObjective, loop_nb, "Nbr itérations: ");
     }
 
     //DataVisualization functions for both Continuous and Discrete problems
 
-    private void writeDataLSA(String title, double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp) {
-        //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
-        String data = Helper.getString(bestSolution, currentSolution, acceptanceProba, isAccepted, temp);
-
-        Utils.dataToTxt(title, data, true);
-    }
-
-    private void writeDataCurrX(String title, List<Double> bestXs, List<Double> currXs) {
+    private void writeDataLSA(String title, double acceptanceProba, String isAccepted, double temp, double bestSolution, double currentSolution,
+        SAProblem bestXi_here, SAProblem currXi_here) {
+        //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, BEST y, CURR y
         String data = "";
-        for (int i = 0; i < bestXs.size() ; i++) {
-            data += Utils.format(bestXs.get(i), 23);
-            data += Utils.format(currXs.get(i), 23);
-        }
+        data += Utils.format(acceptanceProba, 23);
+        data += Utils.format(isAccepted, 10);
+        data += Utils.format(temp, 23);
+        data += Utils.format(bestSolution, 23);
+        data += Utils.format(currentSolution, 23);
+        data += Helper.getDataForXi(bestXi_here, currXi_here);
+
         Utils.dataToTxt(title, data, true);
     }
+
 
     static class Helper {
-        static long dataVisuForGraphs1(String title, String s2) {
+        static long TXT_Titles(String title, String s2) {
             long startTime = System.nanoTime();
             Utils.dataToTxt(title, s2, false);
             return startTime;
         }
-        static void dataVisuForGraphs2(String title, long startTime, SAProblem bestSolution,  double bestObjective, int loop_nb, String s2) {
+        static void TXT_End_Print(String title, long startTime, SAProblem bestSolution, double bestObjective, int loop_nb, String s2) {
             long endTime = System.nanoTime();
-            String data = "Runtime: " + String.valueOf((endTime - startTime) / Math.pow(10, 9)) + " sec";
+            String data = "Runtime: " + (endTime - startTime) / Math.pow(10, 9) + " sec";
             data += "\n" + s2 + loop_nb;
             Utils.dataToTxt(title, data, true);
-
             bestSolution.printSolution("The best solution: ", bestObjective);
         }
 
-        static void dataVisuForDrawing1(String title, int dimension) {
-            if(dimension == 1){
-                String s = title.replace(".txt", "_currX.txt");
-                Utils.dataToTxt(s, "                 BEST x|                 CURR x|", false);
+        static String getNamesForXi(String title, int dimension, SAProblem problem) {
+            String names = "";
+            if(problem instanceof DiscreteProblem) {
+                return names;
             }
-            else if(dimension == 2){
-                String s = title.replace(".txt", "_currX.txt");
-                Utils.dataToTxt(s, "                BEST x1|                CURR x1|                BEST x2|                CURR x2|", false);
+            names += "                 BEST x|                 CURR x|";
+            for (int i = 1; i < dimension+1; i++) {
+                if(dimension == i){
+                    Utils.dataToTxt(title, names, true);
+                    break;
+                }
+                String str_i = String.valueOf(i+1);
+                names += "                 BEST x"+str_i+"|                CURR x"+str_i+"|";
             }
-        }
-        static void dataVisuForDrawing2(String title, SAProblem currentSolution, SAProblem bestSolution) {
-            if(currentSolution.getDimension() != 1 && currentSolution.getDimension() != 2) {
-                return;
-            }
-            String s = title.replace(".txt", "_currX.txt");
-
-            List<Double> bestXs = bestSolution.getXs().stream()
-                    .map(object -> (Double) object)
-                    .collect(Collectors.toList());
-            List<Double> currXs = currentSolution.getXs().stream()
-                    .map(object -> (Double) object)
-                    .collect(Collectors.toList());
-            currentSolution.writeDataCurrX(s, bestXs, currXs);
+            return names;
         }
 
-        static String getString(double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp) {
-            //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°
+        static String getDataForXi(SAProblem bestXi_here, SAProblem currXi_here) {
             String data = "";
-            data += Utils.format(bestSolution, 23);
-            data += Utils.format(currentSolution, 23);
-            data += Utils.format(acceptanceProba, 23);
-            data += Utils.format(isAccepted, 10);
-            data += Utils.format(temp, 23);
+            if(currXi_here instanceof DiscreteProblem) {
+                return data;
+            }
+
+            //BESTxi, CURRxi
+            List<Double> bestXs = bestXi_here.getXs().stream()
+                    .map(object -> (Double) object)
+                    .collect(Collectors.toList());
+            List<Double> currXs = currXi_here.getXs().stream()
+                    .map(object -> (Double) object)
+                    .collect(Collectors.toList());
+
+            for (int i = 0; i < bestXs.size() ; i++) {
+                data += Utils.format(bestXs.get(i), 23);
+                data += Utils.format(currXs.get(i), 23);
+            }
             return data;
         }
+
     }
 
 }

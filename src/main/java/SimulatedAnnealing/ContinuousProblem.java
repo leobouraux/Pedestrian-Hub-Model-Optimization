@@ -290,8 +290,9 @@ public abstract class ContinuousProblem extends SAProblem {
         currentSolution.printSolution("The initial solution: ", currentObjective);
 
         //Overwrite the previous .txt file
-        long startTime = SAProblem.Helper.dataVisuForGraphs1(title, "                 BEST y|                 CURR y|              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|");
-        SAProblem.Helper.dataVisuForDrawing1(title, currentSolution.getDimension());
+        String names = "              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|                 BEST y|                 CURR y|";
+        names += SAProblem.Helper.getNamesForXi(title, dim, currentSolution);
+        long startTime = SAProblem.Helper.TXT_Titles(title, names);
 
         //Initialize list for CG
         ControlledGestionLists CGs = currentSolution.CGInit(CGListLength);
@@ -363,18 +364,11 @@ public abstract class ContinuousProblem extends SAProblem {
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
 
-                //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
-                currentSolution.writeDataDSA(title, CGListY.get(0), currentObjective,
-                        acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner);
+                //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
+                currentSolution.writeDataDSA(title, acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner,
+                        CGListY.get(0), currentObjective, currentSolution, bestSolution);
 
-
-                /*System.out.print("CGListX = [");
-                for (ContinuousProblem pb: CGListX) {
-                    System.out.print(pb.X.get(0)+", ");
-                }
-                System.out.println("CGListY = " + CGListY);//*/
             }
-            //System.out.println("\n#######################################################################################################\n");
 
             //New best sol has not been found in A && at least 2nd outer loop
             if(iterInner >= maxIterInner && prevIterInner != -1){
@@ -397,12 +391,11 @@ public abstract class ContinuousProblem extends SAProblem {
             //Cool system
             temperature *= factor;
             loop_nb++;
-
-            SAProblem.Helper.dataVisuForDrawing2(title, currentSolution, bestSolution);
         }
 
-        SAProblem.Helper.dataVisuForGraphs2(title, startTime, bestSolution, CGListY.get(0), loop_nb, "Nbr d'outer loop: ");
+        SAProblem.Helper.TXT_End_Print(title, startTime, bestSolution, CGListY.get(0), loop_nb, "Nbr d'outer loop: ");
     }
+
 
 
 
@@ -422,11 +415,20 @@ public abstract class ContinuousProblem extends SAProblem {
 
     //DataVisualization functions for Continuous problems
 
-    private void writeDataDSA(String title, double bestSolution, double currentSolution, double acceptanceProba, String isAccepted, double temp, double density, int markovLen) {
-        //BEST y, CURR y, ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH
-        String data = SAProblem.Helper.getString(bestSolution, currentSolution, acceptanceProba, isAccepted, temp);
+    private void writeDataDSA(String title, double acceptanceProba, String isAccepted, double temp, double density, int markovLen,
+                              double bestSolution, double currentSolution, SAProblem bestXi_here, SAProblem currXi_here) {
+        //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
+        String data = "";
+        data += Utils.format(acceptanceProba, 23);
+        data += Utils.format(isAccepted, 10);
+        data += Utils.format(temp, 23);
         data += Utils.format(density, 23);
         data += Utils.format(markovLen, 13);
+        data += Utils.format(bestSolution, 23);
+        data += Utils.format(currentSolution, 23);
+
+        //BESTxi, CURRxi
+        data += SAProblem.Helper.getDataForXi(bestXi_here, currXi_here);
 
         Utils.dataToTxt(title, data, true);
     }
