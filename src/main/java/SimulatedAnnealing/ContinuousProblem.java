@@ -154,7 +154,7 @@ public abstract class ContinuousProblem extends SAProblem {
         }
     }
 
-    private ControlledGestionLists CGInit(int length) {
+    private ControlledGestionLists CGInit(int length, String title) {
         ArrayList<ContinuousProblem> X = new ArrayList<>(length);
         ArrayList<Double> Y = new ArrayList<>(length);
         int dimension = getDimension();
@@ -166,6 +166,9 @@ public abstract class ContinuousProblem extends SAProblem {
             ContinuousProblem pb = pbWithGoodType(newX);
             X.add(pb);
             Y.add(getObjectiveFunction(newX));
+
+            X.get(i).writeDataDSA(title, 0, "initial", 0, 0, 0,
+                    0, Y.get(i), X.get(i), X.get(i));
         }
         ControlledGestionLists.reorderCGs(X, Y);
         return new ControlledGestionLists(X,Y);
@@ -295,7 +298,7 @@ public abstract class ContinuousProblem extends SAProblem {
         long startTime = SAProblem.Helper.TXT_Titles(title, names);
 
         //Initialize list for CG
-        ControlledGestionLists CGs = currentSolution.CGInit(CGListLength);
+        ControlledGestionLists CGs = currentSolution.CGInit(CGListLength, title);
         ArrayList<ContinuousProblem> CGListX = CGs.getX();
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
