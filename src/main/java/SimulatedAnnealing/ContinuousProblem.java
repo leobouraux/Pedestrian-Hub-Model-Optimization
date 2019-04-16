@@ -299,7 +299,7 @@ public abstract class ContinuousProblem extends SAProblem {
         ArrayList<ContinuousProblem> CGListX = CGs.getX();
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
-        double CG_density = 0;
+        double CG_density = 1;
 
         //Keep track if the best solution
         ContinuousProblem bestSolution = currentSolution;
@@ -309,16 +309,21 @@ public abstract class ContinuousProblem extends SAProblem {
         String isAcceptedBest = "FF";
         boolean stopCriterion = false;
 
-        //Cooling temp param
+        //Inner loop param
         double factor = 0.85, factorMin = 0.8, factorMax = 0.9;
         int prevIterInner = -1;
+        double acceptanceProba = 1.0;
+        int iterInner = 1, Lt = 10*dim, maxIterInner =Lt;
+
+        //write data for initial solution
+        currentSolution.writeDataDSA(title, acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner,
+                CGListY.get(0), currentObjective, bestSolution, currentSolution);
 
         //Loop until system has cooled
         while (!stopCriterion) {
             //Markov chain param
             boolean check = false;
-            int iterInner = 0, Lt = 10*dim, maxIterInner =Lt;
-            double acceptanceProba = 0;
+            iterInner = 0;
 
             while (!check) {
                 //Create the neighbour solution
@@ -366,7 +371,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
                 //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
                 currentSolution.writeDataDSA(title, acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner,
-                        CGListY.get(0), currentObjective, currentSolution, bestSolution);
+                        CGListY.get(0), currentObjective, bestSolution, currentSolution);
 
             }
 

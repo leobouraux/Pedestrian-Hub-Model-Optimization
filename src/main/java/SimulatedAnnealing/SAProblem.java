@@ -42,7 +42,11 @@ public abstract class SAProblem {
         double bestObjective = currentObjective;
 
         int loop_nb =0;
-        String isAcceptedBest;
+        String isAcceptedBest = "TT";
+        double acceptanceProba = 1.0;
+
+        currentSolution.writeDataLSA(title, acceptanceProba, isAcceptedBest, temperature, bestObjective, currentObjective, bestSolution, currentSolution);
+
 
         // Loop until system has cooled
         while (temperature > final_temp) {
@@ -58,7 +62,7 @@ public abstract class SAProblem {
 
             // Decide if we should accept the neighbour (not only when it's better)
             double rand = Utils.randomProba();
-            double acceptanceProba = Utils.acceptanceProbability(currentObjective, neighbourObjective, temperature);
+            acceptanceProba = Utils.acceptanceProbability(currentObjective, neighbourObjective, temperature);
             if (acceptanceProba > rand) {
                 currentSolution = newSolution;
                 currentObjective = neighbourObjective;

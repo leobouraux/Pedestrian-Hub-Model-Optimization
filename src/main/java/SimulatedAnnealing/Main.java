@@ -3,6 +3,7 @@ package SimulatedAnnealing;
 import SimulatedAnnealing.Factories.*;
 import SimulatedAnnealing._MinFunction.MinFunction;
 import SimulatedAnnealing._MinFunction.MinFunction3D;
+import SimulatedAnnealing._MinFunction.MinFunction4D;
 import SimulatedAnnealing._TravelingSalesmanProblem.TSP;
 
 import java.util.ArrayList;
@@ -16,8 +17,10 @@ public class Main {
     private static boolean MiF_LSA = false;
     private static boolean MiF_DSA = false;
 
-    private static boolean MiF3D_LSA = true;
+    private static boolean MiF3D_LSA = false;
     private static boolean MiF3D_DSA = false;
+
+    private static boolean MiF4D_DSA = true;
 
 
 
@@ -78,6 +81,16 @@ public class Main {
             ContinuousProblem.optimizationDSA(10e3, 0.002, 0.05, new ArrayList<>(x_y1), factory3, title3Db);  //*/
         }
 
+        /**  MinFunction4D  */
+
+        //DSA
+        if(MiF4D_DSA) {
+            dimension = 3;
+            ArrayList<Double> x_y1 = MinFunction4D.problemInit(dimension, Arrays.asList(-5.0, -5.0, -5.0), Arrays.asList(5.0, 5.0, 5.0));
+            SAProblemsAbstractFactory factory4 = new MinFunction4DFactory();
+            String title4D = path+"DSA_MinFunction4D.txt";
+            ContinuousProblem.optimizationDSA(10e3, 0.001, 0.0005, new ArrayList<>(x_y1), factory4, title4D);  //*/
+        }
 
     }
 
