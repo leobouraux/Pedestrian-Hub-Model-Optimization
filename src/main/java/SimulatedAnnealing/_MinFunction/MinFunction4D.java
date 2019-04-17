@@ -34,7 +34,7 @@ public class MinFunction4D extends ContinuousProblem {
         double z = X.get(2);
 
         //return Math.sin(-0.15*(x*x+y*y+z*z))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2)+Math.pow(z-1, 2))+2;
-        return 0.5*(Math.sin(2*x)+Math.sin(2*y)+Math.sin(2*z))+0.005*(Math.pow(x,2)+Math.pow(z,2)+Math.pow(y,2))+2;
+        return 0.5*(Math.sin(2*x)+Math.sin(2*y)+Math.sin(2*z));//+0.00005*(Math.pow(x,2)+Math.pow(z,2)+Math.pow(y,2))+2;
     }
 
 }

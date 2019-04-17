@@ -32,8 +32,8 @@ public abstract class SAProblem {
 
         //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, BEST y, CURR y
         String names = "              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                 BEST y|                 CURR y|";
-        names += Helper.getNamesForXi(title, currentSolution.getDimension(), currentSolution);
-        long startTime = SAProblem.Helper.TXT_Titles(title, names);
+        names += Helper.getNamesForXi(currentSolution.getDimension(), currentSolution);
+        long startTime = SAProblem.Helper.TXT_Titles(title, names, false);
 
 
         // We would like to keep track if the best solution
@@ -106,11 +106,12 @@ public abstract class SAProblem {
 
 
     static class Helper {
-        static long TXT_Titles(String title, String s2) {
+        static long TXT_Titles(String title, String s2, boolean append) {
             long startTime = System.nanoTime();
-            Utils.dataToTxt(title, s2, false);
+            Utils.dataToTxt(title, s2, append);
             return startTime;
         }
+
         static void TXT_End_Print(String title, long startTime, SAProblem bestSolution, double bestObjective, int loop_nb, String s2) {
             long endTime = System.nanoTime();
             String data = "Runtime: " + (endTime - startTime) / Math.pow(10, 9) + " sec";
@@ -119,19 +120,18 @@ public abstract class SAProblem {
             bestSolution.printSolution("The best solution: ", bestObjective);
         }
 
-        static String getNamesForXi(String title, int dimension, SAProblem problem) {
+        static String getNamesForXi(int dimension, SAProblem problem) {
             String names = "";
             if(problem instanceof DiscreteProblem) {
                 return names;
             }
             names += "                 BEST x|                 CURR x|";
             for (int i = 1; i < dimension+1; i++) {
-                if(dimension == i){
-                    Utils.dataToTxt(title, names, true);
-                    break;
+                if(dimension == 1){
+                    return names;
                 }
                 String str_i = String.valueOf(i+1);
-                names += "                 BEST x"+str_i+"|                CURR x"+str_i+"|";
+                names += "                BEST x"+str_i+"|                CURR x"+str_i+"|";
             }
             return names;
         }
