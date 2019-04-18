@@ -125,8 +125,7 @@ public class Utils {
      * @return random such that 0.0 <= random <= 1.0
      */
     public static double randomProba() {
-        Random r = new Random();
-        return r.nextInt(1000) / 1000.0;
+        return randomDouble(0,1);
     }
 
     /**

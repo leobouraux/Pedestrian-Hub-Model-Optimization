@@ -126,7 +126,7 @@ public abstract class SAProblem {
                 return names;
             }
             names += "                 BEST x|                 CURR x|";
-            for (int i = 1; i < dimension+1; i++) {
+            for (int i = 1; i < dimension +1; i++) {
                 if(dimension == 1){
                     return names;
                 }
