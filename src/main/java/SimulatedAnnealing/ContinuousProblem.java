@@ -15,6 +15,8 @@ public abstract class ContinuousProblem extends SAProblem {
 
     private static final double FROM_CG = 1.0;
     private static final double FROM_U = 0.0;
+    private static final double INITIAL = 2.0;
+
 
     private static int dim;
     private static ArrayList<Double> starts;
@@ -170,8 +172,7 @@ public abstract class ContinuousProblem extends SAProblem {
             X.add(pb);
             Y.add(getObjectiveFunction(newX));
 
-            X.get(i).writeDataDSA(title, 0, "initial", 0, 0, 0,
-                    0, Y.get(i), X.get(i), X.get(i));
+            X.get(i).writeDataDSA(title, 0, INITIAL, 0, 0, 0,0, Y.get(i), X.get(i), X.get(i));
         }
         ControlledGestionLists.reorderCGs(X, Y);
         return new ControlledGestionLists(X,Y);
@@ -305,6 +306,7 @@ public abstract class ContinuousProblem extends SAProblem {
             String names = "              ACCEPT PB|Control-G?|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|                 BEST y|                 CURR y|";
             names += SAProblem.Helper.getNamesForXi(dim, currentSolution);
             startTime = SAProblem.Helper.TXT_Titles(title, names, runMultipleTimes);
+
         }
 
 
