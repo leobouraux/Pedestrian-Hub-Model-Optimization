@@ -3,7 +3,6 @@ package SimulatedAnnealing.Factories;
 import SimulatedAnnealing.SAProblem;
 import SimulatedAnnealing._MinFunction.MinFunction3D;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

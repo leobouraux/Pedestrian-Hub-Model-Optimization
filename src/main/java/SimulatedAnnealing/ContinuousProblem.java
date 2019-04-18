@@ -13,6 +13,9 @@ public abstract class ContinuousProblem extends SAProblem {
 
     private List<Double> X;
 
+    private static final double FROM_CG = 1.0;
+    private static final double FROM_U = 0.0;
+
     private static int dim;
     private static ArrayList<Double> starts;
     private static ArrayList<Double> ends;
@@ -265,6 +268,8 @@ public abstract class ContinuousProblem extends SAProblem {
         if(w<0.75) {
             //Uniform distribution
             uniformDistribution(nextXs);
+            //in order to now if we use controlled generation or not. it will be deleted on optimizationDSA function
+            nextXs.add(FROM_U);
         }
         else {
             //Controlled generation
@@ -272,6 +277,7 @@ public abstract class ContinuousProblem extends SAProblem {
                 double nextXi = controlledGeneration(CGListXs, i);
                 nextXs.add(nextXi);
             }
+            nextXs.add(FROM_CG);
         }
         return new ArrayList<>(nextXs);
     }
@@ -283,49 +289,63 @@ public abstract class ContinuousProblem extends SAProblem {
      * @param parameters : list that defines the problem
      * @param factory : type of problem used
      * @param title : title for data.txt file
+     * @param runMultipleTimes
      */
     public static void optimizationDSA(double temperature, final double final_CG_density, double final_temp,
-                                ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title) {
+                                       ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title, boolean runMultipleTimes) {
         //Create a random initial problem
-        int CGListLength = /*5*(n+1);*/ 7*(dim+1);   /*10*(n+1);*/
+        int CGListLength = 5*(dim+1);//*/ 7*(dim+1);   /*10*(n+1);*/
         ContinuousProblem currentSolution = (ContinuousProblem) factory.createSAProblem(parameters);
         double currentObjective = currentSolution.objectiveFunction();
-        currentSolution.printSolution("The initial solution: ", currentObjective);
 
-        //Overwrite the previous .txt file
-        String names = "              ACCEPT PB|  ACC-BEST|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|                 BEST y|                 CURR y|";
-        names += SAProblem.Helper.getNamesForXi(title, dim, currentSolution);
-        long startTime = SAProblem.Helper.TXT_Titles(title, names);
+        long startTime = 0;
+        if(!runMultipleTimes) {
+            currentSolution.printSolution("The initial solution: ", currentObjective);
+            //Overwrite the previous .txt file ?
+            String names = "              ACCEPT PB|Control-G?|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|                 BEST y|                 CURR y|";
+            names += SAProblem.Helper.getNamesForXi(dim, currentSolution);
+            startTime = SAProblem.Helper.TXT_Titles(title, names, runMultipleTimes);
+        }
+
 
         //Initialize list for CG
         ControlledGestionLists CGs = currentSolution.CGInit(CGListLength, title);
         ArrayList<ContinuousProblem> CGListX = CGs.getX();
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
-        double CG_density = 0;
-
-        //Keep track if the best solution
-        ContinuousProblem bestSolution = currentSolution;
+        double CG_density = 1;
 
         //Outer loop parameters
         int loop_nb =0; //t
-        String isAcceptedBest = "FF";
         boolean stopCriterion = false;
 
-        //Cooling temp param
+        //Inner loop param
+        double comeFromCG = FROM_U;
         double factor = 0.85, factorMin = 0.8, factorMax = 0.9;
         int prevIterInner = -1;
+        double acceptanceProba = 1.0;
+        int iterInner = 1, Lt = 10*dim, maxIterInner =Lt;
+
+        //Keep track if the best solution
+        ContinuousProblem bestSolution = (currentObjective < CGListY.get(0)) ? currentSolution : CGListX.get(0);
+
+        //write data for initial solution
+        if(!runMultipleTimes) {
+            currentSolution.writeDataDSA(title, acceptanceProba, comeFromCG, temperature, CG_density, iterInner,
+                    CGListY.get(0), currentObjective, bestSolution, currentSolution);
+        }
 
         //Loop until system has cooled
         while (!stopCriterion) {
             //Markov chain param
             boolean check = false;
-            int iterInner = 0, Lt = 10*dim, maxIterInner =Lt;
-            double acceptanceProba = 0;
+            iterInner = 0;
 
             while (!check) {
                 //Create the neighbour solution
-                ContinuousProblem newSolution = (ContinuousProblem) factory.createSAProblem(currentSolution.transformSolutionDSA(CGListX));
+                ArrayList<Object> transformedSolution = new ArrayList<>(currentSolution.transformSolutionDSA(CGListX));
+                comeFromCG = transformedSolution.remove(transformedSolution.size()-1).equals(FROM_CG) ? FROM_CG : FROM_U;
+                ContinuousProblem newSolution = (ContinuousProblem) factory.createSAProblem(transformedSolution);
 
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
@@ -341,7 +361,6 @@ public abstract class ContinuousProblem extends SAProblem {
                     CGListY.set(CGListLength-1, neighbourObjective);
                     currentSolution = newSolution;
                     currentObjective = neighbourObjective;
-                    isAcceptedBest="TF";
                 }
 
                 //Update inner loop param
@@ -352,7 +371,6 @@ public abstract class ContinuousProblem extends SAProblem {
                 //Keep track of the best solution found (=CGListX[0])
                 if (neighbourObjective < CGListY.get(0)) {
                     bestSolution = currentSolution;
-                    isAcceptedBest="TT";
                     check = true;
                     //Control param CASE 1
                     factor = factorMax;
@@ -367,10 +385,11 @@ public abstract class ContinuousProblem extends SAProblem {
                 double F = 1-Math.exp(fl-fh);
                 maxIterInner = Lt + (int)(Lt*F);
 
-                //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
-                currentSolution.writeDataDSA(title, acceptanceProba, isAcceptedBest, temperature, CG_density, iterInner,
-                        CGListY.get(0), currentObjective, currentSolution, bestSolution);
-
+                if(!runMultipleTimes) {
+                    //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
+                    currentSolution.writeDataDSA(title, acceptanceProba, comeFromCG, temperature, CG_density, iterInner,
+                            CGListY.get(0), currentObjective, bestSolution, currentSolution);
+                }
             }
 
             //New best sol has not been found in A && at least 2nd outer loop
@@ -395,8 +414,14 @@ public abstract class ContinuousProblem extends SAProblem {
             temperature *= factor;
             loop_nb++;
         }
+        if(!runMultipleTimes) {
+            SAProblem.Helper.TXT_End_Print(title, startTime, bestSolution, CGListY.get(0), loop_nb, "Nbr d'outer loop: ");
+        }
+        else {
+            bestSolution.writeDataDSA(title, acceptanceProba, comeFromCG, temperature, CG_density, iterInner,
+                    CGListY.get(0), currentObjective, bestSolution, currentSolution);
+        }
 
-        SAProblem.Helper.TXT_End_Print(title, startTime, bestSolution, CGListY.get(0), loop_nb, "Nbr d'outer loop: ");
     }
 
 
@@ -418,12 +443,12 @@ public abstract class ContinuousProblem extends SAProblem {
 
     //DataVisualization functions for Continuous problems
 
-    private void writeDataDSA(String title, double acceptanceProba, String isAccepted, double temp, double density, int markovLen,
+    private void writeDataDSA(String title, double acceptanceProba, double comeFromCG, double temp, double density, int markovLen,
                               double bestSolution, double currentSolution, SAProblem bestXi_here, SAProblem currXi_here) {
         //ACCEPT PB, ACC-BEST Sol(TT/TF/FF), TEMPER°, DENSITY, MARKOV LENGTH, BEST y, CURR y, BESTxi, CURRxi
         String data = "";
         data += Utils.format(acceptanceProba, 23);
-        data += Utils.format(isAccepted, 10);
+        data += Utils.format(comeFromCG, 10);
         data += Utils.format(temp, 23);
         data += Utils.format(density, 23);
         data += Utils.format(markovLen, 13);
