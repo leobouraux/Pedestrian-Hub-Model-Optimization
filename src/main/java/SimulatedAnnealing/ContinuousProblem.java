@@ -145,7 +145,7 @@ public abstract class ContinuousProblem extends SAProblem {
         else {
             nbIter = nbIterObjective((getObjectiveFunction(X)-bestSol)/typicalIncrease, BASIC_NB_ITER);
         }
-        System.out.println(getObjectiveFunction(X) + "  nbIter = " + nbIter);
+        //System.out.println(getObjectiveFunction(X) + "  nbIter = " + nbIter);
 
         double o = 0;
         for (int i = 0; i < nbIter ; i++) {
