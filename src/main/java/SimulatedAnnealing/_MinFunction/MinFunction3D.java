@@ -31,6 +31,7 @@ public class MinFunction3D extends ContinuousProblem {
         double x = X.get(0);
         double y = X.get(1);
 
+
         //easy one
         //return Math.sin(-0.15*(x*x+y*y))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2))+2;
 

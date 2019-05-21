@@ -1,7 +1,6 @@
 package SimulatedAnnealing._MinFunction;
 
 import SimulatedAnnealing.ContinuousProblem;
-import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,20 +27,13 @@ public class MinFunction4D extends ContinuousProblem {
         System.out.println("For x1 = " + curr_x1 + ", x2 = " + curr_x2 + ", x3 = " + curr_x3 + " ---> z = " + currObjective);
     }
 
-    @Override
     public double getObjectiveFunction(ArrayList<Double> X) {
-        double randx = Utils.randomDouble(-0.3, 0.3);
-        double randy = Utils.randomDouble(-0.3, 0.3);
-        double randz = Utils.randomDouble(-0.3, 0.3);
+        double x = X.get(0);// +randx ;
+        double y = X.get(1);// +randy ;
+        double z = X.get(2);// +randz ;
 
-        double x = X.get(0) +randx ;
-        double y = X.get(1) +randy ;
-        double z = X.get(2) +randz ;
-
-
-
-        //return Math.sin(-0.15*(x*x+y*y+z*z))+0.05*(Math.pow(x+Math.PI, 2)+Math.pow(y-2, 2)+Math.pow(z-1, 2))+2;
         return 0.5*(Math.sin(2*x)+Math.sin(2*y)+Math.sin(2*z))+0.005*(Math.pow(x,2)+Math.pow(z,2)+Math.pow(y,2))+2;
     }
+
 
 }

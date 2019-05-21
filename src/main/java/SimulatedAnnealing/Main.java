@@ -18,11 +18,11 @@ public class Main {
     private static boolean MiF_LSA = false;
     private static boolean MiF_DSA = false;
 
-    private static boolean MiF3D_LSA = false;
     private static boolean MiF3D_DSA = false;
+    private static boolean MiF4D_DSA = true;
 
-    private static boolean MiF4D_DSA = false;
-    private static boolean MiF4D_DSA_Stocha = true;
+    private static boolean MiF4D_DSA_Stocha = false;
+
 
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class Main {
             ArrayList<Object> tour = TSP.problemInit(dimension);
             SAProblemsAbstractFactory tsp = new TSPFactory();
             String titre = path+"LSA_TSP.txt";
-            SAProblem.optimizationLSA(10e3, 0.0005, 0.005, new ArrayList<>(tour), tsp, titre);//*/
+            DiscreteProblem.optimizationLSA(10e3, 0.0005, 0.005, new ArrayList<>(tour), tsp, titre);//*/
         }
 
 
@@ -50,7 +50,7 @@ public class Main {
             SAProblemsAbstractFactory factory = new MinFunctionFactory();
             String title = path+"LSA_MinFunction.txt";
             //initial temp + final temp = small when typical increase of the objective function is small, and the objective function results are small
-            SAProblem.optimizationLSA(10, 0.005, 0.001, new ArrayList<>(x_only), factory, title); //
+            DiscreteProblem.optimizationLSA(10, 0.005, 0.001, new ArrayList<>(x_only), factory, title); //
         }
 
         //DSA
@@ -59,27 +59,17 @@ public class Main {
             ArrayList<Double> x_only1 = MinFunction.problemInit(dimension, Collections.singletonList(-5.0), Collections.singletonList(5.0));
             SAProblemsAbstractFactory factory1 = new MinFunctionFactory();
             String title1 = path + "DSA_MinFunction.txt";
-            ContinuousProblem.optimizationDSA(10e3, 0.005, 0.05, new ArrayList<>(x_only1), factory1, title1, false);  //*/
+            ContinuousProblem.optimizationDSA( 0.005, 0.05, new ArrayList<>(x_only1), factory1, title1, false);  //*/
         }
 
         /**  MinFunction3D  */
-        //LSA
-        if(MiF3D_LSA) {
-            dimension = 2;
-            ArrayList<Double> x_y = MinFunction3D.problemInit(dimension, Arrays.asList(-10.0, -10.0), Arrays.asList(10.0, 10.0));
-            SAProblemsAbstractFactory factory2 = new MinFunction3DFactory();
-            String title3Da = path+"LSA_MinFunction3D.txt";
-            //initial temp + final temp = small when typical increase of the objective function is small, and the objective function results are small
-            SAProblem.optimizationLSA(10, 0.005, 0.001, new ArrayList<>(x_y), factory2, title3Da); //*/
-        }
 
-        //DSA
         if(MiF3D_DSA) {
             dimension = 2;
             ArrayList<Double> x_y1 = MinFunction3D.problemInit(dimension, Arrays.asList(-10.0, -10.0), Arrays.asList(10.0, 10.0));
             SAProblemsAbstractFactory factory3 = new MinFunction3DFactory();
             String title3Db = path+"DSA_MinFunction3D.txt";
-            ContinuousProblem.optimizationDSA(10e5, 0.002, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false);  //*/
+            ContinuousProblem.optimizationDSA( 0.002, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false);  //*/
         }
 
         /**  MinFunction4D  */
@@ -90,7 +80,7 @@ public class Main {
             ArrayList<Double> x_y1 = MinFunction4D.problemInit(dimension, Arrays.asList(-5.0, -5.0, -5.0), Arrays.asList(5.0, 5.0, 5.0));
             SAProblemsAbstractFactory factory4 = new MinFunction4DFactory();
             String title4D = path+"DSA_MinFunction4D.txt";
-            ContinuousProblem.optimizationDSA(1.5*10e3, 0.001, 0.02, new ArrayList<>(x_y1), factory4, title4D, false);  //*/
+            ContinuousProblem.optimizationDSA(0.02, 0.02, new ArrayList<>(x_y1), factory4, title4D, false);  //*/
         }
         if(MiF4D_DSA_Stocha) {
             dimension = 3;
@@ -104,7 +94,7 @@ public class Main {
             for (int i = 0; i < nb_iter; i++) {
                 ArrayList<Double> x_y1 = MinFunction4D.problemInit(dimension, Arrays.asList(-5.0, -5.0, -5.0), Arrays.asList(5.0, 5.0, 5.0));
                 SAProblemsAbstractFactory factory4 = new MinFunction4DFactory();
-                ContinuousProblem.optimizationDSA(1.5*10e3, 0.001, 0.02, new ArrayList<>(x_y1), factory4, title4D, true);  //*/
+                ContinuousProblem.optimizationDSA( 0.001, 0.02, new ArrayList<>(x_y1), factory4, title4D, true);  //*/
                 System.out.print((i+1)+" ");
             }
         }

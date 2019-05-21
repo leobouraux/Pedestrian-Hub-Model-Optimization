@@ -1,7 +1,6 @@
 package SimulatedAnnealing._TravelingSalesmanProblem;
 
 import SimulatedAnnealing.DiscreteProblem;
-import SimulatedAnnealing.Others.ControlledGestionLists;
 import SimulatedAnnealing.Others.Utils;
 
 import java.util.ArrayList;
@@ -31,11 +30,6 @@ public class TSP extends DiscreteProblem {
 
     public ArrayList<Object> getXs() {
         return new ArrayList<>(tour);
-    }
-
-    @Override
-    public ControlledGestionLists CGInit(int length) {
-        return null;
     }
 
 

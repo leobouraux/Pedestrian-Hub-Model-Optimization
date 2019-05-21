@@ -3,14 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b4301f-d6f1-479e-873e-c01629374743" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/.ipynb_checkpoints/PlottingMethods-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/.ipynb_checkpoints/PlottingMethods-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/.ipynb_checkpoints/ProcessData-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/.ipynb_checkpoints/ProcessData-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/Graphs LSA DSA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/PlottingMethods.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/ProcessData.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/ProcessData.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/Untitled.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/foo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/foo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/hub-model-optimization.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,49 +36,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D_Stocha.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3180">
-              <caret line="351" column="50" selection-start-line="351" selection-start-column="16" selection-end-line="351" selection-end-column="50" />
+            <state relative-caret-position="216">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
-                <element signature="docComment;method#problemInit#0;class#ContinuousProblem#0" />
-                <element signature="method#problemInit#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getDimension#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getXs#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getXi#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getRandomXi#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getStarts#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getEnds#0;class#ContinuousProblem#0" />
-                <element signature="method#objectiveFunction#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#localSearchAroundX#0;class#ContinuousProblem#0" />
-                <element signature="method#localSearchAroundX#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#uniformDistribution#0;class#ContinuousProblem#0" />
-                <element signature="method#CGInit#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#controlledGeneration#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#getNextXiForCG#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#transformSolutionLSA#0;class#ContinuousProblem#0" />
-                <element signature="method#transformSolutionLSA#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#transformSolutionDSA#0;class#ContinuousProblem#0" />
-                <element signature="docComment;method#pbWithGoodType#0;class#ContinuousProblem#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+            <state relative-caret-position="60">
+              <caret line="79" column="89" selection-start-line="79" selection-start-column="89" selection-end-line="79" selection-end-column="89" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,10 +60,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/simulations/aRq0jta00_DSA_results.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="104">
+              <caret line="140" column="45" lean-forward="true" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#problemInit#0;class#ContinuousProblem#0" />
+                <element signature="method#problemInit#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getDimension#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getXs#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getXi#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getRandomXi#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getStarts#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getEnds#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#localSearchAroundX#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#uniformDistribution#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#controlledGeneration#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#getNextXiForCG#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#transformSolutionLSA#0;class#ContinuousProblem#0" />
+                <element signature="docComment;method#transformSolutionDSA#0;class#ContinuousProblem#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,53 +88,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-173702">
-              <caret line="15" column="163" selection-start-line="15" selection-start-column="163" selection-end-line="15" selection-end-column="163" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/simulations/OwnLejjl0_DSA_results.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/simulations/UqzlklOyY_DSA_results.txt">
-          <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="150" selection-end-line="1" />
+              <caret line="14530" selection-start-line="14530" selection-end-line="14530" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/simulations/ZF0ZAUTcE_DSA_results.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="36" column="131" selection-start-line="36" selection-end-line="37" />
+            <state relative-caret-position="140">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="168" selection-start-line="2" selection-start-column="168" selection-end-line="2" selection-end-column="168" />
+            <state relative-caret-position="111">
+              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31665">
-              <caret line="2111" column="11" selection-start-line="2111" selection-start-column="11" selection-end-line="2111" selection-end-column="11" />
+            <state relative-caret-position="-45">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,26 +151,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>0.5693017464271086</find>
-      <find>5692902944930758</find>
-      <find>5714593288300007</find>
-      <find>571614893746451</find>
-      <find>syst</find>
-      <find>CG_density</find>
-      <find>getLis</find>
-      <find>getPara</find>
-      <find>blou</find>
-      <find>1235549207181474</find>
-      <find>018128375427226</find>
-      <find>getRandomX</find>
-      <find>CGInit</find>
-      <find>sys</find>
-      <find>system.out</find>
       <find>parameters</find>
       <find>SAPro</find>
       <find>10</find>
       <find>Lt</find>
-      <find>objectiveFun</find>
       <find>654407816088996</find>
       <find>25349585450216594</find>
       <find>CGINI</find>
@@ -183,6 +165,22 @@
       <find>loop_nb</find>
       <find>rand</find>
       <find>TT</find>
+      <find>write</find>
+      <find>mean</find>
+      <find>mean_delta_xy_pos</find>
+      <find>SolutionLSA</find>
+      <find>getOb</find>
+      <find>getObje</find>
+      <find>-0.5099081313648277</find>
+      <find>wors</find>
+      <find>getObj</find>
+      <find>objectiveFun</find>
+      <find>NEGATIVE_INFINITY</find>
+      <find>LSA</find>
+      <find>30</find>
+      <find>= 30</find>
+      <find>objectiveFunction</find>
+      <find>5787180476471092</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,8 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/TSP/TSPUtility.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TSPUtility.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/TSP/TourManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/minFunction.java" />
@@ -220,20 +216,11 @@
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/TSPFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Dim1Problem.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunction3DFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/M.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/MinFunction4DFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" />
         <option value="$PROJECT_DIR$/src/test/java/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/aRq0jta00_DSA_results.txt" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/OwnLejjl0_DSA_results.txt" />
         <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/UqzlklOyY_DSA_results.txt" />
@@ -242,6 +229,17 @@
         <option value="$PROJECT_DIR$/src/main/simulations/ZF0ZAUTcE_DSA_results.txt" />
         <option value="$PROJECT_DIR$/src/main/simulations/OwnLejjl0_DSA_results.txt" />
         <option value="$PROJECT_DIR$/src/main/simulations/aRq0jta00_DSA_results.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java" />
       </list>
     </option>
   </component>
@@ -256,10 +254,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
-    <option name="height" value="733" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -291,8 +288,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -334,26 +331,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="SimulatedAnnealing" type="462c0819:PsiDirectoryNode" />
               <item name="GraphData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="simulations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hub-model-optimization" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hub-model-optimization" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,12 +452,15 @@
       <workItem from="1553874214714" duration="5845000" />
       <workItem from="1555157813466" duration="11416000" />
       <workItem from="1555415781257" duration="21211000" />
-      <workItem from="1556631424057" duration="6894000" />
+      <workItem from="1556631424057" duration="7440000" />
+      <workItem from="1557777212751" duration="18177000" />
+      <workItem from="1557863830103" duration="13302000" />
+      <workItem from="1558358277980" duration="11814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280888000" />
+    <option name="totallyTimeSpent" value="324727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,8 +473,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1631664" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.115508884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -503,16 +484,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33972603" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3931507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32756326" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2890411" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.28705147" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.29589042" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.29041097" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32956383" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -526,21 +507,44 @@
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32956383" />
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1631664" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37123287" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32756326" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.28705147" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.29041097" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32956383" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32956383" />
+      <window_info anchor="right" id="Maven" order="10" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/grapher/MinFunction3D.gcx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MF3D_currXY.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ProblemDimension.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/DimProblem.java" />
@@ -563,23 +567,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction3D_currX.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="method#City#0;class#City#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSPUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_MinFunction_currX.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/TSPFactory.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -599,28 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#problemInit#0;class#TSP#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Factories/SAProblemsAbstractFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -636,16 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/LSA_TSP.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -657,16 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="1804" column="84" selection-start-line="1838" selection-start-column="66" selection-end-line="1838" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,36 +647,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/python/foo1.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="127" column="33" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#listFilenames#0;class#Utils#0" />
-            <element signature="method#csvToList#0;class#Utils#0" />
-            <element signature="method#getTravelTimes#0;class#Utils#0" />
-            <element signature="method#listSum#0;class#Utils#0" />
-            <element signature="method#listMean#0;class#Utils#0" />
-            <element signature="method#listMedian#0;class#Utils#0" />
-            <element signature="method#listStd#0;class#Utils#0" />
-            <element signature="docComment;method#acceptanceProbability#0;class#Utils#0" />
-            <element signature="docComment;method#randomProba#0;class#Utils#0" />
-            <element signature="e#3893#3894#0" expanded="true" />
-            <element signature="e#3940#3941#0" expanded="true" />
-            <element signature="docComment;method#randomInt#0;class#Utils#0" />
-            <element signature="method#format#0;class#Utils#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -739,28 +654,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/python/foo.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D_Stocha.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -769,62 +664,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/simulations/aRq0jta00_DSA_results.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3180">
-          <caret line="351" column="50" selection-start-line="351" selection-start-column="16" selection-end-line="351" selection-end-column="50" />
-          <folding>
-            <element signature="docComment;method#problemInit#0;class#ContinuousProblem#0" />
-            <element signature="method#problemInit#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getDimension#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getXs#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getXi#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getRandomXi#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getStarts#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getEnds#0;class#ContinuousProblem#0" />
-            <element signature="method#objectiveFunction#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#localSearchAroundX#0;class#ContinuousProblem#0" />
-            <element signature="method#localSearchAroundX#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#uniformDistribution#0;class#ContinuousProblem#0" />
-            <element signature="method#CGInit#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#controlledGeneration#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#getNextXiForCG#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#transformSolutionLSA#0;class#ContinuousProblem#0" />
-            <element signature="method#transformSolutionLSA#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#transformSolutionDSA#0;class#ContinuousProblem#0" />
-            <element signature="docComment;method#pbWithGoodType#0;class#ContinuousProblem#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="168" selection-start-line="2" selection-start-column="168" selection-end-line="2" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31665">
-          <caret line="2111" column="11" selection-start-line="2111" selection-start-column="11" selection-end-line="2111" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173702">
-          <caret line="15" column="163" selection-start-line="15" selection-start-column="163" selection-end-line="15" selection-end-column="163" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -835,24 +678,182 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/simulations/ZF0ZAUTcE_DSA_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="36" column="131" selection-start-line="36" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/simulations/aRq0jta00_DSA_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/simulations/OwnLejjl0_DSA_results.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/simulations/ZF0ZAUTcE_DSA_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="36" column="131" selection-start-line="36" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="910" column="21" selection-start-line="910" selection-end-line="911" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/ControlledGestionLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_Init_Temp.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction3D.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7141">
+          <caret line="791" column="79" selection-start-line="791" selection-start-column="79" selection-end-line="791" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Override.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Others/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#listFilenames#0;class#Utils#0" />
+            <element signature="method#listSum#0;class#Utils#0" />
+            <element signature="method#listMean#0;class#Utils#0" />
+            <element signature="method#listMedian#0;class#Utils#0" />
+            <element signature="docComment;method#acceptanceProbability#0;class#Utils#0" />
+            <element signature="docComment;method#randomProba#0;class#Utils#0" />
+            <element signature="docComment;method#randomInt#0;class#Utils#0" />
+            <element signature="method#format#0;class#Utils#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="method#problemInit#0;class#TSP#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/TSPUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_TravelingSalesmanProblem/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="method#City#0;class#City#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/SAProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/DiscreteProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/_MinFunction/MinFunction4D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/GraphData/DSA_MinFunction4D.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="14530" selection-start-line="14530" selection-end-line="14530" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/ContinuousProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="140" column="45" lean-forward="true" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#problemInit#0;class#ContinuousProblem#0" />
+            <element signature="method#problemInit#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getDimension#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getXs#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getXi#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getRandomXi#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getStarts#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getEnds#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#localSearchAroundX#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#uniformDistribution#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#controlledGeneration#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#getNextXiForCG#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#transformSolutionLSA#0;class#ContinuousProblem#0" />
+            <element signature="docComment;method#transformSolutionDSA#0;class#ContinuousProblem#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SimulatedAnnealing/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="79" column="89" selection-start-line="79" selection-start-column="89" selection-end-line="79" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
