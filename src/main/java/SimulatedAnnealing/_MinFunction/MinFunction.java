@@ -25,7 +25,7 @@ public class MinFunction extends ContinuousProblem {
     }
 
     @Override
-    public double getObjectiveFunction(ArrayList<Double> X){
+    public double getObjectiveFunction(ArrayList<Double> X, int nb_iter) {
         //easy one
         //return Math.log(0.1*Math.sin(10*x) + 0.01*Math.pow(x, 4) - 0.1 *Math.pow(x,2) +1)+1+0.7*x*x;
 
@@ -33,5 +33,4 @@ public class MinFunction extends ContinuousProblem {
         double x = X.get(0);
         return Math.log(0.1*Math.sin(30*x)+0.01*Math.pow(x, 4)-0.1*Math.pow(x, 2) + 1)+1;
     }
-
 }

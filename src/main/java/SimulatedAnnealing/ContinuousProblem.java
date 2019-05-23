@@ -16,7 +16,10 @@ public abstract class ContinuousProblem extends SAProblem {
     private static final double FROM_CG = 1.0;
     private static final double FROM_U = 0.0;
 
-    private static final int BASIC_NB_OBJ_ITER = 15;
+    private static final int BASIC_NB_OBJ_ITER = 30;
+    private static final int MIN_NB_OBJ_ITER = 20;
+    private static final int MAX_NB_OBJ_ITER = 80;
+
 
     private static int dim;
     private static ArrayList<Double> starts;
@@ -120,41 +123,26 @@ public abstract class ContinuousProblem extends SAProblem {
 
     // Algorithms
 
-    public double objectiveFunction(double typicalIncrease, double bestObj) {
+    public double objectiveFunction(int nb_iter) {
         List<Double> d = getXs().stream().map(object -> (double) object).collect(Collectors.toList());
-        return objectiveFunctionIter(new ArrayList<>(d), typicalIncrease, bestObj, BASIC_NB_OBJ_ITER);
+        return getObjectiveFunction(new ArrayList<>(d),nb_iter);
     }
 
-    private int nbIterObjective(double x, int BASIC_NB_ITER){
-        if(x<0) return BASIC_NB_ITER*2;
-        else {
-            //2.5 augmente le nombre d'itération quand la distance entre la current sol et la best se réduit
-            double o = BASIC_NB_ITER + 10*(2.5*Math.exp(-110*x)-1);
-            return (int) (Math.max(5, Math.min(27, o)));
-        }
-    }
 
-    private double objectiveFunctionIter(ArrayList<Double> X, double typicalIncrease, double bestSol, int BASIC_NB_ITER) {
 
-        int nbIter;
-        //basic number of iterations, for starting computations
+    private static int getSupIterNb(double sol, double bestSol, double typicalIncrease){
+        double x = (sol-bestSol)/typicalIncrease;
+        if(x<0) return MAX_NB_OBJ_ITER;
         if(typicalIncrease == Double.NEGATIVE_INFINITY){
-            nbIter = BASIC_NB_ITER;
+            return BASIC_NB_OBJ_ITER;
         }
-        //number of iterations in function of distance to bestSolution 
         else {
-            nbIter = nbIterObjective((getObjectiveFunction(X)-bestSol)/typicalIncrease, BASIC_NB_ITER);
-        }
-        //System.out.println(getObjectiveFunction(X) + "  nbIter = " + nbIter);
+            double o = (MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)*Math.exp(-150*x); // interpolation exponentielle
+            //double o = -3000*x+(MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)//  interpolation linéaire
 
-        double o = 0;
-        for (int i = 0; i < nbIter ; i++) {
-            o += getObjectiveFunction(X);
+            return (int) o;
         }
-        return o/((double)nbIter);
     }
-
-
 
     /**
      *
@@ -198,7 +186,7 @@ public abstract class ContinuousProblem extends SAProblem {
             }
             ContinuousProblem pb = pbWithGoodType(newX);
             X.add(pb);
-            Y.add(objectiveFunctionIter(newX, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, BASIC_NB_OBJ_ITER));
+            Y.add(getObjectiveFunction(newX, BASIC_NB_OBJ_ITER));
         }
         ControlledGestionLists.reorderCGs(X, Y);
         return new ControlledGestionLists(X,Y);
@@ -311,21 +299,19 @@ public abstract class ContinuousProblem extends SAProblem {
     }
 
     /**
-     * @param final_CG_density : objective indicator of the density of the CGList
+     * @param temperature
      * @param final_temp : final temperature
      * @param parameters : list that defines the problem
      * @param factory : type of problem used
      * @param title : title for data.txt file
      * @param runMultipleTimes
+     * @param final_CG_density : objective indicator of the density of the CGList
      */
-    public static void optimizationDSA(final double final_CG_density, double final_temp,
-                                       ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title, boolean runMultipleTimes) {
-        //Create a random initial problem
-        double initTemp = ContinuousProblem.findInitTemp(25*dim, new ArrayList<>(parameters), factory);
-        double temperature = initTemp;
+    public static void optimizationDSA(double temperature, double final_temp, ArrayList<Object> parameters, SAProblemsAbstractFactory factory, String title, boolean runMultipleTimes, final double final_CG_density) {
+        double initTemp = temperature;
         int CGListLength = 5*(dim+1);//*/ 7*(dim+1);   /*10*(n+1);*/
         ContinuousProblem currentSolution = (ContinuousProblem) factory.createSAProblem(parameters);
-        double currentObjective = currentSolution.objectiveFunction(initTemp, Double.NEGATIVE_INFINITY);
+        double currentObjective = currentSolution.objectiveFunction(BASIC_NB_OBJ_ITER);
 
         long startTime = 0;
 
@@ -379,7 +365,9 @@ public abstract class ContinuousProblem extends SAProblem {
 
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
-                double neighbourObjective = newSolution.objectiveFunction(initTemp, CGListY.get(0));
+                double neighbourObjective = newSolution.objectiveFunction(MIN_NB_OBJ_ITER);
+                int sup_iter = getSupIterNb(neighbourObjective, CGListY.get(0), initTemp);
+                neighbourObjective = newSolution.objectiveFunction(sup_iter);
 
                 //System.out.println("BAIL = " + (neighbourObjective-bestSolution.objectiveFunction()) / initTemp );
 
@@ -469,7 +457,7 @@ public abstract class ContinuousProblem extends SAProblem {
     public static double findInitTemp(int m0, ArrayList<Object> parameters, SAProblemsAbstractFactory factory) {
         //Create a random initial problem
         SAProblem currentSolution = factory.createSAProblem(parameters);
-        double currentObjective = ((ContinuousProblem) currentSolution).objectiveFunction(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+        double currentObjective = ((ContinuousProblem) currentSolution).objectiveFunction(BASIC_NB_OBJ_ITER);
 
         int m2 = 0;
         double sum_delta_xy_pos = 0;
@@ -477,7 +465,7 @@ public abstract class ContinuousProblem extends SAProblem {
         for (int i = 0; i < m0; i++) {
             SAProblem newSolution = factory.createSAProblem(currentSolution.transformSolutionLSA());
             // Get energy of both solutions
-            double neighbourObjective = ((ContinuousProblem) newSolution).objectiveFunction(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+            double neighbourObjective = ((ContinuousProblem) newSolution).objectiveFunction(BASIC_NB_OBJ_ITER);
 
             double delta_xy = neighbourObjective - currentObjective;
             if (delta_xy > 0) {
@@ -504,7 +492,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
     public abstract void printSolution(String s, double currObjective);
 
-    public abstract double getObjectiveFunction(ArrayList<Double> x);
+    public abstract double getObjectiveFunction(ArrayList<Double> x, int nb_iter);
 
 
 
