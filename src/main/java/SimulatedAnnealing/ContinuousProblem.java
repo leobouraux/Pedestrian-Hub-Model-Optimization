@@ -123,9 +123,9 @@ public abstract class ContinuousProblem extends SAProblem {
 
     // Algorithms
 
-    public double objectiveFunction(int nb_iter) {
+    public double objectiveFunction(int nb_iter, boolean newSimulation) {
         List<Double> d = getXs().stream().map(object -> (double) object).collect(Collectors.toList());
-        return getObjectiveFunction(new ArrayList<>(d),nb_iter);
+        return getObjectiveFunction(new ArrayList<>(d),nb_iter,newSimulation);
     }
 
 
@@ -137,8 +137,8 @@ public abstract class ContinuousProblem extends SAProblem {
             return BASIC_NB_OBJ_ITER;
         }
         else {
-            double o = (MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)*Math.exp(-150*x); // interpolation exponentielle
-            //double o = -3000*x+(MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)//  interpolation linéaire
+            //double o = (MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)*Math.exp(-150*x); // interpolation exponentielle
+            double o = -3000*x+(MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER);//  interpolation linéaire
 
             return (int) o;
         }
@@ -186,7 +186,7 @@ public abstract class ContinuousProblem extends SAProblem {
             }
             ContinuousProblem pb = pbWithGoodType(newX);
             X.add(pb);
-            Y.add(getObjectiveFunction(newX, BASIC_NB_OBJ_ITER));
+            Y.add(getObjectiveFunction(newX, BASIC_NB_OBJ_ITER, true));
         }
         ControlledGestionLists.reorderCGs(X, Y);
         return new ControlledGestionLists(X,Y);
@@ -311,7 +311,7 @@ public abstract class ContinuousProblem extends SAProblem {
         double initTemp = temperature;
         int CGListLength = 5*(dim+1);//*/ 7*(dim+1);   /*10*(n+1);*/
         ContinuousProblem currentSolution = (ContinuousProblem) factory.createSAProblem(parameters);
-        double currentObjective = currentSolution.objectiveFunction(BASIC_NB_OBJ_ITER);
+        double currentObjective = currentSolution.objectiveFunction(BASIC_NB_OBJ_ITER, true);
 
         long startTime = 0;
 
@@ -365,9 +365,9 @@ public abstract class ContinuousProblem extends SAProblem {
 
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
-                double neighbourObjective = newSolution.objectiveFunction(MIN_NB_OBJ_ITER);
+                double neighbourObjective = newSolution.objectiveFunction(MIN_NB_OBJ_ITER, true);
                 int sup_iter = getSupIterNb(neighbourObjective, CGListY.get(0), initTemp);
-                neighbourObjective = newSolution.objectiveFunction(sup_iter);
+                neighbourObjective = newSolution.objectiveFunction(sup_iter, false);
 
                 //System.out.println("BAIL = " + (neighbourObjective-bestSolution.objectiveFunction()) / initTemp );
 
@@ -457,7 +457,7 @@ public abstract class ContinuousProblem extends SAProblem {
     public static double findInitTemp(int m0, ArrayList<Object> parameters, SAProblemsAbstractFactory factory) {
         //Create a random initial problem
         SAProblem currentSolution = factory.createSAProblem(parameters);
-        double currentObjective = ((ContinuousProblem) currentSolution).objectiveFunction(BASIC_NB_OBJ_ITER);
+        double currentObjective = ((ContinuousProblem) currentSolution).objectiveFunction(BASIC_NB_OBJ_ITER, true);
 
         int m2 = 0;
         double sum_delta_xy_pos = 0;
@@ -465,7 +465,7 @@ public abstract class ContinuousProblem extends SAProblem {
         for (int i = 0; i < m0; i++) {
             SAProblem newSolution = factory.createSAProblem(currentSolution.transformSolutionLSA());
             // Get energy of both solutions
-            double neighbourObjective = ((ContinuousProblem) newSolution).objectiveFunction(BASIC_NB_OBJ_ITER);
+            double neighbourObjective = ((ContinuousProblem) newSolution).objectiveFunction(BASIC_NB_OBJ_ITER, true);
 
             double delta_xy = neighbourObjective - currentObjective;
             if (delta_xy > 0) {
@@ -492,7 +492,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
     public abstract void printSolution(String s, double currObjective);
 
-    public abstract double getObjectiveFunction(ArrayList<Double> x, int nb_iter);
+    public abstract double getObjectiveFunction(ArrayList<Double> x, int nb_iter, boolean newSimulation);
 
 
 
