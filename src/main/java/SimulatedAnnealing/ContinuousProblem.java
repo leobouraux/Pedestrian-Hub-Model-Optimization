@@ -136,7 +136,7 @@ public abstract class ContinuousProblem extends SAProblem {
         if(x>xMax) xMax = x;
         int supIter;
 
-        System.out.print("x = " + x + "     ");
+        //System.out.print("x = " + x + "     ");
         if(x<0)
             supIter = MAX_NB_OBJ_ITER;
         else if(typicalIncrease == Double.NEGATIVE_INFINITY)
@@ -146,10 +146,8 @@ public abstract class ContinuousProblem extends SAProblem {
             //supIter = (int) ((MAX_NB_SUP_ITER) * Math.exp(-5/xMax * x));        // interpolation exponentielle
             supIter = (int) (-MAX_NB_SUP_ITER/xMax* x + (MAX_NB_SUP_ITER));     //  interpolation linéaire
         }
-        System.out.print("supIter = " + supIter+ "       ");
-
-
-        System.out.println("xMax = " + xMax);
+        //System.out.print("supIter = " + supIter+ "       ");
+        //System.out.println("xMax = " + xMax);
         double[] tab =  {supIter, xMax};
 
         return tab;
@@ -384,8 +382,6 @@ public abstract class ContinuousProblem extends SAProblem {
                 xMax = tab[1];
 
                 neighbourObjective = newSolution.objectiveFunction(sup_iter, false);
-
-                //System.out.println("BAIL = " + (neighbourObjective-bestSolution.objectiveFunction()) / initTemp );
 
 
                 //Decide if we should accept the neighbour (not only when it's better)
