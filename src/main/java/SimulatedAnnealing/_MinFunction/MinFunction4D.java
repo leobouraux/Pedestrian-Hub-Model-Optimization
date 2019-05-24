@@ -27,7 +27,7 @@ public class MinFunction4D extends ContinuousProblem {
         System.out.println("For x1 = " + curr_x1 + ", x2 = " + curr_x2 + ", x3 = " + curr_x3 + " ---> z = " + currObjective);
     }
 
-    public double getObjectiveFunction(ArrayList<Double> X, int nb_iter) {
+    public double getObjectiveFunction(ArrayList<Double> X, int nb_iter, boolean n) {
         double x = X.get(0);// +randx ;
         double y = X.get(1);// +randy ;
         double z = X.get(2);// +randz ;

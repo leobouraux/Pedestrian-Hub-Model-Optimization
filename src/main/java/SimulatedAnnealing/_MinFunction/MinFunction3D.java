@@ -27,7 +27,7 @@ public class MinFunction3D extends ContinuousProblem {
     }
 
     @Override
-    public double getObjectiveFunction(ArrayList<Double> X, int nb_iter) {
+    public double getObjectiveFunction(ArrayList<Double> X, int nb_iter, boolean n) {
         double x = X.get(0);
         double y = X.get(1);
 

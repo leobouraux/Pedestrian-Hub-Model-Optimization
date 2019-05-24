@@ -99,7 +99,7 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 initTemp3 += ContinuousProblem.findInitTemp(25*dimension, new ArrayList<>(x_y1), factory4);
             }
-            initTemp3 /= 5.0;
+            initTemp3 /= 10.0;
 
             if(MiF4D_DSA) {
                 ContinuousProblem.optimizationDSA(initTemp3, 0.02, new ArrayList<>(x_y1), factory4, title4D, false, 0.02);  //*/

@@ -19,6 +19,7 @@ public abstract class ContinuousProblem extends SAProblem {
     private static final int BASIC_NB_OBJ_ITER = 30;
     private static final int MIN_NB_OBJ_ITER = 20;
     private static final int MAX_NB_OBJ_ITER = 80;
+    private static final int MAX_NB_SUP_ITER = 60;
 
 
     private static int dim;
@@ -130,18 +131,28 @@ public abstract class ContinuousProblem extends SAProblem {
 
 
 
-    private static int getSupIterNb(double sol, double bestSol, double typicalIncrease){
+    private static double[] getSupIterNb(double sol, double bestSol, double typicalIncrease, double xMax){
         double x = (sol-bestSol)/typicalIncrease;
-        if(x<0) return MAX_NB_OBJ_ITER;
-        if(typicalIncrease == Double.NEGATIVE_INFINITY){
-            return BASIC_NB_OBJ_ITER;
-        }
-        else {
-            //double o = (MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER)*Math.exp(-150*x); // interpolation exponentielle
-            double o = -3000*x+(MAX_NB_OBJ_ITER-MIN_NB_OBJ_ITER);//  interpolation linéaire
+        if(x>xMax) xMax = x;
+        int supIter;
 
-            return (int) o;
+        System.out.print("x = " + x + "     ");
+        if(x<0)
+            supIter = MAX_NB_OBJ_ITER;
+        else if(typicalIncrease == Double.NEGATIVE_INFINITY)
+            supIter = BASIC_NB_OBJ_ITER;
+        else {
+
+            //supIter = (int) ((MAX_NB_SUP_ITER) * Math.exp(-5/xMax * x));        // interpolation exponentielle
+            supIter = (int) (-MAX_NB_SUP_ITER/xMax* x + (MAX_NB_SUP_ITER));     //  interpolation linéaire
         }
+        System.out.print("supIter = " + supIter+ "       ");
+
+
+        System.out.println("xMax = " + xMax);
+        double[] tab =  {supIter, xMax};
+
+        return tab;
     }
 
     /**
@@ -329,6 +340,7 @@ public abstract class ContinuousProblem extends SAProblem {
         ArrayList<Double> CGListY = CGs.getY();
         ControlledGestionLists.reorderCGs(CGListX, CGListY);
         double CG_density = 1;
+        double xMax = 0;
 
         //Outer loop parameters
         int loop_nb =0; //t
@@ -366,7 +378,11 @@ public abstract class ContinuousProblem extends SAProblem {
                 //Get energy of new solution and worst solution of CGListX
                 double worstCGObjective = CGListY.get(CGListLength-1);
                 double neighbourObjective = newSolution.objectiveFunction(MIN_NB_OBJ_ITER, true);
-                int sup_iter = getSupIterNb(neighbourObjective, CGListY.get(0), initTemp);
+
+                double[] tab = getSupIterNb(neighbourObjective, CGListY.get(0), -initTemp*Math.log(0.99), xMax);
+                int sup_iter = (int)tab[0];
+                xMax = tab[1];
+
                 neighbourObjective = newSolution.objectiveFunction(sup_iter, false);
 
                 //System.out.println("BAIL = " + (neighbourObjective-bestSolution.objectiveFunction()) / initTemp );
