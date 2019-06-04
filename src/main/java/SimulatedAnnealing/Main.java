@@ -18,8 +18,8 @@ public class Main {
     private static boolean MiF_LSA = false;
     private static boolean MiF_DSA = false;
 
-    private static boolean MiF3D_DSA = false;
-    private static boolean MiF4D_DSA = true;
+    private static boolean MiF3D_DSA = true;
+    private static boolean MiF4D_DSA = false;
 
     private static boolean MiF4D_DSA_Stocha = false;
 
@@ -81,9 +81,8 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 initTemp += ContinuousProblem.findInitTemp(25*dimension, new ArrayList<>(x_y1), factory3);
             }
-            initTemp /= 10.0;
 
-            ContinuousProblem.optimizationDSA(initTemp, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false, 0.002);  //*/
+            ContinuousProblem.optimizationDSA(initTemp, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false, 0.008);  //*/
         }
 
         /**  MinFunction4D  */

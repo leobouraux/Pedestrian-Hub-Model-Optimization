@@ -39,10 +39,7 @@ public abstract class SAProblem {
                 return names;
             }
             names += "                 BEST x|                 CURR x|";
-            for (int i = 1; i < dimension +1; i++) {
-                if(dimension == 1){
-                    return names;
-                }
+            for (int i = 1; i < dimension; i++) {
                 String str_i = String.valueOf(i+1);
                 names += "                BEST x"+str_i+"|                CURR x"+str_i+"|";
             }

@@ -217,7 +217,7 @@ public abstract class ContinuousProblem extends SAProblem {
 
             check = nextXi >= starts.get(i) && nextXi <= ends.get(i);
             //to keep stuck not infinitely
-            if(counter>=7*(dim+1)) {
+            if(counter>=5*(dim+1)) {
                 check = true;
                 stuck = true;
             }
@@ -247,11 +247,11 @@ public abstract class ContinuousProblem extends SAProblem {
         List<ContinuousProblem> CGcopy = new ArrayList<>(CGListXs);
         CGcopy.remove(0);
         Collections.shuffle(CGcopy);
-        CGcopy = CGcopy.subList(0, dim);
+        CGcopy = CGcopy.subList(0, dim+1);
 
         //compute nextX
         double G = CGListXs.get(0).getXi(i);
-        for (int j = 0; j < dim-1 ; j++) {
+        for (int j = 0; j < dim ; j++) {
             ContinuousProblem pb = CGcopy.get(j);
             G+= pb.getXi(i);
         }
@@ -268,7 +268,7 @@ public abstract class ContinuousProblem extends SAProblem {
         double w = Utils.randomProba();
 
         ArrayList<Double> nextX = new ArrayList<>(dim);
-        if(w<0.75) {
+        if(w<0.1) {
             //Uniform distribution
             uniformDistribution(nextX);
         }
@@ -292,7 +292,12 @@ public abstract class ContinuousProblem extends SAProblem {
         ArrayList<Double> nextXs = new ArrayList<>(dim);
         if(w<0.75) {
             //Uniform distribution
-            uniformDistribution(nextXs);
+            //uniformDistribution(nextXs);
+            List<Object> o = transformSolutionLSA();
+            List<Double> d = o.stream()
+                    .map(object -> (Double) object)
+                    .collect(Collectors.toList());
+            nextXs = new ArrayList<>(d);
             //in order to now if we use controlled generation or not. it will be deleted on optimizationDSA function
             nextXs.add(FROM_U);
         }
@@ -328,7 +333,8 @@ public abstract class ContinuousProblem extends SAProblem {
             currentSolution.printSolution("The initial solution: ", currentObjective);
             //Overwrite the previous .txt file ?
             String names = "              ACCEPT PB|Control-G?|            TEMPERATURE|                DENSITY|ACTUAL#MARKOV|                 BEST y|                 CURR y|";
-            names += SAProblem.Helper.getNamesForXi(dim-1, currentSolution);
+            names += SAProblem.Helper.getNamesForXi(dim, currentSolution);
+            System.out.println(dim);
             startTime = SAProblem.Helper.TXT_Titles(title, names, runMultipleTimes);
         }
 
@@ -407,8 +413,13 @@ public abstract class ContinuousProblem extends SAProblem {
                     bestSolution = currentSolution;
                     check = true;
                     //Control param CASE 1
-                    factor = factorMax;
+                    factor = factorMax;     ///---> zone intéressante, pq slow cooling ? on a encore des nouveaux a découvrir prudence !
                 }
+
+                /*System.out.println("CGListY = " + CGListY);
+                for (ContinuousProblem pb:CGListX) {
+                    System.out.println("X"+pb.X);
+                }*/
 
                 ControlledGestionLists.reorderCGs(CGListX, CGListY);
 
