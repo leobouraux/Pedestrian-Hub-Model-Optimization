@@ -159,10 +159,25 @@ public abstract class ContinuousProblem extends SAProblem {
      * @param X : the value around which we search nextXi
      * @return next value of axis i that shoud be next added to nextX
      */
-    private double localSearchAroundX(int i, double X) {
+    private double localSearchAroundX(int i, double X, double temp, double initTemp) {
         double nextXi;
-        double min = Math.max(starts.get(i), X - intervalsForLocalSearch.get(i));
-        double max = Math.min(X + intervalsForLocalSearch.get(i), ends.get(i));
+        double fa = 1;
+        if(initTemp/temp>1000000)
+            fa++;
+        else if(initTemp/temp>100000)
+            fa++;
+        else if(initTemp/temp>10000)
+            fa++;
+        else if(initTemp/temp>1000)
+            fa++;
+        else if(initTemp/temp>100)
+            fa++;
+        else if(initTemp/temp>10)
+            fa++;
+
+
+        double min = Math.max(starts.get(i), X - intervalsForLocalSearch.get(i)/fa);
+        double max = Math.min(X + intervalsForLocalSearch.get(i)/fa, ends.get(i));
         do{
             nextXi = Utils.randomDouble(min, max);
         } while(getXi(i) == nextXi);
@@ -229,7 +244,7 @@ public abstract class ContinuousProblem extends SAProblem {
         // Local best search
         if(stuck) {
             double bestXi = CGListXs.get(0).getXi(i);
-            nextXi = localSearchAroundX(i, bestXi);
+            nextXi = localSearchAroundXguez(i, bestXi);
         }
         return nextXi;
     }
@@ -260,6 +275,18 @@ public abstract class ContinuousProblem extends SAProblem {
         return 2 * G -  CGcopy.get(dim-1).getXi(i);
     }
 
+
+    private double localSearchAroundXguez(int i, double X) {
+        double nextXi;
+        double min = Math.max(starts.get(i), X - intervalsForLocalSearch.get(i));
+        double max = Math.min(X + intervalsForLocalSearch.get(i), ends.get(i));
+        do{
+            nextXi = Utils.randomDouble(min, max);
+        } while(getXi(i) == nextXi);
+        return nextXi;
+    }
+
+
     /**
      *
      * @return next values for each axis (size = dim)
@@ -268,14 +295,14 @@ public abstract class ContinuousProblem extends SAProblem {
         double w = Utils.randomProba();
 
         ArrayList<Double> nextX = new ArrayList<>(dim);
-        if(w<0.1) {
+        if(w<0.8) {
             //Uniform distribution
             uniformDistribution(nextX);
         }
         else {
             //Local search
             for (int i = 0; i < dim ; i++) {
-                double nextXi = localSearchAroundX(i, getXi(i));
+                double nextXi = localSearchAroundXguez(i, getXi(i));
                 nextX.add(nextXi);
             }
 
@@ -287,17 +314,24 @@ public abstract class ContinuousProblem extends SAProblem {
      *
      * @return next values for each axis (size = dim)
      */
-    private List<Object> transformSolutionDSA(ArrayList<ContinuousProblem> CGListXs) {
+    private List<Object> transformSolutionDSA(ArrayList<ContinuousProblem> CGListXs, double temp, double initTemp) {
         double w = Utils.randomProba();
         ArrayList<Double> nextXs = new ArrayList<>(dim);
         if(w<0.75) {
             //Uniform distribution
             //uniformDistribution(nextXs);
-            List<Object> o = transformSolutionLSA();
-            List<Double> d = o.stream()
-                    .map(object -> (Double) object)
-                    .collect(Collectors.toList());
-            nextXs = new ArrayList<>(d);
+
+            if(w/0.75<0.2) {
+                //Uniform distribution
+                uniformDistribution(nextXs);
+            }
+            else {
+                //Local search
+                for (int i = 0; i < dim ; i++) {
+                    double nextXi = localSearchAroundX(i, getXi(i), temp, initTemp);
+                    nextXs.add(nextXi);
+                }
+            }
             //in order to now if we use controlled generation or not. it will be deleted on optimizationDSA function
             nextXs.add(FROM_U);
         }
@@ -375,7 +409,7 @@ public abstract class ContinuousProblem extends SAProblem {
             while (!check && !stopCriterion) {
 
                 //Create the neighbour solution
-                ArrayList<Object> transformedSolution = new ArrayList<>(currentSolution.transformSolutionDSA(CGListX));
+                ArrayList<Object> transformedSolution = new ArrayList<>(currentSolution.transformSolutionDSA(CGListX, temperature, initTemp));
                 comeFromCG = transformedSolution.remove(transformedSolution.size()-1).equals(FROM_CG) ? FROM_CG : FROM_U;
                 ContinuousProblem newSolution = (ContinuousProblem) factory.createSAProblem(transformedSolution);
 

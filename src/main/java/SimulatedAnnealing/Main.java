@@ -82,7 +82,7 @@ public class Main {
                 initTemp += ContinuousProblem.findInitTemp(25*dimension, new ArrayList<>(x_y1), factory3);
             }
 
-            ContinuousProblem.optimizationDSA(initTemp, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false, 0.008);  //*/
+            ContinuousProblem.optimizationDSA(initTemp, 0.05, new ArrayList<>(x_y1), factory3, title3Db, false, 0.004);  //*/
         }
 
         /**  MinFunction4D  */
